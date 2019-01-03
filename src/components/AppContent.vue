@@ -1,10 +1,20 @@
 <script>
+  import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkerAlt'
+  import { faMale } from '@fortawesome/free-solid-svg-icons/faMale'
+  import { faBuilding } from '@fortawesome/free-solid-svg-icons/faBuilding'
+  // Import the library instance provided by FontAwesome
+  import { library } from '@icij/murmur/lib/components/Fa'
+  import { Fa } from '@icij/murmur'
+
+  library.add(faMapMarkerAlt, faMale, faBuilding)
+
   import DownloadButtons from './DownloadButtons'
 
   export default {
     name: 'AppContent',
     components: {
-      DownloadButtons
+      DownloadButtons,
+      Fa
     }
   }
 </script>
@@ -13,11 +23,15 @@
   <div class="app__content">
     <div class="container">
       <section class="app__content__section">
-        <h4 class="app__content__section__heading mb-5 pb-4">
-          Datashare allows every journalist to better analyse their documents
-        </h4>
-        <div class="clearfix">
-          <download-buttons class="float-right"></download-buttons>
+        <div class="row align-items-center">
+          <div class="col text-right">
+            <h4 class="app__content__section__heading float-right">
+              Datashare allows every journalist to better analyse their documents
+            </h4>
+          </div>
+          <div class="col">
+            <download-buttons class="float-right"></download-buttons>
+          </div>
         </div>
       </section>
       <section class="app__content__section app__content__section--ui d-flex align-items-center">
@@ -39,22 +53,39 @@
         </p>
       </section>
       <section class="app__content__section app__content__section--entities">
-        <h4 class="app__content__section__heading">
-          Datashare automatically highlights people, organizations and locations
-        </h4>
-        <p class="app__content__section__description">
-          Your searches are quicker thanks to named entity recognition
-        </p>
+        <div class="row">
+          <div class="col text-right">
+            <h4 class="app__content__section__heading float-right">
+              Datashare automatically highlights people, organizations and locations
+            </h4>
+            <p class="app__content__section__description float-right">
+              Your searches are quicker thanks to named entity recognition
+            </p>
+          </div>
+          <div class="col d-flex align-items-center">
+            <fa icon="map-marker-alt" class="ml-4 fa-4x"></fa>
+            <fa icon="male" class="ml-4 fa-4x"></fa>
+            <fa icon="building" class="ml-4 fa-4x"></fa>
+          </div>
+        </div>
       </section>
-      <div class="clearfix">
-        <download-buttons class="float-right"></download-buttons>
-      </div>
-      <section class="app__content__section text-center mb-4">
-        <p class="lead font-weight-normal">
-          Datashare is an open-source project initially developed by ICIJ thanks to ICIJ’s donators : xxx, yyy, zzz<br />
-          Users and developers can give their feedback and contribute at
-          <a href="https://github.com/ICIJ/datashare" target="_blank" class="text-white">github.com/ICIJ/datashare</a>.
-        </p>
+
+      <section class="app__content__section">
+        <div class="row align-items-center text-right">
+          <div class="col">
+            <h4 class="app__content__section__heading float-right">
+              Datashare is an open-source project
+            </h4>
+            <p class="app__content__section__description float-right">
+              Initially developed by ICIJ, it is supporter by xxx, yyy, zzz.<br />
+              Users and developers can give their feedback and contribute at
+              <a href="https://github.com/ICIJ/datashare" target="_blank" class="text-white">github.com/ICIJ/datashare</a>.
+            </p>
+          </div>
+          <div class="col">
+            <download-buttons></download-buttons>
+          </div>
+        </div>
       </section>
     </div>
   </div>
@@ -67,11 +98,12 @@
     min-height: 100vh;
     margin: 0;
     padding: $spacer 0;
-    background: url('../assets/wave.svg') no-repeat top center;
+    background: url('../assets/wave.svg') no-repeat top center rgba(#000, .83);
     background-size: cover;
+    color: #fff;
 
     &__section {
-      margin: 20vh 0;
+      margin: 25vh 0;
       display: block;
 
       &__heading {
@@ -81,15 +113,13 @@
       }
 
       &__description {
-        max-width: 230px;
         color: $text-muted;
       }
 
       &--ui {
         z-index: 200;
         position: relative;
-        margin-left: 40%;
-        padding-left: $spacer * 2;
+        margin-left: 50%;
         min-height: 414px;
 
         &:before {
@@ -101,7 +131,7 @@
           position: absolute;
           right: 100%;
           top: 50%;
-          transform: translateY(-50%);
+          transform: translate(-10px, -50%);
 
           @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
             background-image: url('../assets/preview@2x.png');
@@ -114,7 +144,7 @@
         position: relative;
         text-align: right;
         direction: rtl;
-        margin-right: 60%;
+        margin-right: 50%;
         margin-top: 245px;
 
         &:before {
@@ -126,36 +156,6 @@
           margin-left: -120px;
           margin-bottom: -160px;
         }
-      }
-
-      &--entities {
-        margin-left: 60%;
-        position: relative;
-
-        .app__content__section__heading:after {
-          content: url('../assets/organization.svg');
-          position: absolute;
-          right: 0;
-          top: 100%;
-          margin: $spacer 0;
-        }
-
-        &:before {
-          content: url('../assets/person.svg');
-          position: absolute;
-          right: 100%;
-          bottom: 0;
-          margin: $spacer $spacer * 2;
-        }
-
-        &:after {
-          content: url('../assets/location.svg');
-          position: absolute;
-          right: 20%;
-          bottom: 100%;
-          margin: $spacer * 2;
-        }
-
       }
     }
   }
