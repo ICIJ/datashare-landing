@@ -72,7 +72,6 @@
 
   .download-buttons {
     max-width: 640px;
-    border:1px solid white;
     border-radius: $border-radius-lg;
     padding: $spacer;
 

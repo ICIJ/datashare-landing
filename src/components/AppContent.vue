@@ -22,18 +22,6 @@
 <template>
   <div class="app__content">
     <div class="container">
-      <section class="app__content__section">
-        <div class="row align-items-center">
-          <div class="col text-right">
-            <h4 class="app__content__section__heading float-right">
-              Datashare allows every journalist to better analyse their documents
-            </h4>
-          </div>
-          <div class="col">
-            <download-buttons class="float-right"></download-buttons>
-          </div>
-        </div>
-      </section>
       <section class="app__content__section app__content__section--ui d-flex align-items-center">
         <div>
           <h4 class="app__content__section__heading">
@@ -77,13 +65,13 @@
               Datashare is an open-source project
             </h4>
             <p class="app__content__section__description float-right">
-              Initially developed by ICIJ, it is supporter by xxx, yyy, zzz.<br />
+              Initially developed by ICIJ, it is supported by xxx, yyy, zzz.<br />
               Users and developers can give their feedback and contribute at
               <a href="https://github.com/ICIJ/datashare" target="_blank" class="text-white">github.com/ICIJ/datashare</a>.
             </p>
           </div>
           <div class="col">
-            <download-buttons></download-buttons>
+            <download-buttons class="border"></download-buttons>
           </div>
         </div>
       </section>
@@ -97,8 +85,8 @@
   .app__content {
     min-height: 100vh;
     margin: 0;
-    padding: $spacer 0;
-    background: url('../assets/wave.svg') no-repeat top center rgba(#000, .83);
+    padding: 20vh 0 $spacer;
+    background: url('../assets/wave.svg') no-repeat top center #031c23;
     background-size: cover;
     color: #fff;
 

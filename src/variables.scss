@@ -1,4 +1,7 @@
-$text-muted: rgba(#fff, .74);
+$text-muted: #bcbcbc;
 $lead-font-weight: bold;
+$primary: #2A8889;
+$saddle-red: #551605;
 
 @import '~node_modules/@icij/murmur/lib/styles/variables.scss';
+@import '~node_modules/bootstrap/scss/mixins/_gradients.scss';
