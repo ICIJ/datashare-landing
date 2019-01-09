@@ -87,11 +87,14 @@
   @import '../variables.scss';
 
   .app__content {
+    position: relative;
+    z-index: 100;
     min-height: 100vh;
     width: 50%;
     margin-left: 50%;
     padding: 0;
     background: white;
+    box-shadow: 0 0 15vw 0 rgba(black, 0.5);
 
     &__section {
       display: flex;
@@ -127,7 +130,7 @@
       }
 
       &--types, &--os {
-        background: #6f1800;
+        background: $saddle-red;
         color: white;
       }
     }
