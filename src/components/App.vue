@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="app">
-    <generic-header no-headroom></generic-header>
+    <generic-header no-headroom :brand-options="{ background: 'white', color: 'black' }"></generic-header>
     <div class="position-relative bg-dark">
       <app-jumbotron></app-jumbotron>
       <app-content></app-content>
