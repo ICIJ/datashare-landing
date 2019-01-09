@@ -16,7 +16,7 @@
         </a>
       </div>
     </div>
-    <p class="text-muted small m-0">
+    <p class="small m-0">
       Version {{ version }} - {{ year }}<br />
       By downloading, you agree to the <a>Terms and Conditions</a><br />
       Datashare is an <a>open-source</a> project.
@@ -72,7 +72,6 @@
 
   .download-buttons {
     max-width: 640px;
-    border:1px solid white;
     border-radius: $border-radius-lg;
     padding: $spacer;
 
@@ -83,6 +82,8 @@
       border-radius: $border-radius;
       text-transform: uppercase;
       font-weight: bold;
+      text-shadow: none;
+
     }
   }
 </style>
