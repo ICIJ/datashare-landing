@@ -1,15 +1,9 @@
 <template>
   <div class="app__jumbotron clearfix">
-    <div class="container">
-      <div class="app__jumbotron__container">
-        <h1 class="app__jumbotron__container__heading mb-4">
-          Datashare
-        </h1>
-        <p class="lead">
-          Allows every journalist to better analyse their documents with <a href="">ICIJ</a> search tool.
-        </p>
-        <download-buttons class="app__jumbotron__container__download"></download-buttons>
-      </div>
+    <div class="app__jumbotron__container">
+      <h1 class="app__jumbotron__container__heading mb-0">
+        Datashare
+      </h1>
     </div>
   </div>
 </template>
@@ -29,24 +23,32 @@
   @import '../variables.scss';
 
   .app__jumbotron {
-    background: url('../assets/quartz.jpg') top center no-repeat;
+    width: 50%;
+    background: url('../assets/quartz.jpg') center top no-repeat;
     background-size: cover;
-    padding: 1px;
+    float: left;
+    position: sticky;
+    left: 0;
+    top: 0;
 
     &__container {
-      margin: auto;
-      max-width: 660px;
       padding: $spacer;
-      margin-top: 30vh;
       position: relative;
       text-align: center;
-      min-height: 60vh;
+      min-height: 100vh;
       color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
 
       &__heading {
         font-size: 6rem;
       }
 
+      &__lead {
+        font-size: 1.5rem;
+      }
     }
   }
 </style>

@@ -21,8 +21,17 @@
 
 <template>
   <div class="app__content">
-    <div class="container">
-      <section class="app__content__section app__content__section--ui d-flex align-items-center">
+    <div class="">
+      <section class="app__content__section">
+        <div>
+          <h4 class="app__content__section__heading">
+            Datashare allows every journalist to better analyze their documents
+          </h4>
+          <download-buttons class="app__content__section__download"></download-buttons>
+        </div>
+      </section>
+
+      <section class="app__content__section app__content__section--ui">
         <div>
           <h4 class="app__content__section__heading">
             Datashare indexes all your documents in one place on your local computer
@@ -31,48 +40,43 @@
             Your documents are never sent to any third-party services
           </p>
         </div>
+        <img class="app__content__section__preview" src="../assets/preview.png" srcset="../assets/preview.png 1x, ../assets/preview@2x.png 2x"/>
       </section>
+
       <section class="app__content__section app__content__section--types">
-        <h4 class="app__content__section__heading">
-          You  search pdfs, images, texts, spreadsheets, slides and any of your files …all at once
-        </h4>
-        <p class="app__content__section__description">
-          Information isn’t locked in  various formats anymore
-        </p>
-      </section>
-      <section class="app__content__section app__content__section--entities">
-        <div class="row">
-          <div class="col text-right">
-            <h4 class="app__content__section__heading float-right">
-              Datashare automatically highlights people, organizations and locations
-            </h4>
-            <p class="app__content__section__description float-right">
-              Your searches are quicker thanks to named entity recognition
-            </p>
-          </div>
-          <div class="col d-flex align-items-center">
-            <fa icon="map-marker-alt" class="ml-4 fa-4x"></fa>
-            <fa icon="male" class="ml-4 fa-4x"></fa>
-            <fa icon="building" class="ml-4 fa-4x"></fa>
-          </div>
+        <div>
+          <h4 class="app__content__section__heading">
+            You  search pdfs, images, texts, spreadsheets, slides and any of your files …all at once
+          </h4>
+          <p class="app__content__section__description">
+            Information isn’t locked in  various formats anymore
+          </p>
         </div>
       </section>
 
-      <section class="app__content__section">
-        <div class="row align-items-center text-right">
-          <div class="col">
-            <h4 class="app__content__section__heading float-right">
-              Datashare is an open-source project
-            </h4>
-            <p class="app__content__section__description float-right">
-              Initially developed by ICIJ, it is supported by xxx, yyy, zzz.<br />
-              Users and developers can give their feedback and contribute at
-              <a href="https://github.com/ICIJ/datashare" target="_blank" class="text-white">github.com/ICIJ/datashare</a>.
-            </p>
-          </div>
-          <div class="col">
-            <download-buttons class="border"></download-buttons>
-          </div>
+      <section class="app__content__section app__content__section--entities">
+        <div>
+          <h4 class="app__content__section__heading">
+            Datashare automatically highlights people, organizations and locations
+          </h4>
+          <p class="app__content__section__description">
+            Your searches are quicker thanks to named entity recognition
+          </p>
+        </div>
+        <img class="app__content__section__preview" src="../assets/preview.png" srcset="../assets/preview.png 1x, ../assets/preview@2x.png 2x"/>
+      </section>
+
+      <section class="app__content__section app__content__section--os">
+        <div>
+          <h4 class="app__content__section__heading">
+            Datashare is an open-source project
+          </h4>
+          <p class="app__content__section__description">
+            Initially developed by ICIJ, it is supported by xxx, yyy, zzz.<br />
+            Users and developers can give their feedback and contribute at
+            <a href="https://github.com/ICIJ/datashare" target="_blank">github.com/ICIJ/datashare</a>.
+          </p>
+          <download-buttons class="app__content__section__download"></download-buttons>
         </div>
       </section>
     </div>
@@ -84,66 +88,47 @@
 
   .app__content {
     min-height: 100vh;
-    margin: 0;
-    padding: 20vh 0 $spacer;
-    background: url('../assets/wave.svg') no-repeat top center #031c23;
-    background-size: cover;
-    color: #fff;
+    width: 50%;
+    margin-left: 50%;
+    padding: 0;
+    background: white;
 
     &__section {
-      margin: 25vh 0;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 70vh;
+      padding: $spacer;
 
       &__heading {
         max-width: 450px;
         font-size: 1.65rem;
         position: relative;
+        margin: auto;
       }
 
       &__description {
-        color: $text-muted;
+        margin: auto;
+        max-width: 450px;
       }
 
-      &--ui {
-        z-index: 200;
-        position: relative;
-        margin-left: 50%;
-        min-height: 414px;
-
-        &:before {
-          content: "";
-          width: 663px;
-          height: 414px;
-          background: url('../assets/preview.png') no-repeat 0 0;
-          background-size: cover;
-          position: absolute;
-          right: 100%;
-          top: 50%;
-          transform: translate(-10px, -50%);
-
-          @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi) {
-            background-image: url('../assets/preview@2x.png');
-          }
-        }
+      &__preview {
+        filter: drop-shadow(0 5px 10px rgba(black, .1));
+        margin-left: $spacer * -4;
+        max-width: 30vw;
       }
 
-      &--types {
-        z-index: 100;
-        position: relative;
-        text-align: right;
-        direction: rtl;
-        margin-right: 50%;
-        margin-top: 245px;
+      &--ui, &--entities  {
+        flex-direction: row-reverse;
+        text-align: left;
+        background: #eee;
+      }
 
-        &:before {
-          content: url('../assets/filetypes.svg');
-          position: absolute;
-          left: 100%;
-          bottom: 100%;
-          // Hard coded
-          margin-left: -120px;
-          margin-bottom: -160px;
-        }
+      &--types, &--os {
+        background: #6f1800;
+        color: white;
       }
     }
   }

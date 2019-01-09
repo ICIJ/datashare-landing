@@ -1,7 +1,8 @@
-$text-muted: #bcbcbc;
+$text-muted: mix(black, white);
 $lead-font-weight: bold;
-$primary: #2A8889;
-$saddle-red: #551605;
+
+$saddle-red: #A10207;
+$saddle-yellow: #f5a623;
 
 @import '~node_modules/@icij/murmur/lib/styles/variables.scss';
 @import '~node_modules/bootstrap/scss/mixins/_gradients.scss';
