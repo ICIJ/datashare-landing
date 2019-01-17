@@ -1,18 +1,30 @@
 <template>
   <div class="download-buttons text-center">
     <div class="row mb-2">
-      <div class="col mb-2">
+      <div v-if="os === 'macos'" class="col mb-2">
         <a class="btn btn-block btn-lg btn-light download-buttons__button" :href="assetForApple">
           <fa :icon="['fab', 'apple']" class="mr-2"></fa>
           <span class="sr-only">Apple</span>
           Download for free
         </a>
       </div>
-      <div class="col mb-2">
+      <div v-else-if="os === 'windows'" class="col mb-2">
         <a class="btn btn-block btn-lg btn-light download-buttons__button" :href="assetForWindows">
           <fa :icon="['fab', 'windows']" class="mr-2"></fa>
           <span class="sr-only">Windows</span>
           Download for free
+        </a>
+      </div>
+      <div v-else-if="os === 'linux'" class="col mb-2">
+        <a class="btn btn-block btn-lg btn-light download-buttons__button" :href="assetForLinux">
+          <fa :icon="['fab', 'linux']" class="mr-2"></fa>
+          <span class="sr-only">Linux</span>
+          Download for free
+        </a>
+      </div>
+      <div class="col mb-2">
+        <a class="btn btn-block btn-lg btn-light font-weight-normal download-buttons__button" @click.prevent="$refs.downloadListModal.show()">
+          Other platforms
         </a>
       </div>
     </div>
@@ -21,40 +33,47 @@
       By downloading, you agree to the <a>Terms and Conditions</a><br />
       Datashare is an <a>open-source</a> project.
     </p>
+    <b-modal title="Other platforms and versions" hide-footer lazy ref="downloadListModal" size="md" body-class="p-0" header-class="border-0 card-header">
+      <download-variants />
+    </b-modal>
   </div>
 </template>
 
 <script>
+  import bModal from 'bootstrap-vue/es/components/modal/modal'
   import { find, endsWith, get } from 'lodash'
-  import axios from 'axios'
   import { faWindows } from '@fortawesome/free-brands-svg-icons/faWindows'
   import { faApple } from '@fortawesome/free-brands-svg-icons/faApple'
-  // Import the library instance provided by FontAwesome
+  import { faLinux } from '@fortawesome/free-brands-svg-icons/faLinux'
   import { library } from '@icij/murmur/lib/components/Fa'
   import { Fa } from '@icij/murmur'
 
-  library.add(faApple, faWindows)
-  // Create a promise once to get the release details
-  const releases = axios.get(`https://api.github.com/repos/ICIJ/datashare-installer/releases/latest`)
+  import os from '../os'
+  import { latest } from '../releases'
+  import DownloadVariants from './DownloadVariants.vue'
+
+  library.add(faApple, faWindows, faLinux)
 
   export default {
     name: 'DownloadButtons',
     components: {
-      Fa
+      bModal,
+      DownloadVariants,
+      Fa,
     },
     data () {
       return {
+        os,
         version: null,
         year: null,
         assets: [],
       }
     },
-    mounted () {
-      releases.then(latest => {
-        this.version = latest.data.tag_name
-        this.assets = latest.data.assets
-        this.year = new Date(latest.data.created_at).getFullYear()
-      })
+    async mounted () {
+      const data = await latest()
+      this.version = data.tag_name
+      this.assets = data.assets
+      this.year = new Date(data.created_at).getFullYear()
     },
     computed: {
       assetForApple () {
@@ -62,6 +81,9 @@
       },
       assetForWindows () {
         return get(find(this.assets, a => endsWith(a.name, '.exe') ), 'browser_download_url', null)
+      },
+      assetForLinux () {
+        return get(find(this.assets, a => endsWith(a.name, '.sh') ), 'browser_download_url', null)
       }
     }
   }

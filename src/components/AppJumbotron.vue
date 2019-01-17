@@ -9,13 +9,8 @@
 </template>
 
 <script>
-  import DownloadButtons from './DownloadButtons'
-
   export default {
-    name: 'AppJumbotron',
-    components: {
-      DownloadButtons
-    }
+    name: 'AppJumbotron'
   }
 </script>
 
@@ -24,7 +19,7 @@
 
   .app__jumbotron {
     width: 50%;
-    background: url('../assets/quartz.jpg') center top no-repeat;
+    background: url('../assets/waves.jpg') center top no-repeat;
     background-size: cover;
     float: left;
     position: sticky;

@@ -27,6 +27,7 @@ export default {
   .app {
 
     .generic-header {
+      z-index: 500;
       background: transparent;
       color: white;
       position: relative;

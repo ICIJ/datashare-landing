@@ -40,7 +40,7 @@
             Your documents are never sent to any third-party services
           </p>
         </div>
-        <img class="app__content__section__preview" src="../assets/preview.png" srcset="../assets/preview.png 1x, ../assets/preview@2x.png 2x"/>
+        <img class="app__content__section__preview" src="../assets/extract.png" srcset="../assets/extract.png 1x, ../assets/extract@2x.png 2x"/>
       </section>
 
       <section class="app__content__section app__content__section--types">
@@ -63,7 +63,7 @@
             Your searches are quicker thanks to named entity recognition
           </p>
         </div>
-        <img class="app__content__section__preview" src="../assets/preview.png" srcset="../assets/preview.png 1x, ../assets/preview@2x.png 2x"/>
+        <img class="app__content__section__preview" src="../assets/ner.png" srcset="../assets/ner.png 1x, ../assets/ner@2x.png 2x"/>
       </section>
 
       <section class="app__content__section app__content__section--os">
@@ -88,7 +88,6 @@
 
   .app__content {
     position: relative;
-    z-index: 100;
     min-height: 100vh;
     width: 50%;
     margin-left: 50%;
