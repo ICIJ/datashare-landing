@@ -95,12 +95,11 @@
     padding: $spacer;
 
     &__button.btn {
-      font-size: 1em;
       color: $dark;
       padding: $spacer * 1.4 $spacer;
       border-radius: $border-radius;
       text-transform: uppercase;
-      font-weight: bold;
+      font-weight: bolder;
       text-shadow: none;
 
     }
