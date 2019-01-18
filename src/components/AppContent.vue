@@ -110,7 +110,7 @@
       min-height: 70vh;
       padding: $spacer;
 
-      &__wrapper {
+      &--ui &__wrapper, &--entities &__wrapper {
         background: inherit;
         margin-left: $spacer * -3.5;
         padding: $spacer * 1.5;
@@ -132,7 +132,6 @@
             top: 100%;
           }
         }
-
       }
 
       &__heading {
