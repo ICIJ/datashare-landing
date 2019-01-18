@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="app">
-    <generic-header no-headroom :brand-options="{ background: 'white', color: 'black' }"></generic-header>
+    <generic-header no-headroom position="absolute" :brand-options="{ background: 'white', color: 'black' }"></generic-header>
     <div class="position-relative bg-dark">
       <app-jumbotron></app-jumbotron>
       <app-content></app-content>
@@ -24,13 +24,14 @@ export default {
 
 
 <style lang="scss">
+  @import '../variables.scss';
+
   .app {
 
     .generic-header {
       z-index: 500;
       background: transparent;
       color: white;
-      position: relative;
 
       &:after {
         content: "";
@@ -44,8 +45,14 @@ export default {
         z-index: -1;
       }
 
-      a.navbar-rand {
-        border: 1px solid white;
+      a.navbar-brand {
+        position: fixed;
+        top: $spacer * 0.5;
+        left: $spacer * 0.5;
+
+        body &:hover {
+          color: white;
+        }
       }
 
       a, .nav-link {

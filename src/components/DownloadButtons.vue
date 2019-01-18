@@ -2,36 +2,33 @@
   <div class="download-buttons text-center">
     <div class="row mb-2">
       <div v-if="os === 'macos'" class="col mb-2">
-        <a class="btn btn-block btn-lg btn-light download-buttons__button" :href="assetForApple">
+        <a class="btn btn-block btn-lg btn-primary text-light download-buttons__button" :href="assetForApple">
           <fa :icon="['fab', 'apple']" class="mr-2"></fa>
           <span class="sr-only">Apple</span>
           Download for free
         </a>
       </div>
       <div v-else-if="os === 'windows'" class="col mb-2">
-        <a class="btn btn-block btn-lg btn-light download-buttons__button" :href="assetForWindows">
+        <a class="btn btn-block btn-lg btn-primary text-light download-buttons__button" :href="assetForWindows">
           <fa :icon="['fab', 'windows']" class="mr-2"></fa>
           <span class="sr-only">Windows</span>
           Download for free
         </a>
       </div>
       <div v-else-if="os === 'linux'" class="col mb-2">
-        <a class="btn btn-block btn-lg btn-light download-buttons__button" :href="assetForLinux">
+        <a class="btn btn-block btn-lg btn-primary text-light download-buttons__button" :href="assetForLinux">
           <fa :icon="['fab', 'linux']" class="mr-2"></fa>
           <span class="sr-only">Linux</span>
           Download for free
         </a>
       </div>
-      <div class="col mb-2">
-        <a class="btn btn-block btn-lg btn-light font-weight-normal download-buttons__button" @click.prevent="$refs.downloadListModal.show()">
-          Other platforms
-        </a>
-      </div>
     </div>
     <p class="small m-0">
-      Version {{ version }} - {{ year }}<br />
-      By downloading, you agree to the <a>Terms and Conditions</a><br />
-      Datashare is an <a>open-source</a> project.
+      Version {{ version }} - {{ year }} -
+      <a @click.prevent="$refs.downloadListModal.show()" href="#">
+        Other platforms and versions
+      </a><br />
+      Datashare is an <a href="https://github.com/icij/?q=datashare" target="_blank">open source</a> project.
     </p>
     <b-modal title="Other platforms and versions" hide-footer lazy ref="downloadListModal" size="md" body-class="p-0" header-class="border-0 card-header">
       <download-variants />
