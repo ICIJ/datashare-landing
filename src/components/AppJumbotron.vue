@@ -39,6 +39,7 @@
 
       &__heading {
         font-size: 6rem;
+        font-weight: normal;
       }
 
       &__lead {
