@@ -19,7 +19,7 @@
 
   .app__jumbotron {
     width: 50%;
-    background: url('../assets/waves.jpg') center top no-repeat;
+    background: url('../assets/images/waves.jpg') center top no-repeat;
     background-size: cover;
     float: left;
     position: sticky;
