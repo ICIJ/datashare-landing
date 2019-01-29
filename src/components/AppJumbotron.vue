@@ -19,14 +19,13 @@
 
   .app__jumbotron {
     width: 50%;
-    background: url('../assets/images/waves.jpg') center top no-repeat;
-    background-size: cover;
     float: left;
     position: sticky;
     left: 0;
     top: 0;
 
     &__container {
+      @include gradient-directional($saddle-red, $primary);
       padding: $spacer;
       position: relative;
       text-align: center;

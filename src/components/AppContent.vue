@@ -145,7 +145,7 @@
     margin-left: 50%;
     padding: 0;
     background: white;
-    box-shadow: 0 0 15vw 0 rgba(black, 0.5);
+    box-shadow: 0 0 5vw 0 rgba(black, 0.2);
 
     &__section {
       display: flex;
@@ -181,7 +181,7 @@
       }
 
       &--support &__wrapper .corner {
-        color: $saddle-red;
+        color: $content-special-bg;
       }
 
       &__heading {
@@ -229,10 +229,10 @@
       }
 
       &--types, &--support {
-        background: $saddle-red;
-        color: white;
+        background: $content-special-bg;
+        color: $content-special-color;
 
-        a { color: mix(white, $saddle-red, 70) }
+        a { color: mix($content-special-color, $content-special-bg, 70) }
       }
     }
   }
