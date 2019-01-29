@@ -25,7 +25,7 @@
     top: 0;
 
     &__container {
-      @include gradient-directional($saddle-red, $primary);
+      @include gradient-directional($primary, $saddle-red);
       padding: $spacer;
       position: relative;
       text-align: center;
