@@ -1,7 +1,7 @@
 <template>
   <div class="app__jumbotron clearfix">
     <div class="app__jumbotron__container">
-      <h1 class="app__jumbotron__container__heading mb-0">
+      <h1 class="app__jumbotron__container__heading text-special mb-0">
         Datashare
       </h1>
     </div>

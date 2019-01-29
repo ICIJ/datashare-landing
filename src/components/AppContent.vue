@@ -1,12 +1,12 @@
 <script>
-  import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons/faMapMarkerAlt'
-  import { faMale } from '@fortawesome/free-solid-svg-icons/faMale'
-  import { faBuilding } from '@fortawesome/free-solid-svg-icons/faBuilding'
+  import { faBook } from '@fortawesome/free-solid-svg-icons/faBook'
+  import { faMailBulk  } from '@fortawesome/free-solid-svg-icons/faMailBulk'
+  import { faGithub  } from '@fortawesome/free-brands-svg-icons/faGithub'
   // Import the library instance provided by FontAwesome
   import { library } from '@icij/murmur/lib/components/Fa'
   import { Fa } from '@icij/murmur'
 
-  library.add(faMapMarkerAlt, faMale, faBuilding)
+  library.add(faBook, faMailBulk, faGithub)
 
   import Corner from './Corner'
   import DownloadButtons from './DownloadButtons'
@@ -26,8 +26,8 @@
     <div class="">
       <section class="app__content__section">
         <div class="app__content__section__wrapper">
-          <h4 class="app__content__section__heading">
-            Allows every journalist to better analyze their documents
+          <h4 class="app__content__section__heading m-auto">
+            Better analyze information, in all its forms
           </h4>
           <download-buttons class="app__content__section__download"></download-buttons>
         </div>
@@ -38,22 +38,22 @@
           <corner direction="top-left" />
           <corner direction="bottom-left" />
           <h4 class="app__content__section__heading">
-            Index all your documents in one place on your local computer
+            Access all your documents in one place on your computer
           </h4>
           <p class="app__content__section__description">
-            Your documents are never sent to any third-party services
+            Secure your documents from third-party interference
           </p>
         </div>
-        <img class="app__content__section__preview" src="../assets/images/extract.png" srcset="../assets/images/extract.png 1x, ../assets/images/extract@2x.png 2x"/>
+        <img class="app__content__section__body" src="../assets/images/extract.png" srcset="../assets/images/extract.png 1x, ../assets/images/extract@2x.png 2x"/>
       </section>
 
       <section class="app__content__section app__content__section--types">
         <div class="app__content__section__wrapper">
           <h4 class="app__content__section__heading">
-            Search pdfs, images, texts, spreadsheets, slides and any of your files …all at once
+            Search pdfs, images, texts, spreadsheets, slides and any of your files, simultaneously
           </h4>
           <p class="app__content__section__description">
-            Information isn’t locked in  various formats anymore
+            Information is no longer constrained by format
           </p>
         </div>
       </section>
@@ -63,23 +63,69 @@
           <corner direction="top-left" />
           <corner direction="bottom-left" />
           <h4 class="app__content__section__heading">
-            Automatically highlight people, organizations and locations
+            Automatically detect and filter by people, organizations and locations
           </h4>
           <p class="app__content__section__description">
-            Your searches are quicker thanks to named entity recognition
+            Your searches are more efficient thanks to named entity recognition
           </p>
         </div>
-        <img class="app__content__section__preview" src="../assets/images/ner.png" srcset="../assets/images/ner.png 1x, ../assets/images/ner@2x.png 2x"/>
+        <img class="app__content__section__body" src="../assets/images/ner.png" srcset="../assets/images/ner.png 1x, ../assets/images/ner@2x.png 2x"/>
+      </section>
+
+      <section class="app__content__section app__content__section--support">
+        <div class="app__content__section__wrapper w-50">
+          <corner direction="top-left" />
+          <corner direction="bottom-left" />
+          <h4 class="app__content__section__heading">
+            Any questions?
+          </h4>
+        </div>
+        <div class="app__content__section__body w-100">
+          <div class="d-flex align-items-stretch">
+            <div class="app__content__section__body__card w-50">
+              <div class="app__content__section__body__card__header">
+                <fa icon="book" />
+              </div>
+              <div class="app__content__section__body__card__body">
+                <p>
+                  User Guide and FAQ <a href="https://icij.gitbook.io/datashare/" target="_blank">in our Gitbook here</a>.
+                </p>
+              </div>
+            </div>
+            <div class="app__content__section__body__card w-50">
+              <div class="app__content__section__body__card__header">
+                <fa :icon="['fab', 'github']" />
+              </div>
+              <div class="app__content__section__body__card__body">
+                <p>To report a bug, please contribute <a href="https://github.com/ICIJ/datashare/issues" target="_blank">in our GitHub here</a> detailing your logs.</p>
+              </div>
+            </div>
+          </div>
+          <div class="app__content__section__body__card">
+            <div class="app__content__section__body__card__header">
+              <fa icon="mail-bulk" />
+            </div>
+            <div class="app__content__section__body__card__body">
+              <p>Or write to <a href="mailto:datashare@icij.org">datashare@icij.org</a> detailing:</p>
+              <ol>
+                <li>your Operating System (Mac, Windows or Linux) ;</li>
+                <li>the version of your Operating System ;</li>
+                <li>screenshots of your issue ;</li>
+                <li>and a description of your issue.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section class="app__content__section app__content__section--os">
         <div class="app__content__section__wrapper">
-          <h4 class="app__content__section__heading">
+          <h4 class="app__content__section__heading  text-special">
             An open-source project
           </h4>
           <p class="app__content__section__description">
             Initially developed by ICIJ, it is supported by xxx, yyy, zzz.<br />
-            Users and developers can give their feedback and contribute at
+            Users and developers can give feedback and contribute at
             <a href="https://github.com/icij/?q=datashare" target="_blank">github.com/ICIJ/datashare</a>.
           </p>
           <download-buttons class="app__content__section__download"></download-buttons>
@@ -107,14 +153,14 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      min-height: 70vh;
+      min-height: 75vh;
       padding: $spacer;
 
-      &--ui &__wrapper, &--entities &__wrapper {
+      &--ui &__wrapper, &--entities &__wrapper, &--support &__wrapper {
         background: inherit;
         margin-left: $spacer * -3.5;
         padding: $spacer * 1.5;
-        border-radius: $spacer;
+        border-radius: $spacer * 0.8;
         position: relative;
 
         .corner {
@@ -134,6 +180,10 @@
         }
       }
 
+      &--support &__wrapper .corner {
+        color: $saddle-red;
+      }
+
       &__heading {
         max-width: 450px;
         font-size: 1.85rem;
@@ -145,20 +195,43 @@
         max-width: 450px;
       }
 
-      &__preview {
+      &__body {
         filter: drop-shadow(0 5px 10px rgba(black, .1));
         max-width: 30vw;
+
+        &__card {
+          margin-bottom: $spacer;
+          margin-right: $spacer;
+          display: flex;
+
+          &__header {
+            background: rgba(black, .2);
+            padding: $spacer;
+            text-align: center;
+
+            .svg-inline--fa {
+              font-size: 2rem;
+            }
+          }
+
+          &__body {
+            background: rgba(white, .1);
+            padding: $spacer;
+            width: 100%;
+          }
+        }
       }
 
-      &--ui, &--entities  {
+      &--ui, &--entities, &--support {
         flex-direction: row;
         text-align: left;
         background: #eee;
       }
 
-      &--types {
+      &--types, &--support {
         background: $saddle-red;
         color: white;
+
         a { color: mix(white, $saddle-red, 70) }
       }
     }
