@@ -1,6 +1,6 @@
 <template>
   <ul class="list-group list-group-flush text-left">
-    <li class="list-group-item" v-for="release in releases">
+    <li class="list-group-item" v-for="(release, i) in releases" :key="i">
       <a :href="asset(release).browser_download_url" class="font-weight-bold">
         <fa icon="download" class="mr-2" /> {{ release.name }}
       </a>
@@ -12,7 +12,6 @@
 </template>
 
 <script>
-  import some from 'lodash/some'
   import endsWith from 'lodash/endsWith'
   import filter from 'lodash/filter'
   import find from 'lodash/find'
@@ -22,7 +21,6 @@
   import { library } from '@icij/murmur/lib/components/Fa'
   import { Fa } from '@icij/murmur'
 
-  import os from '../os'
   import { releases } from '../releases'
 
   library.add(faDownload)
