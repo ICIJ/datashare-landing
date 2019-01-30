@@ -43,6 +43,10 @@ export default {
         background: white;
         border-bottom: 1px solid #efefef;
         z-index: -1;
+
+        @include media-breakpoint-down($app-jumbotron-breakpoint) {
+          content: none;
+        }
       }
 
       a.navbar-brand {
@@ -53,10 +57,20 @@ export default {
         body &:hover {
           color: white;
         }
+
+        @include media-breakpoint-down($app-jumbotron-breakpoint) {
+          position: static;
+        }
       }
 
       a, .nav-link {
         color: white;
+      }
+
+      .navbar-nav .nav-item a.nav-link {
+        @include media-breakpoint-down($app-jumbotron-breakpoint) {
+          color: white;
+        }
       }
     }
   }

@@ -26,9 +26,6 @@
     <div class="">
       <section class="app__content__section">
         <div class="app__content__section__wrapper">
-          <h4 class="app__content__section__heading m-auto">
-            Better analyze information, in all its forms
-          </h4>
           <download-buttons class="app__content__section__download"></download-buttons>
         </div>
       </section>
@@ -81,23 +78,25 @@
           </h4>
         </div>
         <div class="app__content__section__body w-100">
-          <div class="d-flex align-items-stretch">
-            <div class="app__content__section__body__card w-50">
+          <div class="d-md-flex align-items-stretch">
+            <div class="app__content__section__body__card">
               <div class="app__content__section__body__card__header">
                 <fa icon="book" />
               </div>
               <div class="app__content__section__body__card__body">
-                <p>
+                <p class="m-0">
                   User Guide and FAQ <a href="https://icij.gitbook.io/datashare/" target="_blank">in our Gitbook here</a>.
                 </p>
               </div>
             </div>
-            <div class="app__content__section__body__card w-50">
+            <div class="app__content__section__body__card">
               <div class="app__content__section__body__card__header">
                 <fa :icon="['fab', 'github']" />
               </div>
               <div class="app__content__section__body__card__body">
-                <p>To report a bug, please contribute <a href="https://github.com/ICIJ/datashare/issues" target="_blank">in our GitHub here</a> detailing your logs.</p>
+                <p class="m-0">
+                  To report a bug, please contribute <a href="https://github.com/ICIJ/datashare/issues" target="_blank">in our GitHub here</a> detailing your logs.
+                </p>
               </div>
             </div>
           </div>
@@ -106,9 +105,11 @@
               <fa icon="mail-bulk" />
             </div>
             <div class="app__content__section__body__card__body">
-              <p>Or write to <a href="mailto:datashare@icij.org">datashare@icij.org</a> detailing:</p>
-              <ol>
-                <li>your Operating System (Mac, Windows or Linux) ;</li>
+              <p>
+                Or write to <a href="mailto:datashare@icij.org">datashare@icij.org</a> detailing:
+              </p>
+              <ol class="pl-4">
+                <li>your Operating System (Mac, Windows, etc) ;</li>
                 <li>the version of your Operating System ;</li>
                 <li>screenshots of your issue ;</li>
                 <li>and a description of your issue.</li>
@@ -147,6 +148,12 @@
     background: white;
     box-shadow: 0 0 5vw 0 rgba(black, 0.2);
 
+    @include media-breakpoint-down($app-jumbotron-breakpoint) {
+      width: 100%;
+      margin-left: 0;
+      box-shadow: 0;
+    }
+
     &__section {
       display: flex;
       flex-direction: column;
@@ -154,13 +161,18 @@
       align-items: center;
       text-align: center;
       min-height: 75vh;
-      padding: $spacer;
+      padding: 5vh $spacer;
 
       &--ui, &--entities, &--support {
         flex-direction: row;
         justify-content: space-between;
         text-align: left;
         background: #eee;
+
+        @include media-breakpoint-down(md) {
+          flex-direction: column;
+          min-height: 0;
+        }
       }
 
       &--types, &--support {
@@ -179,12 +191,21 @@
         max-width: 450px;
         width: 100%;
 
+        @include media-breakpoint-down($app-jumbotron-breakpoint) {
+          margin-left: 0;
+          text-align: center;
+        }
+
         .corner {
           position: absolute;
           left: $spacer / 2;
           width: $spacer * 2;
           height: $spacer * 2;
           color: #eee;
+
+          @include media-breakpoint-down($app-jumbotron-breakpoint) {
+            display: none;
+          }
 
           &--top-left {
             bottom: 100%;
@@ -214,15 +235,13 @@
       &__body {
         filter: drop-shadow(0 5px 10px rgba(black, .1));
         width: 100%;
-
-        &--with-preview {
-          max-width: 630px;
-        }
+        max-width: 630px;
 
         &__card {
           margin-bottom: $spacer;
           margin-right: $spacer;
           display: flex;
+          flex: 1;
 
           &__header {
             background: rgba(black, .2);
@@ -231,6 +250,10 @@
 
             .svg-inline--fa {
               font-size: 2rem;
+
+              @include media-breakpoint-down(md) {
+                font-size: 1.5rem;
+              }
             }
           }
 
