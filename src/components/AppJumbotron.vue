@@ -50,10 +50,14 @@
       &__heading {
         font-size: 6rem;
         font-weight: normal;
-      }
 
-      &__lead {
-        font-size: 1.5rem;
+        @include media-breakpoint-down($app-jumbotron-breakpoint) {
+          font-size: 5rem;
+        }
+
+        @include media-breakpoint-down(sm) {
+          font-size: 3rem;
+        }
       }
     }
   }

@@ -30,8 +30,18 @@ export default {
 
     .generic-header {
       z-index: 500;
-      background: transparent;
       color: white;
+      background: transparent;
+
+
+      @include media-breakpoint-down(md) {
+        background: $primary;
+        padding-bottom: $spacer * 1.5;
+
+        &--collapsed {
+          background: transparent;
+        }
+      }
 
       &:after {
         content: "";
