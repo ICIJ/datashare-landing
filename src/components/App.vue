@@ -38,7 +38,7 @@ export default {
         position: absolute;
         bottom: 0;
         right: 0;
-        left: 50%;
+        left: 100% * $app-jumbotron-width-ratio;
         top: 0;
         background: white;
         border-bottom: 1px solid #efefef;

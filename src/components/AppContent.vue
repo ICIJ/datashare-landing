@@ -44,7 +44,7 @@
             Secure your documents from third-party interference
           </p>
         </div>
-        <img class="app__content__section__body" src="../assets/images/extract.png" srcset="../assets/images/extract.png 1x, ../assets/images/extract@2x.png 2x"/>
+        <img class="app__content__section__body app__content__section__body--with-preview" src="../assets/images/extract.png" srcset="../assets/images/extract.png 1x, ../assets/images/extract@2x.png 2x"/>
       </section>
 
       <section class="app__content__section app__content__section--types">
@@ -69,7 +69,7 @@
             Your searches are more efficient thanks to named entity recognition
           </p>
         </div>
-        <img class="app__content__section__body" src="../assets/images/ner.png" srcset="../assets/images/ner.png 1x, ../assets/images/ner@2x.png 2x"/>
+        <img class="app__content__section__body app__content__section__body--with-preview mr-3" src="../assets/images/ner.png" srcset="../assets/images/ner.png 1x, ../assets/images/ner@2x.png 2x"/>
       </section>
 
       <section class="app__content__section app__content__section--support">
@@ -141,8 +141,8 @@
   .app__content {
     position: relative;
     min-height: 100vh;
-    width: 50%;
-    margin-left: 50%;
+    width: 100% * (1 - $app-jumbotron-width-ratio);
+    margin-left: 100% * $app-jumbotron-width-ratio;
     padding: 0;
     background: white;
     box-shadow: 0 0 5vw 0 rgba(black, 0.2);
@@ -156,12 +156,28 @@
       min-height: 75vh;
       padding: $spacer;
 
+      &--ui, &--entities, &--support {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        background: #eee;
+      }
+
+      &--types, &--support {
+        background: $content-special-bg;
+        color: $content-special-color;
+
+        a { color: mix($content-special-color, $content-special-bg, 70) }
+      }
+
       &--ui &__wrapper, &--entities &__wrapper, &--support &__wrapper {
         background: inherit;
         margin-left: $spacer * -3.5;
         padding: $spacer * 1.5;
         border-radius: $spacer * 0.8;
         position: relative;
+        max-width: 450px;
+        width: 100%;
 
         .corner {
           position: absolute;
@@ -197,7 +213,11 @@
 
       &__body {
         filter: drop-shadow(0 5px 10px rgba(black, .1));
-        max-width: 30vw;
+        width: 100%;
+
+        &--with-preview {
+          max-width: 630px;
+        }
 
         &__card {
           margin-bottom: $spacer;
@@ -222,18 +242,6 @@
         }
       }
 
-      &--ui, &--entities, &--support {
-        flex-direction: row;
-        text-align: left;
-        background: #eee;
-      }
-
-      &--types, &--support {
-        background: $content-special-bg;
-        color: $content-special-color;
-
-        a { color: mix($content-special-color, $content-special-bg, 70) }
-      }
     }
   }
 </style>

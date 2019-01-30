@@ -18,7 +18,7 @@
   @import '../variables.scss';
 
   .app__jumbotron {
-    width: 50%;
+    width: 100% * $app-jumbotron-width-ratio;
     float: left;
     position: sticky;
     left: 0;

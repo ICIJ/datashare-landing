@@ -13,5 +13,7 @@ $special-font-family: "Medel", $headings-font-family;
 $content-special-bg: $link-color;
 $content-special-color: white;
 
+$app-jumbotron-width-ratio: 0.45;
+
 @import '~node_modules/@icij/murmur/lib/styles/variables.scss';
 @import '~node_modules/bootstrap/scss/mixins/_gradients.scss';
