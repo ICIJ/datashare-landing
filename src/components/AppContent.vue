@@ -124,12 +124,36 @@
           <h4 class="app__content__section__heading  text-special">
             An open-source project
           </h4>
-          <p class="app__content__section__description">
-            Initially developed by ICIJ, it is supported by xxx, yyy, zzz.<br />
+          <p class="app__content__section__description mb-5">
             Users and developers can give feedback and contribute at
             <a href="https://github.com/icij/?q=datashare" target="_blank">github.com/ICIJ/datashare</a>.
           </p>
           <download-buttons class="app__content__section__download"></download-buttons>
+        </div>
+      </section>
+
+      <section class="app__content__section app__content__section--donors">
+        <div class="container-fluid app__content__section__donors">
+          <h4 class="text-muted text-center text-uppercase text-special mb-5">
+            With the generous support of
+          </h4>
+          <div class="row">
+            <div class="col">
+              <a href="https://postkodstiftelsen.se/" target="_blank" class="app__content__section__donors__link">
+                <img src="../assets/images/donors/spl.jpg" class="mw-100" alt="" />
+              </a>
+            </div>
+            <div class="col">
+              <a href="https://brown.columbia.edu/" target="_blank" class="app__content__section__donors__link">
+                <img src="../assets/images/donors/brown.jpg" class="mw-100" alt="" />
+              </a>
+            </div>
+            <div class="col">
+              <a href="https://brown.columbia.edu/" target="_blank" class="app__content__section__donors__link">
+                <img src="../assets/images/donors/brown.jpg" class="mw-100" alt="" />
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </div>
@@ -163,7 +187,7 @@
       min-height: 75vh;
       padding: 5vh $spacer;
 
-      &--ui, &--entities, &--support {
+      &--ui, &--entities, &--support, &--donors {
         flex-direction: row;
         justify-content: space-between;
         text-align: left;
@@ -261,6 +285,22 @@
             background: rgba(white, .1);
             padding: $spacer;
             width: 100%;
+          }
+        }
+      }
+
+      &__donors {
+
+        max-width: 660px;
+
+        &__link {
+          filter: grayscale(100%);
+          opacity: 0.6;
+          transition: 400ms;
+
+          &:hover {
+            filter: grayscale(0%);
+            opacity: 1;
           }
         }
       }
