@@ -1,12 +1,14 @@
 <template>
   <ul class="list-group list-group-flush text-left">
     <li class="list-group-item" v-for="(release, i) in releases" :key="i">
-      <a :href="asset(release).browser_download_url" class="font-weight-bold">
-        <fa icon="download" class="mr-2" /> {{ release.name }}
-      </a>
-      <span class="text-muted float-right">
-        {{ publishedAt(release) }}
-      </span>
+      <div  v-if="!!asset(release)">
+        <a :href="asset(release).browser_download_url" class="font-weight-bold">
+          <fa icon="download" class="mr-2" /> {{ release.name }}
+        </a>
+        <span class="text-muted float-right">
+          {{ publishedAt(release) }}
+        </span>
+      </div>
     </li>
   </ul>
 </template>
@@ -43,7 +45,7 @@
     async mounted () {
       this.releases = await releases()
       this.releases = filter(this.releases, release => !!this.asset(release))
-      this.releases = orderBy(this.releases, release => release.name.split('.'), 'desc')
+      this.releases = orderBy(this.releases, release => release.name.split('.').map(parseInt), 'desc')
     },
     methods: {
       asset (release) {

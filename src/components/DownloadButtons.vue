@@ -30,18 +30,7 @@
       </a><br />
       Datashare is an <a href="https://github.com/icij/?q=datashare" target="_blank">open-source</a> project.
     </p>
-    <div class="small text-left bg-light p-3">
-      <h6>Requirements</h6>
-      <ul class="pl-4">
-        <li>Windows: 10 Pro or higher</li>
-        <li>Mac: El Capitan 10.11 or higher</li>
-        <li>5 GB of free space on disk</li>
-        <li>4 GB of RAM</li>
-      </ul>
-      <p class="m-0 border-top pt-3 text-muted">
-        Pending the security infrastructure of your organization, you may need to consult with your IT administrator for installation.
-      </p>
-    </div>
+    <download-requirements class="text-left bg-light p-3" />
     <b-modal title="Other platforms and versions" hide-footer lazy ref="downloadListModal" size="md" body-class="p-0" header-class="border-0 card-header">
       <download-variants />
     </b-modal>
@@ -59,6 +48,7 @@
 
   import os from '../os'
   import { latest } from '../releases'
+  import DownloadRequirements from './DownloadRequirements.vue'
   import DownloadVariants from './DownloadVariants.vue'
 
   library.add(faApple, faWindows, faLinux)
@@ -67,6 +57,7 @@
     name: 'DownloadButtons',
     components: {
       bModal,
+      DownloadRequirements,
       DownloadVariants,
       Fa,
     },
