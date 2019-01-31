@@ -1,6 +1,10 @@
 <template>
   <div class="app__jumbotron clearfix">
     <div class="app__jumbotron__container">
+      <a href="https://www.icij.org" class="app__jumbotron__container__brand">
+        <brand class="mr-3" background="white" color="black" :size="50" no-border />
+        <span class="d-none d-sm-inline">International Consortium of Investigative Journalists</span>
+      </a>
       <h1 class="app__jumbotron__container__heading text-special mb-0">
         Datashare
       </h1>
@@ -44,7 +48,16 @@
       align-items: center;
 
       @include media-breakpoint-down($app-jumbotron-breakpoint) {
-        min-height: 90vh;
+        min-height: 95vh;
+      }
+
+      &__brand {
+        position: absolute;
+        top: $spacer * 0.5;
+        left: $spacer * 0.5;
+        color: white;
+        font-weight: bolder;
+        font-size: 1rem;
       }
 
       &__heading {

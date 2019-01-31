@@ -60,17 +60,7 @@ export default {
       }
 
       a.navbar-brand {
-        position: fixed;
-        top: $spacer * 0.5;
-        left: $spacer * 0.5;
-
-        body &:hover {
-          color: white;
-        }
-
-        @include media-breakpoint-down($app-jumbotron-breakpoint) {
-          position: static;
-        }
+        display: none;
       }
 
       a, .nav-link {

@@ -22,6 +22,11 @@
           Download for free
         </a>
       </div>
+      <div v-else class="col mb-2">
+        <span class="btn btn-block btn-lg btn-outline-dark text-muted download-buttons__button download-buttons__button--disabled">
+          Available only on desktop
+        </span>
+      </div>
     </div>
     <p class="small">
       Version {{ version }} - {{ year }} -
@@ -104,7 +109,10 @@
       text-transform: uppercase;
       font-weight: bolder;
       text-shadow: none;
+    }
 
+    &__button--disabled.btn {
+      text-transform: none;
     }
   }
 </style>

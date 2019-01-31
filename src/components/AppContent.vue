@@ -189,7 +189,7 @@
       align-items: center;
       text-align: center;
       min-height: 75vh;
-      padding: 5vh $spacer;
+      padding: 7vh $spacer;
 
       &--ui, &--entities, &--support, &--donors {
         flex-direction: row;
