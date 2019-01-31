@@ -7,6 +7,7 @@
       </a>
       <h1 class="app__jumbotron__container__heading text-special mb-0">
         Datashare
+        <span class="app__jumbotron__container__heading__beta">beta</span>
       </h1>
       <p class="lead text-special font-weight-light">Better analyze information, in all its forms</p>
     </div>
@@ -51,6 +52,7 @@
         min-height: 95vh;
       }
 
+
       &__brand {
         position: absolute;
         top: $spacer * 0.5;
@@ -63,6 +65,7 @@
       &__heading {
         font-size: 6rem;
         font-weight: normal;
+        position: relative;
 
         @include media-breakpoint-down($app-jumbotron-breakpoint) {
           font-size: 5rem;
@@ -70,6 +73,17 @@
 
         @include media-breakpoint-down(sm) {
           font-size: 3rem;
+        }
+
+        &__beta {
+          font-size: .3em;
+          position: absolute;
+          left: 100%;
+          top: 0;
+          background: $saddle-red;
+          padding: .05em .2em;
+          display: block;
+          height: auto;
         }
       }
     }
