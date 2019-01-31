@@ -41,7 +41,9 @@
             Secure your documents from third-party interference
           </p>
         </div>
-        <img class="app__content__section__body app__content__section__body--with-preview" src="../assets/images/extract.png" srcset="../assets/images/extract.png 1x, ../assets/images/extract@2x.png 2x"/>
+        <div class="app__content__section__body app__content__section__body--with-preview">
+           <img src="../assets/images/extract.png" srcset="../assets/images/extract.png 1x, ../assets/images/extract@2x.png 2x" class="mw-100" />
+        </div>
       </section>
 
       <section class="app__content__section app__content__section--types">
@@ -66,7 +68,9 @@
             Your searches are more efficient thanks to named entity recognition
           </p>
         </div>
-        <img class="app__content__section__body app__content__section__body--with-preview mr-3" src="../assets/images/ner.png" srcset="../assets/images/ner.png 1x, ../assets/images/ner@2x.png 2x"/>
+        <div class="app__content__section__body app__content__section__body--with-preview">
+           <img src="../assets/images/ner.png" srcset="../assets/images/ner.png 1x, ../assets/images/ner@2x.png 2x" class="mw-100" />
+        </div>
       </section>
 
       <section class="app__content__section app__content__section--support">
@@ -77,13 +81,13 @@
             Any questions?
           </h4>
         </div>
-        <div class="app__content__section__body w-100">
+        <div class="app__content__section__body">
           <div class="d-md-flex align-items-stretch">
             <div class="app__content__section__body__card">
               <div class="app__content__section__body__card__header">
                 <fa icon="book" />
               </div>
-              <div class="app__content__section__body__card__body">
+              <div class="app__content__section__body__card__body w-100">
                 <p class="m-0">
                   User Guide and FAQ <a href="https://icij.gitbook.io/datashare/" target="_blank">in our Gitbook here</a>.
                 </p>
@@ -93,18 +97,18 @@
               <div class="app__content__section__body__card__header">
                 <fa :icon="['fab', 'github']" />
               </div>
-              <div class="app__content__section__body__card__body">
+              <div class="app__content__section__body__card__body w-100">
                 <p class="m-0">
                   To report a bug, please contribute <a href="https://github.com/ICIJ/datashare/issues" target="_blank">in our GitHub here</a> detailing your logs.
                 </p>
               </div>
             </div>
           </div>
-          <div class="app__content__section__body__card">
+          <div class="app__content__section__body__card mw-100">
             <div class="app__content__section__body__card__header">
               <fa icon="mail-bulk" />
             </div>
-            <div class="app__content__section__body__card__body">
+            <div class="app__content__section__body__card__body w-100">
               <p>
                 Or write to <a href="mailto:datashare@icij.org">datashare@icij.org</a> detailing:
               </p>
@@ -284,7 +288,7 @@
           &__body {
             background: rgba(white, .1);
             padding: $spacer;
-            width: 100%;
+            width: 50%;
           }
         }
       }
