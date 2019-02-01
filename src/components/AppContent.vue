@@ -152,11 +152,6 @@
                 <img src="../assets/images/donors/brown.jpg" class="mw-100" alt="" />
               </a>
             </div>
-            <div class="col">
-              <a href="https://brown.columbia.edu/" target="_blank" class="app__content__section__donors__link">
-                <img src="../assets/images/donors/brown.jpg" class="mw-100" alt="" />
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -295,7 +290,7 @@
 
       &__donors {
 
-        max-width: 660px;
+        max-width: 660px * 3 / 4;
 
         &__link {
           filter: grayscale(100%);
