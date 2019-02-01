@@ -6,6 +6,7 @@
         <span class="d-none d-sm-inline">International Consortium of Investigative Journalists</span>
       </a>
       <h1 class="app__jumbotron__container__heading text-special mb-0">
+        <img src="../assets/images/logo-color-square.svg" class="app__jumbotron__container__heading__brand" />
         Datashare
         <span class="app__jumbotron__container__heading__beta">beta</span>
       </h1>
@@ -63,9 +64,10 @@
       }
 
       &__heading {
-        font-size: 6rem;
+        font-size: 5rem;
         font-weight: normal;
         position: relative;
+        white-space: nowrap;
 
         @include media-breakpoint-down($app-jumbotron-breakpoint) {
           font-size: 5rem;
@@ -73,6 +75,12 @@
 
         @include media-breakpoint-down(sm) {
           font-size: 3rem;
+        }
+
+        &__brand {
+          height: 1em;
+          float: left;
+          margin-right: $spacer;
         }
 
         &__beta {
