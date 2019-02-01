@@ -79,8 +79,8 @@
 
         &__brand {
           height: 1em;
-          float: left;
-          margin-right: $spacer;
+          position: absolute;
+          right: 100%;          
         }
 
         &__beta {
