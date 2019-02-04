@@ -113,6 +113,8 @@
       text-transform: uppercase;
       font-weight: bolder;
       text-shadow: none;
+      position: relative;
+      z-index: 20;
     }
 
     &__button--disabled.btn {
