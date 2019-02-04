@@ -19,3 +19,5 @@ $app-jumbotron-breakpoint: lg;
 @import '~node_modules/@icij/murmur/lib/styles/variables.scss';
 @import '~node_modules/bootstrap/scss/mixins/_gradients.scss';
 @import '~node_modules/bootstrap/scss/mixins/_breakpoints.scss';
+
+$generic-header-height: 1rem * $line-height-base + $spacer * 2;

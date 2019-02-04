@@ -24,6 +24,10 @@
 <template>
   <div class="app__content">
     <div class="">
+      <div class="app__content__banner">
+        This software is in beta phase: it might crash, contain bugs, or not be compatible with your system.
+      </div>
+
       <section class="app__content__section">
         <div class="app__content__section__wrapper">
           <download-buttons class="app__content__section__download"></download-buttons>
@@ -168,6 +172,7 @@
     width: 100% * (1 - $app-jumbotron-width-ratio);
     margin-left: 100% * $app-jumbotron-width-ratio;
     padding: 0;
+    padding-top: $generic-header-height;
     background: white;
     box-shadow: 0 0 5vw 0 rgba(black, 0.2);
 
@@ -175,6 +180,18 @@
       width: 100%;
       margin-left: 0;
       box-shadow: 0;
+    }
+
+    &__banner {
+      text-align: center;
+      padding: $spacer * 0.5;
+      font-size: 0.9rem;
+      font-weight: bold;
+
+      $gradient-bg-1: lighten($saddle-yellow, 20);
+      $gradient-bg-2: lighten($saddle-yellow, 10);
+      background: $gradient-bg-1;
+      background-image: linear-gradient(135deg, $gradient-bg-2 20%, transparent 20%, transparent 40%, $gradient-bg-2 40%, $gradient-bg-2 60%, transparent 60%, transparent 80%, $gradient-bg-2 80%, $gradient-bg-2);
     }
 
     &__section {

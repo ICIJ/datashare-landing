@@ -1,31 +1,36 @@
 <template>
   <div class="download-buttons text-center">
     <div class="row mb-2">
-      <div v-if="os === 'macos'" class="col mb-2">
-        <a class="btn btn-block btn-lg btn-primary text-light download-buttons__button" :href="assetForApple">
-          <fa :icon="['fab', 'apple']" class="mr-2"></fa>
-          <span class="sr-only">Apple</span>
-          Download for free
-        </a>
-      </div>
-      <div v-else-if="os === 'windows'" class="col mb-2">
-        <a class="btn btn-block btn-lg btn-primary text-light download-buttons__button" :href="assetForWindows">
-          <fa :icon="['fab', 'windows']" class="mr-2"></fa>
-          <span class="sr-only">Windows</span>
-          Download for free
-        </a>
-      </div>
-      <div v-else-if="os === 'linux'" class="col mb-2">
-        <a class="btn btn-block btn-lg btn-primary text-light download-buttons__button" :href="assetForLinux">
-          <fa :icon="['fab', 'linux']" class="mr-2"></fa>
-          <span class="sr-only">Linux</span>
-          Download for free
-        </a>
-      </div>
-      <div v-else class="col mb-2">
-        <span class="btn btn-block btn-lg btn-outline-dark text-muted download-buttons__button download-buttons__button--disabled">
-          Available only on desktop
-        </span>
+      <div class="col mb-2">
+        <div v-if="os === 'macos'">
+          <a class="btn btn-block btn-lg btn-primary text-light download-buttons__button" :href="assetForApple">
+            <fa :icon="['fab', 'apple']" class="mr-2"></fa>
+            <span class="sr-only">Apple</span>
+            Download for free
+          </a>
+        </div>
+        <div v-else-if="os === 'windows'">
+          <a class="btn btn-block btn-lg btn-primary text-light download-buttons__button" :href="assetForWindows">
+            <fa :icon="['fab', 'windows']" class="mr-2"></fa>
+            <span class="sr-only">Windows</span>
+            Download for free
+          </a>
+        </div>
+        <div v-else-if="os === 'linux'">
+          <a class="btn btn-block btn-lg btn-primary text-light download-buttons__button" :href="assetForLinux">
+            <fa :icon="['fab', 'linux']" class="mr-2"></fa>
+            <span class="sr-only">Linux</span>
+            Download for free
+          </a>
+        </div>
+        <div v-else>
+          <span class="btn btn-block btn-lg btn-outline-dark text-muted download-buttons__button download-buttons__button--disabled">
+            Available only on desktop
+          </span>
+        </div>
+        <div class="download-buttons__help">
+          Need help? <a href="https://icij.gitbook.io/datashare/" target="_blank">Read our user guide</a>
+        </div>
       </div>
     </div>
     <p class="small">
@@ -99,13 +104,12 @@
 
   .download-buttons {
     max-width: 440px;
-    border-radius: $border-radius-lg;
     padding: $spacer;
 
     &__button.btn {
       color: $dark;
       padding: $spacer * 1.4 $spacer;
-      border-radius: $border-radius;
+      border-radius: $border-radius-lg;
       text-transform: uppercase;
       font-weight: bolder;
       text-shadow: none;
@@ -113,6 +117,19 @@
 
     &__button--disabled.btn {
       text-transform: none;
+    }
+
+    &__help {
+      background: rgba($primary, 0.6);
+      border-radius: 0 0 $border-radius-lg $border-radius-lg;
+      margin-top: -$border-radius-lg;
+      padding: $border-radius-lg;
+      padding-top: $border-radius-lg * 2;
+      color: mix(white, $primary, 80%);
+
+      a {
+        color: white;
+      }
     }
   }
 </style>
