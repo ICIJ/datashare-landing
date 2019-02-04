@@ -117,6 +117,7 @@
 
     &__button--disabled.btn {
       text-transform: none;
+      background: white;
     }
 
     &__help {

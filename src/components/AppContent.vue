@@ -180,6 +180,7 @@
       width: 100%;
       margin-left: 0;
       box-shadow: 0;
+      padding-top: 0;
     }
 
     &__banner {
