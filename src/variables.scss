@@ -21,3 +21,4 @@ $app-jumbotron-breakpoint: lg;
 @import '~node_modules/bootstrap/scss/mixins/_breakpoints.scss';
 
 $generic-header-height: 1rem * $line-height-base + $spacer * 2;
+$modal-backdrop-opacity: .9;
