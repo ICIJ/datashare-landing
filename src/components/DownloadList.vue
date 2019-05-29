@@ -45,7 +45,7 @@
     async mounted () {
       this.releases = await releases()
       this.releases = filter(this.releases, release => !!this.asset(release))
-      this.releases = orderBy(this.releases, release => release.name.split('.').map(parseInt), 'desc')
+      this.releases = orderBy(this.releases, release => new Date(release.published_at), 'desc')
     },
     methods: {
       asset (release) {
