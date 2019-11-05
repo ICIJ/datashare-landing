@@ -2,7 +2,7 @@ const { join } = require('path')
 const resolve = filepath => join(__dirname, filepath)
 
 module.exports = {
-  baseUrl: './',
+  baseUrl: process.env.NODE_ENV === 'production' ? 'https://datashare.icij.org/' : './',
   chainWebpack: config => {
     // Aliases configuration
     config.resolve.alias
