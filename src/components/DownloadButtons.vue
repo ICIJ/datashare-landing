@@ -48,7 +48,7 @@
 </template>
 
 <script>
-  import bModal from 'bootstrap-vue/es/components/modal/modal'
+  import { BModal } from 'bootstrap-vue'
   import { find, endsWith, get } from 'lodash'
   import { faWindows } from '@fortawesome/free-brands-svg-icons/faWindows'
   import { faApple } from '@fortawesome/free-brands-svg-icons/faApple'
@@ -66,7 +66,7 @@
   export default {
     name: 'DownloadButtons',
     components: {
-      bModal,
+      BModal,
       DownloadRequirements,
       DownloadVariants,
       Fa,

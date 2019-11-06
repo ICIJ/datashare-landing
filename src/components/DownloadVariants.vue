@@ -31,8 +31,8 @@
   import { library } from '@icij/murmur/lib/components/Fa'
   import { Fa } from '@icij/murmur'
 
-  import bTabs from 'bootstrap-vue/es/components/tabs/tabs'
-  import bTab from 'bootstrap-vue/es/components/tabs/tab'
+  import { BTabs } from 'bootstrap-vue'
+  import { BTab } from 'bootstrap-vue'
   import os from '../os'
 
   import DownloadList from './DownloadList'
@@ -43,8 +43,8 @@
   export default {
     name: 'DownloadVariants',
     components: {
-      bTabs,
-      bTab,
+      BTabs,
+      BTab,
       DownloadList,
       DownloadRequirements,
       Fa
