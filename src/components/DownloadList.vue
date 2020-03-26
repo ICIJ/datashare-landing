@@ -17,7 +17,7 @@
     </ul>
     <div class="download-list__more p-2">
       <a class="btn btn-lg btn-block btn-link" href="https://github.com/ICIJ/datashare-installer/releases" target="_blank">
-        Explore all version
+        Explore all versions
       </a>
     </div>
   </div>
