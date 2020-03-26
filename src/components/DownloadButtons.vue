@@ -16,6 +16,13 @@
             Download for free
           </a>
         </div>
+        <div v-else-if="os === 'ubuntu'">
+          <a class="btn btn-block btn-lg btn-primary text-light download-buttons__button" :href="assetForUbuntu">
+            <fa :icon="['fab', 'ubuntu']" class="mr-2"></fa>
+            <span class="sr-only">Ubuntu</span>
+            Download for free
+          </a>
+        </div>
         <div v-else-if="os === 'linux'">
           <a class="btn btn-block btn-lg btn-primary text-light download-buttons__button" :href="assetForLinux">
             <fa :icon="['fab', 'linux']" class="mr-2"></fa>
@@ -53,6 +60,7 @@
   import { faWindows } from '@fortawesome/free-brands-svg-icons/faWindows'
   import { faApple } from '@fortawesome/free-brands-svg-icons/faApple'
   import { faLinux } from '@fortawesome/free-brands-svg-icons/faLinux'
+  import { faUbuntu } from '@fortawesome/free-brands-svg-icons/faUbuntu'
   import { library } from '@icij/murmur/lib/components/Fa'
   import { Fa } from '@icij/murmur'
 
@@ -61,7 +69,7 @@
   import DownloadRequirements from './DownloadRequirements.vue'
   import DownloadVariants from './DownloadVariants.vue'
 
-  library.add(faApple, faWindows, faLinux)
+  library.add(faApple, faWindows, faLinux, faUbuntu)
 
   export default {
     name: 'DownloadButtons',
@@ -94,6 +102,9 @@
       },
       assetForLinux () {
         return get(find(this.assets, a => endsWith(a.name, '.sh') ), 'browser_download_url', null)
+      },
+      assetForUbuntu () {
+        return get(find(this.assets, a => endsWith(a.name, '.deb') ), 'browser_download_url', null)
       }
     }
   }

@@ -1,16 +1,26 @@
 <template>
-  <ul class="list-group list-group-flush text-left">
-    <li class="list-group-item" v-for="(release, i) in releases" :key="i">
-      <div  v-if="!!asset(release)">
-        <a :href="asset(release).browser_download_url" class="font-weight-bold">
-          <fa icon="download" class="mr-2" /> {{ release.name }}
-        </a>
-        <span class="text-muted float-right">
-          {{ publishedAt(release) }}
-        </span>
-      </div>
-    </li>
-  </ul>
+  <div class="download-list">
+    <div v-if="note" class="alert alert-warning m-2 download-list__note">
+      {{ note }}
+    </div>
+    <ul class="list-group list-group-flush text-left">
+      <li class="list-group-item" v-for="(release, i) in releases" :key="i">
+        <div  v-if="!!asset(release)">
+          <a :href="asset(release).browser_download_url" class="font-weight-bold">
+            <fa icon="download" class="mr-2" /> {{ release.name }}
+          </a>
+          <span class="text-muted float-right">
+            {{ publishedAt(release) }}
+          </span>
+        </div>
+      </li>
+    </ul>
+    <div class="download-list__more p-2">
+      <a class="btn btn-lg btn-block btn-link" href="https://github.com/ICIJ/datashare-installer/releases" target="_blank">
+        Explore all version
+      </a>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -31,6 +41,9 @@
     name: 'DownloadList',
     props: {
       ext: {
+        type: String
+      },
+      note: {
         type: String
       }
     },
