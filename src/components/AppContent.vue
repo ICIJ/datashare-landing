@@ -1,12 +1,15 @@
 <script>
+  import { faBolt  } from '@fortawesome/free-solid-svg-icons/faBolt'
   import { faBook } from '@fortawesome/free-solid-svg-icons/faBook'
   import { faMailBulk  } from '@fortawesome/free-solid-svg-icons/faMailBulk'
   import { faGithub  } from '@fortawesome/free-brands-svg-icons/faGithub'
+  import { faPlug  } from '@fortawesome/free-solid-svg-icons/faPlug'
+  import { faServer  } from '@fortawesome/free-solid-svg-icons/faServer'
   // Import the library instance provided by FontAwesome
   import { library } from '@icij/murmur/lib/components/Fa'
   import { Fa } from '@icij/murmur'
 
-  library.add(faBook, faMailBulk, faGithub)
+  library.add(faBolt, faBook, faMailBulk, faPlug, faServer, faGithub)
 
   import Corner from './Corner'
   import DownloadButtons from './DownloadButtons'
@@ -124,6 +127,45 @@
               </ol>
             </div>
           </div>
+
+          <div class="d-md-flex align-items-stretch">
+            <div class="app__content__section__body__card">
+              <div class="app__content__section__body__card__header">
+                <fa icon="bolt" />
+              </div>
+              <div class="app__content__section__body__card__body d-flex align-items-center w-100">
+                <p class="m-0">
+                  <span class="small">How-to</span><br />
+                  <a href="https://github.com/ICIJ/datashare/wiki/Datashare-API" target="_blank">Query the API</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="app__content__section__body__card">
+              <div class="app__content__section__body__card__header">
+                <fa icon="plug" />
+              </div>
+              <div class="app__content__section__body__card__body d-flex align-items-center w-100">
+                <p class="m-0">
+                  <span class="small">How-to</span><br />
+                  <a href="https://github.com/ICIJ/datashare/wiki/Datashare-Plugins" target="_blank">Create Plugins</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="app__content__section__body__card">
+              <div class="app__content__section__body__card__header">
+                <fa icon="server" />
+              </div>
+              <div class="app__content__section__body__card__body d-flex align-items-center w-100">
+                <p class="m-0">
+                  <span class="small">How-to</span><br />
+                  <a href="https://github.com/ICIJ/datashare/wiki/Datashare-Server-Mode" target="_blank">Server Mode</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
