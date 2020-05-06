@@ -1,24 +1,26 @@
 <template>
-  <div class="download-list">
-    <div v-if="note" class="alert alert-warning m-2 download-list__note">
-      {{ note }}
-    </div>
-    <ul class="list-group list-group-flush text-left">
-      <li class="list-group-item" v-for="(release, i) in releases" :key="i">
-        <div  v-if="!!asset(release)">
+  <div class="download-list d-flex flex-column">
+    <ul class="download-list__group list-group list-group-flush text-left flex-grow-1">
+      <li class="download-list__group__item list-group-item" v-for="(release, i) in releases" :key="i">
+        <div v-if="!!asset(release)">
           <a :href="asset(release).browser_download_url" class="font-weight-bold">
-            <fa icon="download" class="mr-2" /> {{ release.name }}
+            <fa :icon="icon" class="mr-2" fixed-width /> {{ release.name }}
           </a>
           <span class="text-muted float-right">
             {{ publishedAt(release) }}
           </span>
         </div>
       </li>
+      <li class="download-list__group__item list-group-item">
+        <a class="btn btn-lg btn-block btn-link" href="https://github.com/ICIJ/datashare-installer/releases" target="_blank">
+          Explore all versions
+        </a>
+      </li>
     </ul>
-    <div class="download-list__more p-2">
-      <a class="btn btn-lg btn-block btn-link" href="https://github.com/ICIJ/datashare-installer/releases" target="_blank">
-        Explore all versions
-      </a>
+    <div class="download-list__use-docker border-top">
+      <b-form-checkbox :checked="useDocker" switch @input="$emit('input', $event)" v-b-popover.hover.top="{ customClass: 'popover-magnified',  content: 'This will install Datashare and its dependencies using multiple Docker containers. It\'s the legacy installer and we advise not to use this version in most cases.' }" title="Docker Installer">
+        Use Docker installer
+      </b-form-checkbox>
     </div>
   </div>
 </template>
@@ -29,22 +31,27 @@
   import find from 'lodash/find'
   import orderBy from 'lodash/orderBy'
 
+  import { faDocker } from '@fortawesome/free-brands-svg-icons/faDocker'
   import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload'
-  import { library } from '@icij/murmur/lib/components/Fa'
   import { Fa } from '@icij/murmur'
+  import { BFormCheckbox, VBPopover } from 'bootstrap-vue'
 
   import { releases } from '../releases'
 
-  library.add(faDownload)
-
   export default {
     name: 'DownloadList',
+    model: {
+      prop: 'useDocker'
+    },
     props: {
       ext: {
         type: String
       },
-      note: {
+      dockerExt: {
         type: String
+      },
+      useDocker: {
+        type: Boolean
       }
     },
     data () {
@@ -53,7 +60,11 @@
       }
     },
     components: {
+      BFormCheckbox,
       Fa
+    },
+    directives: {
+      'b-popover': VBPopover
     },
     async mounted () {
       this.releases = await releases()
@@ -63,13 +74,52 @@
     methods: {
       asset (release) {
         return find(release.assets, ({ name }) => {
-          return endsWith(name, this.ext)
+          return endsWith(name, this.useDocker ? this.dockerExt : this.ext)
         })
       },
-      publishedAt (release, options = { year: "numeric", month: "short" }) {
+      publishedAt (release, options = { year: "numeric", month: "short", day: "numeric" }) {
         const date = new Date(release.published_at)
         return new Intl.DateTimeFormat('en-US', options).format(date)
+      }
+    },
+    computed: {
+      icon () {
+        return this.useDocker ? faDocker : faDownload
       }
     }
   }
 </script>
+
+<style lang="scss">
+  @import '../variables';
+
+  .download-list {
+    max-height: 50vh;
+
+    &__group {
+      overflow: auto;
+
+      &__item:last-of-type {
+        border-bottom: 0;
+      }
+    }
+
+    &__use-docker {
+      position: sticky;
+      bottom: 0;
+      left: 0;
+      background: white;
+      padding: 0 $spacer;
+
+      label {
+        display: block;
+        cursor: pointer;
+        margin:  $spacer * 0.75 0;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+</style>

@@ -6,7 +6,7 @@
           <a class="btn btn-block btn-lg btn-primary text-light download-buttons__button" :href="asset" @click="showGuide = !showGuide">
             <fa :icon="['fab', icon]" class="mr-2"></fa>
             <span class="sr-only">{{ os }}</span>
-            Download for free {{ assetIsStandalone }}
+            Download for free
           </a>
           <transition name="circle-in">
             <div class="download-buttons__guide" v-if="showGuide">

@@ -4,8 +4,34 @@
 @import './assets/fonts/Medel/stylesheet.css';
 @import './variables.scss';
 @import '~node_modules/bootstrap/scss/bootstrap';
+@import '~node_modules/bootstrap-vue/src/index';
 @import '~node_modules/@icij/murmur/dist/lib/@icij/murmur.css';
 
 .text-special {
   font-family: $special-font-family;
+}
+
+.popover-magnified {
+  color: white;
+  @include gradient-y(mix($primary, $secondary), $secondary);
+
+  .popover-header {
+    background: mix($primary, $secondary);
+    border: 0;
+  }
+
+  .popover-body {
+    color: inherit;
+    padding: $spacer;
+  }
+
+  &.bs-popover-top > .arrow::after,
+  &.bs-popover-auto[x-placement^="top"] > .arrow::after {
+    border-top-color: $secondary;
+  }
+
+  &.bs-popover-bottom > .arrow::after,
+  &.bs-popover-auto[x-placement^="bottom"] > .arrow::after {
+    border-bottom-color: mix($primary, $secondary);
+  }
 }

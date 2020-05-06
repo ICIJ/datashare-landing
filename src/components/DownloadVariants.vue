@@ -1,30 +1,24 @@
 <template>
   <div>
     <download-requirements class="card-header pt-0" />
-    <b-tabs card class="m-0">
+    <b-tabs card class="m-0" no-fade>
       <b-tab no-body :active="is('macos')">
         <template slot="title">
           <fa :icon="['fab', 'apple']" /> Mac
         </template>
-        <download-list ext=".pkg" />
+        <download-list ext="Datashare.pkg" docker-ext="DatashareStandalone.pkg" v-model="useDocker" />
       </b-tab>
       <b-tab no-body :active="is('windows')">
         <template slot="title">
           <fa :icon="['fab', 'windows']" /> Windows
         </template>
-        <download-list ext=".exe" />
-      </b-tab>
-      <b-tab no-body :active="is('linux')">
-        <template slot="title">
-          <fa :icon="['fab', 'linux']" /> Linux
-        </template>
-        <download-list ext=".sh" />
+        <download-list ext="installDatashareStandalone.exe"  docker-ext="installDatashare.exe" v-model="useDocker" />
       </b-tab>
       <b-tab no-body :active="is('ubuntu')">
         <template slot="title">
           <fa :icon="['fab', 'ubuntu']" /> Ubuntu
         </template>
-        <download-list ext=".deb" note="The Ubuntu version is shipped without Docker. It's currently experimental and aims at simplify the installation." />
+        <download-list ext=".deb" docker-ext=".sh" v-model="useDocker" />
       </b-tab>
     </b-tabs>
   </div>
@@ -55,6 +49,11 @@
       DownloadList,
       DownloadRequirements,
       Fa
+    },
+    data () {
+      return {
+        useDocker: true
+      }
     },
     methods: {
       is (name) {
