@@ -112,7 +112,6 @@
       padding: 0 $spacer;
 
       label {
-        display: block;
         cursor: pointer;
         margin:  $spacer * 0.75 0;
 
