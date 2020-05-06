@@ -52,7 +52,7 @@
     },
     data () {
       return {
-        useDocker: true
+        useDocker: false
       }
     },
     methods: {
