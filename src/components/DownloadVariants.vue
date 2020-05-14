@@ -1,6 +1,5 @@
 <template>
   <div>
-    <download-requirements class="card-header pt-0" />
     <b-tabs card class="m-0" no-fade>
       <b-tab no-body :active="is('macos')">
         <template slot="title">
@@ -37,7 +36,6 @@
   import os from '../os'
 
   import DownloadList from './DownloadList'
-  import DownloadRequirements from './DownloadRequirements'
 
   library.add(faApple, faWindows, faLinux, faUbuntu)
 
@@ -47,7 +45,6 @@
       BTabs,
       BTab,
       DownloadList,
-      DownloadRequirements,
       Fa
     },
     data () {

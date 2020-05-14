@@ -2,9 +2,9 @@
   <div class="small text-left">
     <h6>Requirements</h6>
     <ul class="pl-4">
-      <li>Windows: 10 Pro or higher</li>
-      <li>Mac: El Capitan 10.11 or higher</li>
-      <li>Linux: most modern versions</li>
+      <li>Windows: Windows 7 Service Pack 2 or higher</li>
+      <li>Mac: High Sierra or higher</li>
+      <li>Linux: most modern versions (Java JRE8)</li>
       <li>5 GB of free space on disk</li>
       <li>4 GB of RAM</li>
     </ul>
