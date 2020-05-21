@@ -1,7 +1,7 @@
 <template>
   <div class="demo-button">
     <h4 class="demo-button__lead text-special">
-      You cannot install Datashare right now?
+      You cannot install Datashare?
     </h4>
     <b-button href="https://datashare-demo.icij.org" variant="info" block size="lg" target="_blank" class="text-uppercase font-weight-bolder demo-button__link">
       <fa icon="bolt" class="mr-2" /> Try the demo

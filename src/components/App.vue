@@ -47,7 +47,7 @@ export default {
         display: none;
       }
 
-      a, .nav-link {
+      a, .nav-item a.nav-link {
         color: white;
       }
 
