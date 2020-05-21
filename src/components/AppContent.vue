@@ -33,7 +33,7 @@
 
       <section class="app__content__section">
         <div class="container">
-          <div class="row align-items-center">
+          <div class="row align-items-center text-center">
             <div class="app__content__section__wrapper col-md">
               <download-buttons class="app__content__section__download m-auto"></download-buttons>
             </div>
@@ -141,10 +141,10 @@
       </section>
 
       <section class="app__content__section app__content__section--os">
-        <h4 class="app__content__section__heading text-special">
+        <h4 class="app__content__section__heading text-special text-center">
           An open-source project
         </h4>
-        <p class="app__content__section__description mb-5">
+        <p class="app__content__section__description mb-5 text-center">
           Users and developers can give feedback and
           <span class="text-nowrap">contribute at <a href="https://github.com/icij/?q=datashare" target="_blank">github.com/ICIJ/datashare</a>.</span>
         </p>
@@ -238,7 +238,6 @@
     }
 
     &__section {
-      text-align: center;
       padding: 10vh $spacer;
       margin: auto;
 
