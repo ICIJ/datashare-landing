@@ -11,13 +11,13 @@
 
   library.add(faBolt, faBook, faMailBulk, faPlug, faServer, faGithub)
 
-  import Corner from './Corner'
+  import DemoButton from './DemoButton'
   import DownloadButtons from './DownloadButtons'
 
   export default {
     name: 'AppContent',
     components: {
-      Corner,
+      DemoButton,
       DownloadButtons,
       Fa
     }
@@ -32,153 +32,162 @@
       </div>
 
       <section class="app__content__section">
-        <div class="app__content__section__wrapper">
-          <download-buttons class="app__content__section__download"></download-buttons>
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="app__content__section__wrapper col-md">
+              <download-buttons class="app__content__section__download m-auto"></download-buttons>
+            </div>
+            <div class="app__content__section__body col">
+              <demo-button />
+            </div>
+          </div>
         </div>
       </section>
 
       <section class="app__content__section app__content__section--ui">
-        <div class="app__content__section__wrapper">
-          <corner direction="top-left" />
-          <corner direction="bottom-left" />
-          <h4 class="app__content__section__heading">
-            Access all your documents in one place on your computer
-          </h4>
-          <p class="app__content__section__description">
-            Secure your documents from third-party interference
-          </p>
-        </div>
-        <div class="app__content__section__body app__content__section__body--with-preview">
-           <img src="../assets/images/extract.png" srcset="../assets/images/extract.png 1x, ../assets/images/extract@2x.png 2x" class="mw-100" />
+        <div class="container">
+          <div class="app__content__section__wrapper">
+            <h4 class="app__content__section__heading">
+              Access all your documents in one place on your computer
+            </h4>
+            <p class="app__content__section__description">
+              Secure your documents from third-party interference
+            </p>
+          </div>
+          <div class="app__content__section__body app__content__section__body--with-preview">
+             <img src="../assets/images/screenshot-extract.png" class="mw-100" />
+          </div>
         </div>
       </section>
 
       <section class="app__content__section app__content__section--types">
-        <div class="app__content__section__wrapper">
-          <h4 class="app__content__section__heading">
-            Search pdfs, images, texts, spreadsheets, slides and any of your files, simultaneously
-          </h4>
-          <p class="app__content__section__description">
-            Information is no longer constrained by format
-          </p>
+        <div class="container">
+          <div class="app__content__section__wrapper">
+            <h4 class="app__content__section__heading">
+              Search pdfs, images, texts, spreadsheets, slides and any of your files, simultaneously
+            </h4>
+            <p class="app__content__section__description">
+              Information is no longer constrained by format
+            </p>
+          </div>
+          <div class="app__content__section__body app__content__section__body--with-preview">
+             <img src="../assets/images/screenshot-preview.png" class="mw-100" />
+          </div>
         </div>
       </section>
 
       <section class="app__content__section app__content__section--entities">
-        <div class="app__content__section__wrapper">
-          <corner direction="top-left" />
-          <corner direction="bottom-left" />
-          <h4 class="app__content__section__heading">
-            Automatically detect and filter by people, organizations and locations
-          </h4>
-          <p class="app__content__section__description">
-            Your searches are more efficient thanks to named entity recognition
-          </p>
-        </div>
-        <div class="app__content__section__body app__content__section__body--with-preview">
-           <img src="../assets/images/ner.png" srcset="../assets/images/ner.png 1x, ../assets/images/ner@2x.png 2x" class="mw-100" />
+        <div class="container">
+          <div class="app__content__section__wrapper">
+            <h4 class="app__content__section__heading">
+              Automatically detect and filter by people, organizations and locations
+            </h4>
+            <p class="app__content__section__description">
+              Your searches are more efficient thanks to named entity recognition
+            </p>
+          </div>
+          <div class="app__content__section__body app__content__section__body--with-preview">
+             <img src="../assets/images/screenshot-ner.png" class="mw-100" />
+          </div>
         </div>
       </section>
 
       <section class="app__content__section app__content__section--support">
-        <div class="app__content__section__wrapper w-50">
-          <corner direction="top-left" />
-          <corner direction="bottom-left" />
-          <h4 class="app__content__section__heading">
-            Any questions?
-          </h4>
-        </div>
-        <div class="app__content__section__body">
-          <div class="d-md-flex align-items-stretch">
-            <div class="app__content__section__body__card">
+        <h4 class="app__content__section__heading text-center container mb-5">
+          Any questions?
+        </h4>
+        <div class="container">
+          <div class="app__content__section__body">
+            <div class="d-md-flex align-items-stretch">
+              <div class="app__content__section__body__card">
+                <div class="app__content__section__body__card__header">
+                  <fa icon="book" />
+                </div>
+                <div class="app__content__section__body__card__body w-100">
+                  <p class="m-0">
+                    User Guide and FAQ <a href="https://icij.gitbook.io/datashare/" target="_blank">in our Gitbook here</a>.
+                  </p>
+                </div>
+              </div>
+              <div class="app__content__section__body__card">
+                <div class="app__content__section__body__card__header">
+                  <fa :icon="['fab', 'github']" />
+                </div>
+                <div class="app__content__section__body__card__body w-100">
+                  <p class="m-0">
+                    To report a bug, please contribute <a href="https://github.com/ICIJ/datashare/issues" target="_blank">in our GitHub here</a> detailing your logs.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="app__content__section__body__card mw-100">
               <div class="app__content__section__body__card__header">
-                <fa icon="book" />
+                <fa icon="mail-bulk" />
               </div>
               <div class="app__content__section__body__card__body w-100">
-                <p class="m-0">
-                  User Guide and FAQ <a href="https://icij.gitbook.io/datashare/" target="_blank">in our Gitbook here</a>.
+                <p>
+                  Or write to <a href="mailto:datashare@icij.org">datashare@icij.org</a> detailing:
                 </p>
-              </div>
-            </div>
-            <div class="app__content__section__body__card">
-              <div class="app__content__section__body__card__header">
-                <fa :icon="['fab', 'github']" />
-              </div>
-              <div class="app__content__section__body__card__body w-100">
-                <p class="m-0">
-                  To report a bug, please contribute <a href="https://github.com/ICIJ/datashare/issues" target="_blank">in our GitHub here</a> detailing your logs.
-                </p>
+                <ol class="pl-4">
+                  <li>your Operating System (Mac, Windows, etc) ;</li>
+                  <li>the version of your Operating System ;</li>
+                  <li>screenshots of your issue ;</li>
+                  <li>and a description of your issue.</li>
+                </ol>
               </div>
             </div>
           </div>
-          <div class="app__content__section__body__card mw-100">
-            <div class="app__content__section__body__card__header">
-              <fa icon="mail-bulk" />
-            </div>
-            <div class="app__content__section__body__card__body w-100">
-              <p>
-                Or write to <a href="mailto:datashare@icij.org">datashare@icij.org</a> detailing:
-              </p>
-              <ol class="pl-4">
-                <li>your Operating System (Mac, Windows, etc) ;</li>
-                <li>the version of your Operating System ;</li>
-                <li>screenshots of your issue ;</li>
-                <li>and a description of your issue.</li>
-              </ol>
-            </div>
-          </div>
-
-          <div class="d-md-flex align-items-stretch">
-            <div class="app__content__section__body__card">
-              <div class="app__content__section__body__card__header">
-                <fa icon="bolt" />
-              </div>
-              <div class="app__content__section__body__card__body d-flex align-items-center w-100">
-                <p class="m-0">
-                  <span class="small">How-to</span><br />
-                  <a href="https://github.com/ICIJ/datashare/wiki/Datashare-API" target="_blank">Query the API</a>
-                </p>
-              </div>
-            </div>
-
-            <div class="app__content__section__body__card">
-              <div class="app__content__section__body__card__header">
-                <fa icon="plug" />
-              </div>
-              <div class="app__content__section__body__card__body d-flex align-items-center w-100">
-                <p class="m-0">
-                  <span class="small">How-to</span><br />
-                  <a href="https://github.com/ICIJ/datashare/wiki/Datashare-Plugins" target="_blank">Create Plugins</a>
-                </p>
-              </div>
-            </div>
-
-            <div class="app__content__section__body__card">
-              <div class="app__content__section__body__card__header">
-                <fa icon="server" />
-              </div>
-              <div class="app__content__section__body__card__body d-flex align-items-center w-100">
-                <p class="m-0">
-                  <span class="small">How-to</span><br />
-                  <a href="https://github.com/ICIJ/datashare/wiki/Datashare-Server-Mode" target="_blank">Server Mode</a>
-                </p>
-              </div>
-            </div>
-          </div>
-
         </div>
       </section>
 
       <section class="app__content__section app__content__section--os">
-        <div class="app__content__section__wrapper">
-          <h4 class="app__content__section__heading  text-special">
-            An open-source project
-          </h4>
-          <p class="app__content__section__description mb-5">
-            Users and developers can give feedback and contribute at
-            <a href="https://github.com/icij/?q=datashare" target="_blank">github.com/ICIJ/datashare</a>.
-          </p>
-          <download-buttons class="app__content__section__download"></download-buttons>
+        <h4 class="app__content__section__heading text-special">
+          An open-source project
+        </h4>
+        <p class="app__content__section__description mb-5">
+          Users and developers can give feedback and
+          <span class="text-nowrap">contribute at <a href="https://github.com/icij/?q=datashare" target="_blank">github.com/ICIJ/datashare</a>.</span>
+        </p>
+        <div class="container">
+          <div class="row d-flex flex-row justify-content-center align-items-center">
+            <div class="app__content__section__wrapper col-md-6">
+              <download-buttons class="app__content__section__download m-auto" no-requirements></download-buttons>
+            </div>
+            <div class="app__content__section__body d-flex flex-column justify-content-center align-items-stretch col">
+              <div class="app__content__section__body__card">
+                <div class="app__content__section__body__card__header">
+                  <fa icon="bolt" />
+                </div>
+                <div class="app__content__section__body__card__body d-flex align-items-center w-100">
+                  <p class="m-0">
+                    How-to <a href="https://github.com/ICIJ/datashare/wiki/Datashare-API" target="_blank">query the API</a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="app__content__section__body__card">
+                <div class="app__content__section__body__card__header">
+                  <fa icon="plug" />
+                </div>
+                <div class="app__content__section__body__card__body d-flex align-items-center w-100">
+                  <p class="m-0">
+                    How-to <a href="https://github.com/ICIJ/datashare/wiki/Datashare-Plugins" target="_blank">create plugins</a>
+                  </p>
+                </div>
+              </div>
+
+              <div class="app__content__section__body__card">
+                <div class="app__content__section__body__card__header">
+                  <fa icon="server" />
+                </div>
+                <div class="app__content__section__body__card__body d-flex align-items-center w-100">
+                  <p class="m-0">
+                    How-to <a href="https://github.com/ICIJ/datashare/wiki/Datashare-Server-Mode" target="_blank">run in server Mode</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -209,21 +218,12 @@
   @import '../variables.scss';
 
   .app__content {
+    background: white;
     position: relative;
     min-height: 100vh;
-    width: 100% * (1 - $app-jumbotron-width-ratio);
-    margin-left: 100% * $app-jumbotron-width-ratio;
     padding: 0;
-    padding-top: $generic-header-height;
-    background: white;
-    box-shadow: 0 0 5vw 0 rgba(black, 0.2);
-
-    @include media-breakpoint-down($app-jumbotron-breakpoint) {
-      width: 100%;
-      margin-left: 0;
-      box-shadow: 0;
-      padding-top: 0;
-    }
+    width: 100%;
+    margin-left: 0;
 
     &__banner {
       text-align: center;
@@ -238,105 +238,117 @@
     }
 
     &__section {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       text-align: center;
-      min-height: 75vh;
-      padding: 7vh $spacer;
+      padding: 10vh $spacer;
+      margin: auto;
 
-      &--ui, &--entities, &--support, &--donors {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-        background: #eee;
+      & > .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         @include media-breakpoint-down(md) {
-          flex-direction: column;
-          min-height: 0;
+          display: block;
+          width: 100%;
         }
+      }
+
+      &--ui, &--entities, &--types {
+        & > .container {
+          max-width: 80%;
+
+          @include media-breakpoint-down(md) {
+            max-width: 100%;
+          }
+        }
+      }
+
+      &--ui, &--entities, &--support, &--donors {
+        background: #eee;
       }
 
       &--types, &--support {
         background: $content-special-bg;
         color: $content-special-color;
-
-        a { color: mix($content-special-color, $content-special-bg, 70) }
       }
 
-      &--ui &__wrapper, &--entities &__wrapper, &--support &__wrapper {
+      &--ui, &--entities {
+        & > .container {
+          flex-direction: row-reverse;
+        }
+      }
+
+      &__wrapper {
         background: inherit;
-        margin-left: $spacer * -3.5;
         padding: $spacer * 1.5;
         border-radius: $spacer * 0.8;
         position: relative;
-        max-width: 450px;
-        width: 100%;
+        width: 460px;
+        text-align: left;
+        margin: 0 1rem;
 
-        @include media-breakpoint-down($app-jumbotron-breakpoint) {
-          margin-left: 0;
+        @include media-breakpoint-down(md) {
           text-align: center;
+          margin: auto;
+          max-width: none;
+          width: 100%;
         }
-
-        .corner {
-          position: absolute;
-          left: $spacer / 2;
-          width: $spacer * 2;
-          height: $spacer * 2;
-          color: #eee;
-
-          @include media-breakpoint-down($app-jumbotron-breakpoint) {
-            display: none;
-          }
-
-          &--top-left {
-            bottom: 100%;
-          }
-
-          &--bottom-left {
-            top: 100%;
-          }
-        }
-      }
-
-      &--support &__wrapper .corner {
-        color: $content-special-bg;
       }
 
       &__heading {
-        max-width: 450px;
-        font-size: 1.85rem;
-        position: relative;
-      }
-
-      &__description {
+        font-weight: bold;
+        font-size: 1.3rem;
         margin: auto;
-        max-width: 450px;
       }
 
       &__body {
-        filter: drop-shadow(0 5px 10px rgba(black, .1));
         width: 100%;
-        max-width: 630px;
+        margin: 0 1rem;
+
+        @include media-breakpoint-down(md) {
+          margin: auto;
+          width: auto;
+        }
+
+        &--with-preview {
+          filter: drop-shadow(0 1rem 2rem rgba(black, .3));
+          overflow: hidden;
+          border-radius: 1rem;
+          transition: 300ms;
+          min-height: 65vh;
+          max-width: 880px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          img {
+            border-radius: 1rem;
+          }
+
+          @include media-breakpoint-down(md) {
+            min-height: 0;
+            margin: auto;
+          }
+        }
 
         &__card {
           margin-bottom: $spacer;
           margin-right: $spacer;
           display: flex;
           flex: 1;
+          background: $primary;
+          color: white;
+          border-radius: $border-radius-lg;
+          overflow: hidden;
+          @include gradient-directional($primary, darken($primary, 5%));
 
           &__header {
-            background: rgba(black, .2);
+            background: darken($primary, 10%);
             padding: $spacer;
             text-align: center;
 
             .svg-inline--fa {
-              font-size: 2rem;
-
-              @include media-breakpoint-down(md) {
-                font-size: 1.5rem;
-              }
+              font-size: 1.5rem;
             }
           }
 
@@ -344,6 +356,10 @@
             background: rgba(white, .1);
             padding: $spacer;
             width: 50%;
+
+            a {
+              color: mix(white, $primary, 70)
+            }
           }
         }
       }

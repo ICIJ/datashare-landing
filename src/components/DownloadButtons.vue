@@ -43,7 +43,7 @@
       </a><br />
       Datashare is an <a href="https://github.com/icij/?q=datashare" target="_blank">open-source</a> project.
     </p>
-    <download-requirements class="text-left bg-light p-3" />
+    <download-requirements class="text-left bg-light p-3" v-if="!noRequirements" />
     <b-modal title="Other platforms and versions" hide-footer lazy ref="downloadListModal" size="md" body-class="p-0" header-class="border-0 card-header">
       <download-variants />
     </b-modal>
@@ -75,6 +75,11 @@
       DownloadRequirements,
       DownloadVariants,
       Fa,
+    },
+    props: {
+      noRequirements: {
+        type: Boolean
+      }
     },
     data () {
       return {

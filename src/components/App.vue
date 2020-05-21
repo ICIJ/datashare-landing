@@ -32,30 +32,14 @@ export default {
       z-index: 500;
       color: white;
       background: transparent;
+      padding-bottom: $spacer * 1.5;
 
 
       @include media-breakpoint-down(md) {
         background: $primary;
-        padding-bottom: $spacer * 1.5;
 
         &--collapsed {
           background: transparent;
-        }
-      }
-
-      &:after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        left: 100% * $app-jumbotron-width-ratio;
-        top: 0;
-        background: white;
-        border-bottom: 1px solid #efefef;
-        z-index: -1;
-
-        @include media-breakpoint-down($app-jumbotron-breakpoint) {
-          content: none;
         }
       }
 

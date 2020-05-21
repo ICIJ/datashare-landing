@@ -25,21 +25,14 @@
   @import '../variables.scss';
 
   .app__jumbotron {
-    width: 100% * $app-jumbotron-width-ratio;
-    float: left;
-    position: sticky;
+    width: 100%;
+    position: static;
     left: 0;
     top: 0;
 
-    @include media-breakpoint-down($app-jumbotron-breakpoint) {
-      width: 100%;
-      float: none;
-      position: static;
-    }
-
     &__container {
       @include gradient-directional($primary, $saddle-red);
-      min-height: 100vh;
+      min-height: 95vh;
       padding: $spacer;
       position: relative;
       text-align: center;
@@ -48,11 +41,6 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-
-      @include media-breakpoint-down($app-jumbotron-breakpoint) {
-        min-height: 95vh;
-      }
-
 
       &__brand {
         position: absolute;
@@ -80,7 +68,7 @@
         &__brand {
           height: 1em;
           position: absolute;
-          right: 100%;          
+          right: 100%;
         }
 
         &__beta {
