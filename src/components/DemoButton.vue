@@ -38,7 +38,7 @@
   @import '../variables.scss';
 
   .demo-button {
-    padding: $spacer;
+    padding: $spacer 0;
 
     &__lead {
       font-weight: bold;

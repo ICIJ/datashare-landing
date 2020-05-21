@@ -148,8 +148,6 @@
   @import '../variables';
 
   .download-buttons {
-    max-width: 440px;
-    padding: $spacer;
 
     &__button.btn {
       color: $dark;

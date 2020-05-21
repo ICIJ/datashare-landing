@@ -46,7 +46,7 @@
 
       <section class="app__content__section app__content__section--ui">
         <div class="container">
-          <div class="app__content__section__wrapper">
+          <div class="app__content__section__wrapper px-4">
             <h4 class="app__content__section__heading">
               Access all your documents in one place on your computer
             </h4>
@@ -62,7 +62,7 @@
 
       <section class="app__content__section app__content__section--types">
         <div class="container">
-          <div class="app__content__section__wrapper">
+          <div class="app__content__section__wrapper px-4">
             <h4 class="app__content__section__heading">
               Search pdfs, images, texts, spreadsheets, slides and any of your files, simultaneously
             </h4>
@@ -78,7 +78,7 @@
 
       <section class="app__content__section app__content__section--entities">
         <div class="container">
-          <div class="app__content__section__wrapper">
+          <div class="app__content__section__wrapper px-4">
             <h4 class="app__content__section__heading">
               Automatically detect and filter by people, organizations and locations
             </h4>
@@ -151,7 +151,7 @@
         <div class="container">
           <div class="row d-flex flex-row justify-content-center align-items-center">
             <div class="app__content__section__wrapper col-md-6">
-              <download-buttons class="app__content__section__download m-auto" no-requirements></download-buttons>
+              <download-buttons class="app__content__section__download m-auto px-0" no-requirements></download-buttons>
             </div>
             <div class="app__content__section__body d-flex flex-column justify-content-center align-items-stretch col">
               <div class="app__content__section__body__card">
@@ -279,12 +279,10 @@
 
       &__wrapper {
         background: inherit;
-        padding: $spacer * 1.5;
         border-radius: $spacer * 0.8;
         position: relative;
         width: 460px;
         text-align: left;
-        margin: 0 1rem;
 
         @include media-breakpoint-down(md) {
           text-align: center;
@@ -340,6 +338,10 @@
           border-radius: $border-radius-lg;
           overflow: hidden;
           @include gradient-directional($primary, darken($primary, 5%));
+
+          @include media-breakpoint-down(md) {
+            margin-right: 0;
+          }
 
           &__header {
             background: darken($primary, 10%);
