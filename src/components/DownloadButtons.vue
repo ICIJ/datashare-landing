@@ -158,6 +158,11 @@
       text-shadow: none;
       position: relative;
       z-index: 20;
+
+      &:focus, &:active {
+        outline: none;
+        box-shadow: none;
+      }
     }
 
     &__button--disabled.btn {
