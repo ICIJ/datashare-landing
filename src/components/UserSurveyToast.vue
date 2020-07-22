@@ -78,11 +78,18 @@
   @import '../variables.scss';
 
   .user-survey-toast {
+    z-index: $zindex-tooltip;
     bottom: $spacer;
     right: $spacer;
     max-width: 440px;
     width: 100%;
     filter: drop-shadow(0 5px 10px rgba(#000, 0.1));
+
+
+    @include media-breakpoint-down(xs) {
+      max-width: calc(100% - #{$spacer * 2});
+      filter: drop-shadow(0 5px 10px rgba(#000, 0.2));
+    }
 
     &--reduced {
       bottom: -2px;
