@@ -160,7 +160,7 @@
                 </div>
                 <div class="app__content__section__body__card__body d-flex align-items-center w-100">
                   <p class="m-0">
-                    How-to <a href="https://github.com/ICIJ/datashare/wiki/Datashare-API" target="_blank">query the API</a>
+                    How-to <a href="https://github.com/ICIJ/datashare/wiki/Backend-%E2%80%BA-API" target="_blank">query the API</a>
                   </p>
                 </div>
               </div>
@@ -171,7 +171,7 @@
                 </div>
                 <div class="app__content__section__body__card__body d-flex align-items-center w-100">
                   <p class="m-0">
-                    How-to <a href="https://github.com/ICIJ/datashare/wiki/Datashare-Plugins" target="_blank">create plugins</a>
+                    How-to <a href="https://github.com/ICIJ/datashare/wiki/Client-%E2%80%BA-Introduction-to-Plugins" target="_blank">create plugins</a>
                   </p>
                 </div>
               </div>

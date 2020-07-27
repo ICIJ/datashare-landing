@@ -12,7 +12,7 @@
           <button class="btn btn-outline-light text-dark rounded mr-2" @click="toggle">
             Not now
           </button>
-          <a class="btn btn-primary rounded font-weight-bold" href="" target="_blank">
+          <a class="btn btn-primary rounded font-weight-bold" href="https://icij.typeform.com/to/eAPaBgPj" target="_blank">
             <fa icon="comment-dots" class="mr-1" />
             Answer the survey
           </a>
