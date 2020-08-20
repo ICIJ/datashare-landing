@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "deploy": "node deploy.js",
+    "preDeploy": "yarn build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
