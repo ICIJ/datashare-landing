@@ -1029,10 +1029,10 @@
   dependencies:
     "@hapi/hoek" "^8.3.0"
 
-"@icij/murmur@2.13.3":
-  version "2.13.3"
-  resolved "https://registry.yarnpkg.com/@icij/murmur/-/murmur-2.13.3.tgz#53e152100f8e4479b546098d21f0c697e8f11f7a"
-  integrity sha512-54zPR0NTc7ZmzsQAB4kmjC93tfRxdwPwrbsEK/lh4HzN0UFTGgFyRegJl1SR0MjZLK7MRoPHAq0ymJzh1cQdrw==
+"@icij/murmur@2.13.4":
+  version "2.13.4"
+  resolved "https://registry.yarnpkg.com/@icij/murmur/-/murmur-2.13.4.tgz#eae0626a4ff2f1c7085a6688d5e9462423fd9e72"
+  integrity sha512-NWLfz+SX/uZgZEtRHGWVQpIKMXA4gOWplT5wQpPxQGbvUSX7jvo5IfBkqURcsqGAOiFU/1Gjzn5juXU7kdQbmg==
   dependencies:
     "@fortawesome/fontawesome" "^1.1.4"
     "@fortawesome/fontawesome-svg-core" "^1.2.30"
