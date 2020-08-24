@@ -171,7 +171,7 @@
                 </div>
                 <div class="app__content__section__body__card__body d-flex align-items-center w-100">
                   <p class="m-0">
-                    How-to <a href="https://github.com/ICIJ/datashare/wiki/Client-%E2%80%BA-Introduction-to-Plugins" target="_blank">create plugins</a>
+                    How-to <a href="https://github.com/ICIJ/datashare/wiki/Client-%E2%80%BA-Plugins" target="_blank">create plugins</a>
                   </p>
                 </div>
               </div>
