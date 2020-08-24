@@ -12,7 +12,7 @@
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
-    "@icij/murmur": "2.13.3",
+    "@icij/murmur": "2.13.4",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.14.0",
