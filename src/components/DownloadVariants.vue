@@ -5,7 +5,7 @@
         <template slot="title">
           <fa :icon="['fab', 'apple']" /> Mac
         </template>
-        <download-list ext="Datashare.pkg" docker-ext="DatashareStandalone.pkg" v-model="useDocker" />
+        <download-list ext="DatashareStandalone.pkg" docker-ext="Datashare.pkg" v-model="useDocker" />
       </b-tab>
       <b-tab no-body :active="is('windows')">
         <template slot="title">
