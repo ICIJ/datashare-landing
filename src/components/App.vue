@@ -6,21 +6,18 @@
       <app-content></app-content>
     </div>
     <generic-footer></generic-footer>
-    <user-survey-toast />
   </div>
 </template>
 
 <script>
 import AppJumbotron from './AppJumbotron'
 import AppContent from './AppContent'
-import UserSurveyToast from './UserSurveyToast'
 
 export default {
   name: 'app',
   components: {
     AppContent,
-    AppJumbotron,
-    UserSurveyToast
+    AppJumbotron
   }
 }
 </script>
