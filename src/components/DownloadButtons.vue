@@ -2,37 +2,39 @@
   <div class="download-buttons text-center">
     <div class="row mb-2 no-gutters">
       <div class="col mb-2 position-relative">
-        <div v-if="asset">
-          <a class="btn btn-block btn-lg btn-primary text-light download-buttons__button" :href="asset" @click="showGuide = !showGuide">
-            <fa :icon="['fab', icon]" class="mr-2"></fa>
-            <span class="sr-only">{{ os }}</span>
-            Download for free
-          </a>
-          <transition name="circle-in">
-            <div class="download-buttons__guide" v-if="showGuide">
-              <button @click="showGuide = false" class="download-buttons__guide__close btn btn-sm text-light rounded-circle">
-                <fa icon="times" />
-                <span class="sr-only">Close</span>
-              </button>
-              <p class="font-weight-bold">
-                Thanks for downloading Datashare
-              </p>
-              <p>
-                <a :href="guide || 'https://icij.gitbook.io/datashare/'" target="_blank">
-                  <fa icon="book" class="mr-2" />
-                  <u>Read the installation guide</u>
-                </a>
-              </p>
+        <div v-if="buttons.length">
+          <div v-for="({ label, guide, asset, icon, wrapperClass, btnSize }, i) in buttons" :key="i" class="mt-3 position-relative" :class="wrapperClass">
+            <b-button block variant="primary" :size="btnSize || osSize" class="text-light download-buttons__button" :href="asset || osAsset" @click="showGuide = i">
+              <fa :icon="['fab', icon || osIcon]" class="mr-2"></fa>
+              <span class="sr-only">{{ os }}</span>
+              {{ label }}
+            </b-button>
+            <div class="download-buttons__help" v-if="guide !== false">
+              Need help? <a :href="guide || osGuide || 'https://icij.gitbook.io/datashare/'" target="_blank">Read our user guide</a>
             </div>
-          </transition>
+            <transition name="circle-in">
+              <div class="download-buttons__guide" v-if="guide !== false && showGuide === i">
+                <button @click="showGuide = -1" class="download-buttons__guide__close btn btn-sm text-light rounded-circle">
+                  <fa icon="xmark" />
+                  <span class="sr-only">Close</span>
+                </button>
+                <p class="font-weight-bold">
+                  Thanks for downloading Datashare
+                </p>
+                <p>
+                  <a :href="guide || osGuide || 'https://icij.gitbook.io/datashare/'" target="_blank">
+                    <fa icon="book" class="mr-2" />
+                    <u>Read the installation guide</u>
+                  </a>
+                </p>
+              </div>
+            </transition>
+          </div>
         </div>
         <div v-else>
           <span class="btn btn-block btn-lg btn-outline-dark text-muted download-buttons__button download-buttons__button--disabled">
             Available only on desktop
           </span>
-        </div>
-        <div class="download-buttons__help">
-          Need help? <a href="https://icij.gitbook.io/datashare/" target="_blank">Read our user guide</a>
         </div>
       </div>
     </div>
@@ -51,12 +53,12 @@
 </template>
 
 <script>
-  import { BModal } from 'bootstrap-vue'
+  import { BModal, BButton } from 'bootstrap-vue'
   import { find, endsWith, get } from 'lodash'
-  import { faBook } from '@fortawesome/free-solid-svg-icons/faBook'
+  import { faBook, faXmark } from '@fortawesome/free-solid-svg-icons'
   import { faWindows } from '@fortawesome/free-brands-svg-icons/faWindows'
   import { faApple } from '@fortawesome/free-brands-svg-icons/faApple'
-  import { faLinux } from '@fortawesome/free-brands-svg-icons/faLinux'
+  import { faDocker } from '@fortawesome/free-brands-svg-icons/faDocker'
   import { faUbuntu } from '@fortawesome/free-brands-svg-icons/faUbuntu'
   import { library } from '@icij/murmur/lib/components/Fa'
   import { Fa } from '@icij/murmur'
@@ -66,11 +68,12 @@
   import DownloadRequirements from './DownloadRequirements.vue'
   import DownloadVariants from './DownloadVariants.vue'
 
-  library.add(faApple, faBook, faWindows, faLinux, faUbuntu)
+  library.add(faApple, faBook, faWindows, faDocker, faUbuntu, faXmark)
 
   export default {
     name: 'DownloadButtons',
     components: {
+      BButton,
       BModal,
       DownloadRequirements,
       DownloadVariants,
@@ -87,7 +90,7 @@
         version: null,
         year: null,
         assets: [],
-        showGuide: false
+        showGuide: -1
       }
     },
     async mounted () {
@@ -100,22 +103,29 @@
       osAssets () {
         return {
           macos: {
-            url: this.assetForMacOs,
+            asset: this.assetForMacOs,
             icon: 'apple',
-            guide: 'https://icij.gitbook.io/datashare/mac/install-datashare-on-mac#standalone-less-recent-than-os-x-el-capitan-10-11'
+            guide: 'https://icij.gitbook.io/datashare/mac/install-datashare-on-mac#standalone-less-recent-than-os-x-el-capitan-10-11',
+            buttons: [
+              { label: 'Download for Mac', }
+            ]
           },
           windows: {
-            url: this.assetForWindows,
+            asset: this.assetForWindows,
             icon: 'windows',
-            guide: 'https://icij.gitbook.io/datashare/windows/install-datashare-on-windows#standalone-windows-7-service-pack-2-or-newer-version'
-          },
-          ubuntu: {
-            url: this.assetForUbuntu,
-            icon: 'ubuntu'
+            guide: 'https://icij.gitbook.io/datashare/windows/install-datashare-on-windows#standalone-windows-7-service-pack-2-or-newer-version',
+            buttons: [
+              { label: 'Download for Windows', }
+            ]
           },
           linux: {
-            url: this.assetForLinux,
-            icon: 'linux'
+            asset: this.assetForLinux,
+            icon: 'linux',
+            guide: 'https://icij.gitbook.io/datashare/linux/install-datashare-on-linux',
+            buttons: [
+              { label: 'Download .deb', asset: this.assetForUbuntu, icon: 'ubuntu' },
+              { label: 'Download .sh', asset: this.assetForLinux, icon: 'docker', btnSize: 'xs', wrapperClass: 'small', guide: false }
+            ]
           }
         }
       },
@@ -131,14 +141,20 @@
       assetForUbuntu () {
         return get(find(this.assets, a => endsWith(a.name, '.deb') ), 'browser_download_url', null)
       },
-      asset () {
-        return get(this.osAssets, [this.os, 'url'], null)
+      osAsset () {
+        return get(this.osAssets, [this.os, 'asset'], null)
       },
-      icon () {
+      osIcon () {
         return get(this.osAssets, [this.os, 'icon'], null)
       },
-      guide () {
+      osSize () {
+        return get(this.osAssets, [this.os, 'size'], 'lg')
+      },
+      osGuide () {
         return get(this.osAssets, [this.os, 'guide'], null)
+      },
+      buttons () {
+        return get(this.osAssets, [this.os, 'buttons'], [])
       }
     }
   }
@@ -151,13 +167,17 @@
 
     &__button.btn {
       color: $dark;
-      padding: $spacer * 1.4 $spacer;
-      border-radius: $border-radius-lg;
-      text-transform: uppercase;
       font-weight: bolder;
       text-shadow: none;
       position: relative;
       z-index: 20;
+      border-radius: $border-radius;
+      padding: $spacer;
+
+      &.btn-lg {
+        border-radius: $border-radius-lg;
+        padding: $spacer * 1.4 $spacer;
+      }
 
       &:focus, &:active {
         outline: none;
@@ -170,6 +190,10 @@
       background: white;
     }
 
+    &__button.btn.btn-lg + &__guide {
+      border-radius: $border-radius-lg;
+    }
+
     &__guide {
       position: absolute;
       top: 0;
@@ -178,7 +202,7 @@
       left: 0;
       z-index: 100;
       padding: $spacer * 1.4 $spacer;
-      border-radius: $border-radius-lg;
+      border-radius: $border-radius;
       color: white;
       @include gradient-directional($secondary, mix($primary, $secondary));
 

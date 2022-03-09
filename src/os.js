@@ -1,6 +1,7 @@
 function family() {
-  const userAgent = window.navigator.userAgent
-  const platform = window.navigator.platform
+  const { navigator } = window
+  const userAgent = navigator.userAgent
+  const platform = navigator?.userAgentData?.platform || navigator.platform
   const macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K']
   const windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE']
   const iosPlatforms = ['iPhone', 'iPad', 'iPod']
@@ -12,11 +13,9 @@ function family() {
       return 'ios'
     case windowsPlatforms.indexOf(platform) !== -1:
       return 'windows'
-    case /Android/.test(userAgent):
+    case /Android/i.test(userAgent):
       return 'android'
-    case /(Ubuntu)|(Debian)/.test(userAgent):
-      return 'ubuntu'
-    case /Linux/.test(platform):
+    case /Linux/i.test(platform):
       return 'linux'
     default:
       return null
