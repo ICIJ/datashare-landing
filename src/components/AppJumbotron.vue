@@ -8,7 +8,6 @@
       <h1 class="app__jumbotron__container__heading text-special mb-0">
         <img src="../assets/images/logo-color-square.svg" class="app__jumbotron__container__heading__brand" />
         Datashare
-        <span class="app__jumbotron__container__heading__beta">beta</span>
       </h1>
       <p class="lead text-special font-weight-light">Better analyze information, in all its forms</p>
     </div>
@@ -69,17 +68,6 @@
           height: 1em;
           position: absolute;
           right: 100%;
-        }
-
-        &__beta {
-          font-size: .3em;
-          position: absolute;
-          left: 100%;
-          top: 0;
-          background: $saddle-red;
-          padding: .05em .2em;
-          display: block;
-          height: auto;
         }
       }
     }
