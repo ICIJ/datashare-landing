@@ -1,7 +1,7 @@
 <script>
   import { faBolt  } from '@fortawesome/free-solid-svg-icons/faBolt'
   import { faBook } from '@fortawesome/free-solid-svg-icons/faBook'
-  import { faMailBulk  } from '@fortawesome/free-solid-svg-icons/faMailBulk'
+  import { faEnvelope  } from '@fortawesome/free-solid-svg-icons/faEnvelope'
   import { faGithub  } from '@fortawesome/free-brands-svg-icons/faGithub'
   import { faPlug  } from '@fortawesome/free-solid-svg-icons/faPlug'
   import { faServer  } from '@fortawesome/free-solid-svg-icons/faServer'
@@ -9,7 +9,7 @@
   import { library } from '@icij/murmur/lib/components/Fa'
   import { Fa } from '@icij/murmur'
 
-  library.add(faBolt, faBook, faMailBulk, faPlug, faServer, faGithub)
+  library.add(faBolt, faBook, faEnvelope, faPlug, faServer, faGithub)
 
   import DemoButton from './DemoButton'
   import DownloadButtons from './DownloadButtons'
@@ -118,7 +118,7 @@
             </div>
             <div class="app__content__section__body__card mw-100">
               <div class="app__content__section__body__card__header">
-                <fa icon="mail-bulk" />
+                <fa icon="envelope" />
               </div>
               <div class="app__content__section__body__card__body w-100">
                 <p>
