@@ -70,6 +70,8 @@
 
   library.add(faApple, faBook, faWindows, faDocker, faUbuntu, faXmark)
 
+  console.log(os)
+
   export default {
     name: 'DownloadButtons',
     components: {
