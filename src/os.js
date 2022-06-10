@@ -12,11 +12,11 @@ function family() {
     return 'android'
   } else if (os.startsWith('Windows')) {
     return 'windows'
-  } else if (os.startsWith('Linux')) {
+  } else if (/Ubuntu|Debian|Raspbian|.*/.test(os)) {
     return 'linux'
   } else {
     return null
-  }    
+  }
 }
 
 export default family()
