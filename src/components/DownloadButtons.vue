@@ -70,8 +70,6 @@
 
   library.add(faApple, faBook, faWindows, faDocker, faUbuntu, faXmark)
 
-  console.log(os)
-
   export default {
     name: 'DownloadButtons',
     components: {
@@ -134,8 +132,8 @@
             icon: 'linux',
             guide: 'https://icij.gitbook.io/datashare/linux/install-datashare-on-linux',
             buttons: [
-              { label: 'Download .tgz', asset: this.assetForLinux, icon: 'linux' },
-              { label: 'Download .sh', asset: this.assetForDocker, icon: 'docker', btnSize: 'xs', wrapperClass: 'small', guide: false }
+              { label: 'Download .deb', asset: this.assetForDebian, icon: 'ubuntu' },
+              { label: 'Download .tgz', asset: this.assetForLinux, icon: 'linux', btnSize: 'xs', wrapperClass: 'small', guide: false }
             ]
           }
         }
