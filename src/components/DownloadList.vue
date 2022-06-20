@@ -2,23 +2,24 @@
   <div class="download-list d-flex flex-column">
     <ul class="download-list__group list-group list-group-flush text-left flex-grow-1">
       <li class="download-list__group__item list-group-item" v-for="(release, i) in releases" :key="i">
-        <div v-if="!!asset(release)">
-          <a :href="asset(release).browser_download_url" class="font-weight-bold">
-            <fa :icon="icon" class="mr-2" fixed-width /> {{ release.name }}
-          </a>
-          <span class="text-muted float-right">
-            {{ publishedAt(release) }}
-          </span>
-        </div>
+        <a :href="asset(release).browser_download_url" class="font-weight-bold">
+          <fa :icon="icon" class="mr-2" fixed-width /> {{ release.name }}
+        </a>
+        <span class="float-right small">
+          <span class="text-muted">{{ asset(release).size | size }} -</span> {{ publishedAt(release) }}
+        </span>
       </li>
-      <li class="download-list__group__item list-group-item">
-        <a class="btn btn-lg btn-block btn-link" href="https://github.com/ICIJ/datashare-installer/releases" target="_blank">
+      <li class=" download-list__group__item list-group-item">
+        <a class="btn btn-lg btn-block btn-link" href="https://github.com/ICIJ/datashare-installer/releases"
+          target="_blank">
           Explore all versions
         </a>
       </li>
     </ul>
     <div class="download-list__use-docker border-top">
-      <b-form-checkbox :checked="useDocker" switch @input="$emit('input', $event)" v-b-popover.hover.top="{ customClass: 'popover-magnified',  content: 'This will install Datashare and its dependencies using multiple Docker containers. It\'s the legacy installer and we advise not to use this version in most cases.' }" title="Docker Installer">
+      <b-form-checkbox :checked="useDocker" switch @input="$emit('input', $event)"
+        v-b-popover.hover.top="{ customClass: 'popover-magnified',  content: 'This will install Datashare and its dependencies using multiple Docker containers. It\'s the legacy installer and we advise not to use this version in most cases.' }"
+        title="Docker Installer">
         Use Docker installer
       </b-form-checkbox>
     </div>
@@ -52,6 +53,12 @@
       },
       useDocker: {
         type: Boolean
+      }
+    },
+    filters: {
+      size (size) {
+        var i = Math.floor(Math.log(size) / Math.log(1024))
+        return (size / Math.pow(1024, i)).toFixed(2) * 1 + ' ' + ['B', 'kB', 'MB', 'GB', 'TB'][i]
       }
     },
     data () {
