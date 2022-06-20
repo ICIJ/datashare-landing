@@ -2,10 +2,10 @@ import UAParser from 'ua-parser-js'
 
 export function family() {
   const { name: os } = new UAParser().getOS()
-  return family_internal(os);
+  return osStringToFamily(os);
 }
 
-export function family_internal(osString) {
+export function osStringToFamily(osString) {
   if (osString.startsWith('Mac')) {
     return 'macos'
   } else if (osString.startsWith('iOS')) {
