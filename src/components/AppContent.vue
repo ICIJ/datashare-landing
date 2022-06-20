@@ -350,8 +350,7 @@
       }
 
       &__donors {
-
-        max-width: 660px * 3 / 4;
+        max-width: 660px * 3 * 0.24;
 
         &__link {
           filter: grayscale(100%);
