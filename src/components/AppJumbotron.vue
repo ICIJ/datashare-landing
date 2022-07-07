@@ -2,8 +2,8 @@
   <div class="app__jumbotron clearfix">
     <div class="app__jumbotron__container">
       <a href="https://www.icij.org" class="app__jumbotron__container__brand">
-        <brand class="mr-3" background="white" color="black" :size="50" no-border />
-        <span class="d-none d-sm-inline">International Consortium of Investigative Journalists</span>
+        <brand-expansion class="mr-3" color="#fff" :size="50" mode="long" />
+        <span class="sr-only">International Consortium of Investigative Journalists</span>
       </a>
       <h1 class="app__jumbotron__container__heading text-special mb-0">
         <img src="../assets/images/logo-color-square.svg" class="app__jumbotron__container__heading__brand" />
