@@ -64,11 +64,14 @@
   import { Fa } from '@icij/murmur'
 
   import os from '../os'
-  import { latest } from '../releases'
+  import { releases } from '../releases'
   import DownloadRequirements from './DownloadRequirements.vue'
   import DownloadVariants from './DownloadVariants.vue'
 
   library.add(faApple, faBook, faWindows, faDocker, faUbuntu, faXmark)
+
+
+  const STABLE_VERSION_RE = /^\d+\.\d+\.\d+$/
 
   export default {
     name: 'DownloadButtons',
@@ -94,10 +97,11 @@
       }
     },
     async mounted () {
-      const data = await latest()
-      this.version = data.tag_name
-      this.assets = data.assets
-      this.year = new Date(data.created_at).getFullYear()
+      const data = await releases()
+      const latest = data.filter(release => STABLE_VERSION_RE.test(release.name)).shift()
+      this.version = latest.tag_name
+      this.assets = latest.assets
+      this.year = new Date(latest.created_at).getFullYear()
     },
     computed: {
       osAssets () {
