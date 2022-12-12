@@ -343,7 +343,7 @@
             width: 50%;
 
             a {
-              color: mix(white, $primary, 70)
+              color: mix(white, $primary, 70%)
             }
           }
         }
