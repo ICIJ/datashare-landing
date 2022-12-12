@@ -1,9 +1,9 @@
 <template>
   <div class="download-list d-flex flex-column">
     <ul class="download-list__group list-group list-group-flush text-left flex-grow-1">
-      <li class="download-list__group__item list-group-item" v-for="(release, i) in releases" :key="i">
+      <li class="download-list__group__item list-group-item" v-for="(release, i) in filteredReleases" :key="i">
         <a :href="asset(release).browser_download_url" class="font-weight-bold">
-          <fa :icon="icon" class="mr-2" fixed-width /> {{ release.name }}
+          <fa icon="download" class="mr-2" fixed-width /> {{ release.name }}
         </a>
         <span class="float-right small">
           <span class="text-muted">{{ asset(release).size | size }} -</span> {{ publishedAt(release) }}
@@ -17,10 +17,10 @@
       </li>
     </ul>
     <div class="download-list__use-docker border-top">
-      <b-form-checkbox :checked="useDocker" switch @input="$emit('input', $event)"
-        v-b-popover.hover.top="{ customClass: 'popover-magnified',  content: 'This will install Datashare and its dependencies using multiple Docker containers. It\'s the legacy installer and we advise not to use this version in most cases.' }"
-        title="Docker Installer">
-        Use Docker installer
+      <b-form-checkbox :checked="showExperimentalVersions" switch @input="$emit('input', $event)"
+        v-b-popover.hover.top="{ customClass: 'popover-magnified',  content: 'Experimental versions (beta, alpha, RC) are unstable and might present bugs. Use them at your own risk.' }"
+        title="Experimental versions">
+        Show experimental versions
       </b-form-checkbox>
     </div>
   </div>
@@ -31,27 +31,27 @@
   import filter from 'lodash/filter'
   import find from 'lodash/find'
   import orderBy from 'lodash/orderBy'
-
-  import { faDocker } from '@fortawesome/free-brands-svg-icons/faDocker'
+  
   import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload'
-  import { Fa } from '@icij/murmur'
+  import { default as Fa, library } from '@icij/murmur/lib/components/Fa'
   import { BFormCheckbox, VBPopover } from 'bootstrap-vue'
 
   import { releases } from '../releases'
 
+  library.add(faDownload)
+
+  const STABLE_VERSION_RE = /^\d+\.\d+\.\d+$/
+
   export default {
     name: 'DownloadList',
     model: {
-      prop: 'useDocker'
+      prop: 'showExperimentalVersions'
     },
     props: {
       ext: {
         type: String
       },
-      dockerExt: {
-        type: String
-      },
-      useDocker: {
+      showExperimentalVersions: {
         type: Boolean
       }
     },
@@ -75,14 +75,11 @@
     },
     async mounted () {
       this.releases = await releases()
-      this.releases = filter(this.releases, release => !!this.asset(release))
       this.releases = orderBy(this.releases, release => new Date(release.published_at), 'desc')
     },
     methods: {
       asset (release) {
-        return find(release.assets, ({ name }) => {
-          return endsWith(name, this.useDocker ? this.dockerExt : this.ext)
-        })
+        return find(release.assets, ({ name }) => endsWith(name, this.ext))
       },
       publishedAt (release, options = { year: "numeric", month: "short", day: "numeric" }) {
         const date = new Date(release.published_at)
@@ -90,8 +87,10 @@
       }
     },
     computed: {
-      icon () {
-        return this.useDocker ? faDocker : faDownload
+      filteredReleases () {
+        return filter(this.releases, release => {
+          return !!this.asset(release) && (this.showExperimentalVersions || STABLE_VERSION_RE.test(release.name))
+        })
       }
     }
   }

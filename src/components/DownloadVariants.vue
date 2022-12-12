@@ -5,19 +5,19 @@
         <template slot="title">
           <fa :icon="['fab', 'apple']" /> Mac
         </template>
-        <download-list ext="DatashareStandalone.pkg" docker-ext="Datashare.pkg" v-model="useDocker" />
+        <download-list ext="DatashareStandalone.pkg" v-model="showExperimentalVersions" />
       </b-tab>
       <b-tab no-body :active="is('windows')">
         <template slot="title">
           <fa :icon="['fab', 'windows']" /> Windows
         </template>
-        <download-list ext="installDatashareStandalone.exe"  docker-ext="installDatashare.exe" v-model="useDocker" />
+        <download-list ext="installDatashareStandalone.exe" v-model="showExperimentalVersions" />
       </b-tab>
       <b-tab no-body :active="is('ubuntu')">
         <template slot="title">
           <fa :icon="['fab', 'ubuntu']" /> Ubuntu
         </template>
-        <download-list ext=".deb" docker-ext=".sh" v-model="useDocker" />
+        <download-list ext=".deb" v-model="showExperimentalVersions" />
       </b-tab>
     </b-tabs>
   </div>
@@ -49,7 +49,7 @@
     },
     data () {
       return {
-        useDocker: false
+        showExperimentalVersions: false
       }
     },
     methods: {
