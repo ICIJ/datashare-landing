@@ -5,13 +5,13 @@
         <template slot="title">
           <fa :icon="['fab', 'apple']" /> Mac
         </template>
-        <download-list ext="DatashareStandalone.pkg" v-model="showExperimentalVersions" />
+        <download-list :ext="['DatashareStandalone.pkg', '.pkg']" v-model="showExperimentalVersions" />
       </b-tab>
       <b-tab no-body :active="is('windows')">
         <template slot="title">
           <fa :icon="['fab', 'windows']" /> Windows
         </template>
-        <download-list ext="installDatashareStandalone.exe" v-model="showExperimentalVersions" />
+        <download-list :ext="['installDatashareStandalone.exe', '.exe']" v-model="showExperimentalVersions" />
       </b-tab>
       <b-tab no-body :active="is('ubuntu')">
         <template slot="title">

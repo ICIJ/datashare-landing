@@ -27,9 +27,11 @@
 </template>
 
 <script>
+  import castArray from 'lodash/castArray'
   import endsWith from 'lodash/endsWith'
   import filter from 'lodash/filter'
-  import find from 'lodash/find'
+  import findIndex from 'lodash/findIndex'
+  import some from 'lodash/some'
   import orderBy from 'lodash/orderBy'
   
   import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload'
@@ -49,7 +51,7 @@
     },
     props: {
       ext: {
-        type: String
+        type: [String, Array]
       },
       showExperimentalVersions: {
         type: Boolean
@@ -78,8 +80,24 @@
       this.releases = orderBy(this.releases, release => new Date(release.published_at), 'desc')
     },
     methods: {
+      assets (release) {
+        return filter(release.assets, ({ name }) => {
+          // The asset must end with at least one of the given extensions
+          return some(this.exts, ext => {
+            return endsWith(name, ext)
+          })
+        })
+      },
       asset (release) {
-        return find(release.assets, ({ name }) => endsWith(name, this.ext))
+        // Get all the available asset for this release and the component extensions
+        const assets = this.assets(release)
+        // Order them to be in same order than the extension list
+        const orderedAssets = orderBy(assets, ({ name }) => {
+          // The index of the asset in the extension list define its priority 
+          return findIndex(this.exts, ext => endsWith(name, ext))
+        })
+        // Then finally give the first asset
+        return orderedAssets[0]
       },
       publishedAt (release, options = { year: "numeric", month: "short", day: "numeric" }) {
         const date = new Date(release.published_at)
@@ -91,6 +109,9 @@
         return filter(this.releases, release => {
           return !!this.asset(release) && (this.showExperimentalVersions || STABLE_VERSION_RE.test(release.name))
         })
+      },
+      exts () {
+        return castArray(this.ext)
       }
     }
   }
