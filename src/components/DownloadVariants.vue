@@ -19,42 +19,58 @@
         </template>
         <download-list ext=".deb" v-model="showExperimentalVersions" />
       </b-tab>
+      <b-tab :active="is('docker')">
+        <template slot="title">
+          <fa :icon="['fab', 'docker']" /> Docker
+        </template>
+        <download-docker />
+      </b-tab>
     </b-tabs>
   </div>
 </template>
 
+
 <script>
-  import { faWindows } from '@fortawesome/free-brands-svg-icons/faWindows'
+  import { BTab, BTabs } from 'bootstrap-vue'
+  import { Fa } from '@icij/murmur'
   import { faApple } from '@fortawesome/free-brands-svg-icons/faApple'
+  import { faDocker } from '@fortawesome/free-brands-svg-icons/faDocker'
   import { faLinux } from '@fortawesome/free-brands-svg-icons/faLinux'
   import { faUbuntu } from '@fortawesome/free-brands-svg-icons/faUbuntu'
+  import { faWindows } from '@fortawesome/free-brands-svg-icons/faWindows'
   import { library } from '@icij/murmur/lib/components/Fa'
-  import { Fa } from '@icij/murmur'
 
-  import { BTabs } from 'bootstrap-vue'
-  import { BTab } from 'bootstrap-vue'
   import os from '../os'
+  import { latest as fetchLatestRelease } from '../releases'
 
+  import DownloadDocker from './DownloadDocker'
   import DownloadList from './DownloadList'
 
-  library.add(faApple, faWindows, faLinux, faUbuntu)
+  library.add(faApple, faWindows, faLinux, faUbuntu, faDocker)
 
   export default {
     name: 'DownloadVariants',
     components: {
       BTabs,
       BTab,
+      DownloadDocker,
       DownloadList,
       Fa
     },
     data () {
       return {
-        showExperimentalVersions: false
+        showExperimentalVersions: false,
+        version: null,
       }
+    },
+    async mounted () {
+      const latest =  await fetchLatestRelease()
+      this.version = latest.tag_name
     },
     methods: {
       is (name) {
-        return os === name
+        os
+        return 'docker' === name
       }
     }
   }
