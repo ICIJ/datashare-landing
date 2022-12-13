@@ -18,6 +18,7 @@
     </ul>
     <div class="download-list__use-docker border-top">
       <b-form-checkbox :checked="showExperimentalVersions" switch @input="$emit('input', $event)"
+        class="d-inline-block"
         v-b-popover.hover.top="{ customClass: 'popover-magnified',  content: 'Experimental versions (beta, alpha, RC) are unstable and might present bugs. Use them at your own risk.' }"
         title="Experimental versions">
         Show experimental versions
