@@ -123,7 +123,7 @@
             guide: 'https://icij.gitbook.io/datashare/linux/install-datashare-on-linux',
             buttons: [
               { label: 'Download .deb', asset: this.assetForDebian, icon: 'ubuntu' },
-              { label: 'Download .sh', asset: this.assetForDocker, icon: 'docker', btnSize: 'xs', wrapperClass: 'small', guide: false }
+              { label: 'Download .tgz', asset: this.assetForLinux, icon: 'linux', btnSize: 'xs', wrapperClass: 'small', guide: false }
             ]
           },
           linux: {
@@ -138,19 +138,16 @@
         }
       },
       assetForMacOs () {
-        return get(find(this.assets, a => endsWith(a.name, 'Standalone.pkg') ), 'browser_download_url', null)
+        return get(find(this.assets, a => endsWith(a.name, '.pkg') ), 'browser_download_url', null)
       },
       assetForWindows () {
-        return get(find(this.assets, a => endsWith(a.name, 'Standalone.exe') ), 'browser_download_url', null)
+        return get(find(this.assets, a => endsWith(a.name, '.exe') ), 'browser_download_url', null)
       },
       assetForDebian () {
         return get(find(this.assets, a => endsWith(a.name, '.deb') ), 'browser_download_url', null)
       },
       assetForLinux () {
         return get(find(this.assets, a => endsWith(a.name, '.tgz') ), 'browser_download_url', null)
-      },
-      assetForDocker () {
-        return get(find(this.assets, a => endsWith(a.name, '.sh') ), 'browser_download_url', null)
       },
       osAsset () {
         return get(this.osAssets, [this.os, 'asset'], null)
