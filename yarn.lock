@@ -1182,10 +1182,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@icij/murmur@3.2.5":
-  version "3.2.5"
-  resolved "https://registry.yarnpkg.com/@icij/murmur/-/murmur-3.2.5.tgz#d737a0e2dca30b3162f068af5487497eb45bf793"
-  integrity sha512-Ksq8b8FI3jHSQpKj1M3h5k+RPOhfdGrJMbNDIu5/cGmbrzrCbhzsTBpbHwebNsYPPqCVvXvF5ppUffxnbihvQw==
+"@icij/murmur@3.2.6":
+  version "3.2.6"
+  resolved "https://registry.yarnpkg.com/@icij/murmur/-/murmur-3.2.6.tgz#2419086b064cb37d6319630a521491d08a12c596"
+  integrity sha512-G+NqUz2OAwlk4ZQuugcaKwUKbengJwy6oVgTt5TRobv+wqbWUVCDhkzq5uAP9IsYZQ2cgqch7cenoR6t32wCfw==
   dependencies:
     "@fortawesome/fontawesome" "^1.1.4"
     "@fortawesome/fontawesome-svg-core" "^6.1.2"
@@ -7108,6 +7108,14 @@ raw-body@2.5.1:
     http-errors "2.0.0"
     iconv-lite "0.4.24"
     unpipe "1.0.0"
+
+raw-loader@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/raw-loader/-/raw-loader-4.0.2.tgz#1aac6b7d1ad1501e66efdac1522c73e59a584eb6"
+  integrity sha512-ZnScIV3ag9A4wPX/ZayxL/jZH+euYb6FcUinPcgiQW0+UBtEv0O6Q3lGd3cqJ+GHH+rksEv3Pj99oxJ3u3VIKA==
+  dependencies:
+    loader-utils "^2.0.0"
+    schema-utils "^3.0.0"
 
 react-is@^17.0.1:
   version "17.0.2"
