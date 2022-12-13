@@ -26,7 +26,7 @@
         <haptic-copy class="btn btn-primary" :text="dockerComposeYml" />
       </div>
       <b-collapse id="docker-compose-yml" v-model="dockerComposeYmlVisible">
-        <pre class="bg-dark text-light p-3"><code>{{ dockerComposeYml }}</code></pre>
+        <pre class="bg-dark text-light p-3 mb-0"><code>{{ dockerComposeYml }}</code></pre>
       </b-collapse>
     </div>
   </div>
