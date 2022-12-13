@@ -69,8 +69,7 @@
     },
     methods: {
       is (name) {
-        os
-        return 'docker' === name
+        return os === name
       }
     }
   }
