@@ -38,11 +38,9 @@
   import { default as Fa, library } from '@icij/murmur/lib/components/Fa'
   import { BFormCheckbox, VBPopover } from 'bootstrap-vue'
 
-  import { releases } from '../releases'
+  import { releases, STABLE_VERSION_RE } from '../releases'
 
   library.add(faDownload)
-
-  const STABLE_VERSION_RE = /^\d+\.\d+\.\d+$/
 
   export default {
     name: 'DownloadList',
