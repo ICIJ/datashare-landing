@@ -18,8 +18,14 @@
           <fa :icon="['fab', 'ubuntu']" /> Ubuntu
         </template>
         <download-list ext=".deb" v-model="showExperimentalVersions" />
+      </b-tab>      
+      <b-tab no-body>
+        <template slot="title">
+          <fa :icon="['fa', 'crow']" /> Snap
+        </template>
+        <download-snap v-model="showExperimentalVersions" />
       </b-tab>
-      <b-tab :active="is('docker')">
+      <b-tab>
         <template slot="title">
           <fa :icon="['fab', 'docker']" /> Docker
         </template>
@@ -36,6 +42,7 @@
   import { faApple } from '@fortawesome/free-brands-svg-icons/faApple'
   import { faDocker } from '@fortawesome/free-brands-svg-icons/faDocker'
   import { faLinux } from '@fortawesome/free-brands-svg-icons/faLinux'
+  import { faCrow } from '@fortawesome/free-solid-svg-icons/faCrow'
   import { faUbuntu } from '@fortawesome/free-brands-svg-icons/faUbuntu'
   import { faWindows } from '@fortawesome/free-brands-svg-icons/faWindows'
   import { library } from '@icij/murmur/lib/components/Fa'
@@ -45,8 +52,9 @@
 
   import DownloadDocker from './DownloadDocker'
   import DownloadList from './DownloadList'
+  import DownloadSnap from './DownloadSnap'
 
-  library.add(faApple, faWindows, faLinux, faUbuntu, faDocker)
+  library.add(faApple, faCrow, faWindows, faLinux, faUbuntu, faDocker)
 
   export default {
     name: 'DownloadVariants',
@@ -55,6 +63,7 @@
       BTab,
       DownloadDocker,
       DownloadList,
+      DownloadSnap,
       Fa
     },
     data () {
