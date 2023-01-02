@@ -11,7 +11,7 @@
         <haptic-copy class="btn btn-primary" :text="snapInstallCmd" />
       </b-input-group>
     </div>
-    <div class="download-snap__use-docker border-top">
+    <div class="download-snap__show-experimental border-top">
       <b-form-checkbox :checked="showExperimentalVersions" switch @input="$emit('input', $event)" class="d-inline-block"
         v-b-popover.hover.top="{ customClass: 'popover-magnified', content: 'Experimental versions (beta, alpha, RC) are unstable and might present bugs. Use them at your own risk.' }"
         title="Experimental versions">
@@ -66,7 +66,7 @@ export default {
 .download-snap {
   max-height: 50vh;
 
-  &__use-docker {
+  &__show-experimental {
     position: sticky;
     bottom: 0;
     left: 0;

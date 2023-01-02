@@ -16,7 +16,7 @@
         </a>
       </li>
     </ul>
-    <div class="download-list__use-docker border-top">
+    <div class="download-list__show-experimental border-top">
       <b-form-checkbox :checked="showExperimentalVersions" switch @input="$emit('input', $event)"
         class="d-inline-block"
         v-b-popover.hover.top="{ customClass: 'popover-magnified',  content: 'Experimental versions (beta, alpha, RC) are unstable and might present bugs. Use them at your own risk.' }"
@@ -130,7 +130,7 @@
       }
     }
 
-    &__use-docker {
+    &__show-experimental {
       position: sticky;
       bottom: 0;
       left: 0;
