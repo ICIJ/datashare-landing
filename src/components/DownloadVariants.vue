@@ -1,31 +1,31 @@
 <template>
   <div>
     <b-tabs card class="m-0" no-fade>
-      <b-tab no-body :active="is('macos')">
+      <b-tab lazy no-body :active="is('macos')">
         <template slot="title">
           <fa :icon="['fab', 'apple']" /> Mac
         </template>
         <download-list :ext="['DatashareStandalone.pkg', '.pkg']" v-model="showExperimentalVersions" />
       </b-tab>
-      <b-tab no-body :active="is('windows')">
+      <b-tab lazy no-body :active="is('windows')">
         <template slot="title">
           <fa :icon="['fab', 'windows']" /> Windows
         </template>
         <download-list :ext="['installDatashareStandalone.exe', '.exe']" v-model="showExperimentalVersions" />
       </b-tab>
-      <b-tab no-body :active="is('ubuntu')">
+      <b-tab lazy no-body :active="is('ubuntu')">
         <template slot="title">
           <fa :icon="['fab', 'ubuntu']" /> Ubuntu
         </template>
         <download-list ext=".deb" v-model="showExperimentalVersions" />
       </b-tab>      
-      <b-tab no-body>
+      <b-tab lazy no-body>
         <template slot="title">
           <fa :icon="['fa', 'crow']" /> Snap
         </template>
         <download-snap v-model="showExperimentalVersions" />
       </b-tab>
-      <b-tab>
+      <b-tab lazy>
         <template slot="title">
           <fa :icon="['fab', 'docker']" /> Docker
         </template>
