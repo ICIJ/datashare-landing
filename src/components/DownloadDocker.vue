@@ -63,7 +63,7 @@
     },
     computed: {
       dockerOneLiner () {
-        return `docker run --mount src=$HOME/Datashare,target=/home/datashare/data,type=bind -p 8080:8080 icij/datashare:${this.version} --mode EMBEDDED --queueType memory --busType memory`
+        return `docker run --mount src=$HOME/Datashare,target=/home/datashare/data,type=bind -p 8080:8080 icij/datashare:${this.version} --mode EMBEDDED`
       },
       dockerComposeYmlHref () {
         return 'data:text/plain;charset=utf-8,' + encodeURIComponent(this.dockerComposeYml)
