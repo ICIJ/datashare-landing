@@ -12,9 +12,6 @@
           <haptic-copy class="btn btn-primary" :text="snapInstallCmd" />
         </b-input-group>
       </fieldset>
-      <b-alert :show="!showExperimentalVersions" variant="warning">
-        Datashare's snap is still experimental and only available on the "beta" channel.
-      </b-alert>
     </div>
     <div class="download-snap__show-experimental border-top">
       <b-form-checkbox :checked="showExperimentalVersions" switch @input="$emit('input', $event)" class="d-inline-block"
@@ -29,7 +26,7 @@
 <script>
 import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload'
 import { library } from '@icij/murmur/lib/components/Fa'
-import { BAlert, BFormInput, BInputGroup, BFormCheckbox, VBPopover } from 'bootstrap-vue'
+import { BFormInput, BInputGroup, BFormCheckbox, VBPopover } from 'bootstrap-vue'
 
 library.add(faDownload)
 
@@ -43,11 +40,7 @@ export default {
       type: Boolean
     }
   },
-  mounted () {
-    this.$emit('input', true)
-  },
   components: {
-    BAlert,
     BFormInput, 
     BInputGroup,
     BFormCheckbox
