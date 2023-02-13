@@ -2,9 +2,9 @@
 
 @import './assets/fonts/Medel/stylesheet.css';
 @import './variables.scss';
-@import '~node_modules/bootstrap/scss/bootstrap';
-@import '~node_modules/bootstrap-vue/src/index';
-@import '~node_modules/@icij/murmur';
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index';
+@import 'node_modules/@icij/murmur';
 
 .text-special {
   font-family: $special-font-family;
