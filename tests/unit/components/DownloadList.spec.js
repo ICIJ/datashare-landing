@@ -1,4 +1,4 @@
-import DownloadList from '@/components/DownloadList.vue'
+import DownloadList from '@src/components/DownloadList.vue'
 
 describe('DownloadList', () => {
 

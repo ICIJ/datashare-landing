@@ -1,4 +1,4 @@
-import {osStringToFamily} from '../../src/os'
+import {osStringToFamily} from '@src/os'
 
 describe('os detection tests', () => {
   it('detects debian distribution', () => {
