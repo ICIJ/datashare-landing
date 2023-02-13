@@ -23,7 +23,7 @@ export default defineConfig({
     extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json", ".vue"],
     alias: {
       node_modules: resolve(__dirname, "node_modules"),
-      images: resolve(__dirname, "src/assets/images"),
+      '@src': resolve(__dirname, "src")
     },
   },
 })
