@@ -38,7 +38,7 @@
   import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons'
   import { BButton, BFormInput, BInputGroup } from 'bootstrap-vue'
   
-  import dockerComposeYml from '!!raw-loader!../assets/docker-compose.yml'
+  import dockerComposeYml from '../assets/docker-compose.yml?raw'
   import { latest as fetchLatestRelease } from '../releases'
 
   export default {
