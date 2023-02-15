@@ -14,7 +14,7 @@
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.1.2",
     "@fortawesome/free-solid-svg-icons": "^6.1.2",
-    "@icij/murmur": "3.2.6",
+    "@icij/murmur": "3.4.0",
     "axios": "^0.26.0",
     "bootstrap": "4",
     "bootstrap-vue": "^2.21.2",

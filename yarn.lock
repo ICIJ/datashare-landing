@@ -220,10 +220,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@icij/murmur@3.2.6":
-  version "3.2.6"
-  resolved "https://registry.yarnpkg.com/@icij/murmur/-/murmur-3.2.6.tgz#2419086b064cb37d6319630a521491d08a12c596"
-  integrity sha512-G+NqUz2OAwlk4ZQuugcaKwUKbengJwy6oVgTt5TRobv+wqbWUVCDhkzq5uAP9IsYZQ2cgqch7cenoR6t32wCfw==
+"@icij/murmur@3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@icij/murmur/-/murmur-3.4.0.tgz#c48db42aba6c86a7393c1aa8d95c26f06b945daf"
+  integrity sha512-orqm9cE9aLfm7oqjlSMNpG9NR0C5g0cRtdLCQvb1BrOw5nfS7SwgP3zVxyvYa7ZJw0IcSRjL/5VQ3EkDn08W7g==
   dependencies:
     "@fortawesome/fontawesome" "^1.1.4"
     "@fortawesome/fontawesome-svg-core" "^6.1.2"
@@ -238,7 +238,6 @@
     jsonp "^0.2.1"
     lodash "4.17.21"
     mutationobserver-shim "^0.3.7"
-    path-browserify "^1.0.1"
     querystring-es3 "^0.2.1"
     resize-observer-polyfill "^1.5.1"
     topojson "^3.0.2"
@@ -2049,11 +2048,6 @@ parse5@^7.1.1:
   integrity sha512-Czj1WaSVpaoj0wbhMzLmWD69anp2WH7FXMB9n1Sy8/ZFF9jolSQVMu1Ij5WIyGmcBmhk7EOndpO4mIpihVqAXw==
   dependencies:
     entities "^4.4.0"
-
-path-browserify@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/path-browserify/-/path-browserify-1.0.1.tgz#d98454a9c3753d5790860f16f68867b9e46be1fd"
-  integrity sha512-b7uo2UCUOYZcnF/3ID0lulOJi/bafxa1xPe7ZPsammBSpjSWQkjNxlt635YGS2MiR9GjvuXCtz2emr3jbsz98g==
 
 path-is-absolute@^1.0.0:
   version "1.0.1"
