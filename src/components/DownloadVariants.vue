@@ -45,7 +45,7 @@
   import { faCrow } from '@fortawesome/free-solid-svg-icons/faCrow'
   import { faUbuntu } from '@fortawesome/free-brands-svg-icons/faUbuntu'
   import { faWindows } from '@fortawesome/free-brands-svg-icons/faWindows'
-  import { library } from '@icij/murmur/lib/components/Fa'
+  import { library } from '@fortawesome/fontawesome-svg-core'
 
   import os from '../os'
   import { latest as fetchLatestRelease } from '../releases'

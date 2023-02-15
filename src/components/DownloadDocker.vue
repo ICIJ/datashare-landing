@@ -34,7 +34,7 @@
 
 
 <script>
-  import Fa from '@icij/murmur/lib/components/Fa'
+  import { Fa } from '@icij/murmur'
   import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons'
   import { BButton, BFormInput, BInputGroup } from 'bootstrap-vue'
   

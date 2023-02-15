@@ -19,7 +19,7 @@
   import { BButton } from 'bootstrap-vue'
 
   // Import the library instance provided by FontAwesome
-  import { library } from '@icij/murmur/lib/components/Fa'
+  import { library } from '@fortawesome/fontawesome-svg-core'
   import { Fa } from '@icij/murmur'
   import { faBolt } from '@fortawesome/free-solid-svg-icons/faBolt'
 

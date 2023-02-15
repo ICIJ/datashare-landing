@@ -25,7 +25,7 @@
 <script>
   import Cookies from 'js-cookie'
   import { faCommentDots } from '@fortawesome/free-solid-svg-icons/faCommentDots'
-  import { library } from '@icij/murmur/lib/components/Fa'
+  import { library } from '@fortawesome/fontawesome-svg-core'
   import { Fa } from '@icij/murmur'
 
   library.add(faCommentDots)

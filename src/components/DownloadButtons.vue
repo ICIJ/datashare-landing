@@ -60,7 +60,8 @@
   import { faApple } from '@fortawesome/free-brands-svg-icons/faApple'
   import { faDocker } from '@fortawesome/free-brands-svg-icons/faDocker'
   import { faUbuntu } from '@fortawesome/free-brands-svg-icons/faUbuntu'
-  import { library, default as Fa } from '@icij/murmur/lib/components/Fa'
+  import { library } from '@fortawesome/fontawesome-svg-core'
+  import { Fa } from '@icij/murmur'
 
   import os from '../os'
   import { latest as fetchLatestRelease } from '../releases'

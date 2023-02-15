@@ -36,7 +36,8 @@
   import orderBy from 'lodash/orderBy'
   
   import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload'
-  import { default as Fa, library } from '@icij/murmur/lib/components/Fa'
+  import { library } from '@fortawesome/fontawesome-svg-core'
+  import { Fa } from '@icij/murmur'
   import { BFormCheckbox, VBPopover } from 'bootstrap-vue'
 
   import { releases, STABLE_VERSION_RE } from '../releases'

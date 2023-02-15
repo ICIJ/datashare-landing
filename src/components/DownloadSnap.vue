@@ -25,7 +25,7 @@
 
 <script>
 import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload'
-import { library } from '@icij/murmur/lib/components/Fa'
+import { library } from '@fortawesome/fontawesome-svg-core'
 import { BFormInput, BInputGroup, BFormCheckbox, VBPopover } from 'bootstrap-vue'
 
 library.add(faDownload)
