@@ -23,7 +23,7 @@ export default defineConfig({
     extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json", ".vue"],
     alias: {
       node_modules: resolve(__dirname, "node_modules"),
-      '@src': resolve(__dirname, "src")
+      '@': resolve(__dirname, "src")
     },
   },
 })
