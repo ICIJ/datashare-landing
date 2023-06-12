@@ -5,6 +5,7 @@
         <a :href="asset(release).browser_download_url" class="font-weight-bold">
           <fa icon="download" class="mr-2" fixed-width /> {{ release.name }}
         </a>
+        <b-badge v-if="release.prerelease" pill variant="light" class="mx-2" >Experimental</b-badge>
         <span class="float-right small">
           <span class="text-muted">{{ asset(release).size | size }} -</span> {{ publishedAt(release) }}
         </span>
@@ -19,7 +20,7 @@
     <div class="download-list__show-experimental border-top">
       <b-form-checkbox :checked="showExperimentalVersions" switch @input="$emit('input', $event)"
         class="d-inline-block"
-        v-b-popover.hover.top="{ customClass: 'popover-magnified',  content: 'Experimental versions (beta, alpha, RC) are unstable and might present bugs. Use them at your own risk.' }"
+        v-b-popover.hover.top="{ customClass: 'popover-magnified',  content: 'Experimental versions are unstable and might present bugs. Use them at your own risk.' }"
         title="Experimental versions">
         Show experimental versions
       </b-form-checkbox>
@@ -34,13 +35,15 @@
   import findIndex from 'lodash/findIndex'
   import some from 'lodash/some'
   import orderBy from 'lodash/orderBy'
+  import { BBadge } from 'bootstrap-vue'
+
   
   import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload'
   import { library } from '@fortawesome/fontawesome-svg-core'
   import { Fa } from '@icij/murmur'
   import { BFormCheckbox, VBPopover } from 'bootstrap-vue'
 
-  import { releases, STABLE_VERSION_RE } from '../releases'
+  import { releases } from '@/releases'
 
   library.add(faDownload)
 
@@ -69,6 +72,7 @@
       }
     },
     components: {
+      BBadge,
       BFormCheckbox,
       Fa
     },
@@ -107,7 +111,7 @@
     computed: {
       filteredReleases () {
         return filter(this.releases, release => {
-          return !!this.asset(release) && (this.showExperimentalVersions || STABLE_VERSION_RE.test(release.name))
+          return !!this.asset(release) && (this.showExperimentalVersions || !release.prerelease)
         })
       },
       exts () {
