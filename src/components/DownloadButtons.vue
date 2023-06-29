@@ -10,7 +10,7 @@
               {{ label }}
             </b-button>
             <div class="download-buttons__help" v-if="guide !== false">
-              Need help? <a :href="guide || osGuide || 'https://icij.gitbook.io/datashare/'" target="_blank">Read our user guide</a>
+              Need help? <a :href="guide || osGuide || 'https://icij.gitbook.io/datashare/'" target="_blank">Read our documentation</a>
             </div>
             <transition name="circle-in">
               <div class="download-buttons__guide" v-if="guide !== false && showGuide === i">
@@ -24,7 +24,7 @@
                 <p>
                   <a :href="guide || osGuide || 'https://icij.gitbook.io/datashare/'" target="_blank">
                     <fa icon="book" class="mr-2" />
-                    <u>Read the installation guide</u>
+                    <u>Read the documentation</u>
                   </a>
                 </p>
               </div>
@@ -105,7 +105,7 @@
           macos: {
             asset: this.assetForMacOs,
             icon: 'apple',
-            guide: 'https://icij.gitbook.io/datashare/mac/install-datashare-on-mac#standalone-less-recent-than-os-x-el-capitan-10-11',
+            guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-mac',
             buttons: [
               { label: 'Download for Mac', }
             ]
@@ -113,7 +113,7 @@
           windows: {
             asset: this.assetForWindows,
             icon: 'windows',
-            guide: 'https://icij.gitbook.io/datashare/windows/install-datashare-on-windows#standalone-windows-7-service-pack-2-or-newer-version',
+            guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-windows',
             buttons: [
               { label: 'Download for Windows', }
             ]
@@ -121,7 +121,7 @@
           debian: {
             asset: this.assetForDebian,
             icon: 'debian',
-            guide: 'https://icij.gitbook.io/datashare/linux/install-datashare-on-linux',
+            guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-linux',
             buttons: [
               { label: 'Download .deb', asset: this.assetForDebian, icon: 'ubuntu' },
               { label: 'Download .tgz', asset: this.assetForLinux, icon: 'linux', btnSize: 'xs', wrapperClass: 'small', guide: false }
@@ -130,7 +130,7 @@
           linux: {
             asset: this.assetForLinux,
             icon: 'linux',
-            guide: 'https://icij.gitbook.io/datashare/linux/install-datashare-on-linux',
+            guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-linux',
             buttons: [
               { label: 'Download .deb', asset: this.assetForDebian, icon: 'ubuntu' },
               { label: 'Download .tgz', asset: this.assetForLinux, icon: 'linux', btnSize: 'xs', wrapperClass: 'small', guide: false }

@@ -156,7 +156,7 @@
                 </div>
                 <div class="app__content__section__body__card__body d-flex align-items-center w-100">
                   <p class="m-0">
-                    How-to <a href="https://github.com/ICIJ/datashare/wiki/Backend-%E2%80%BA-API" target="_blank">query the API</a>
+                    How-to <a href="https://icij.gitbook.io/datashare/developers/backend/api" target="_blank">query the API</a>
                   </p>
                 </div>
               </div>
@@ -167,7 +167,7 @@
                 </div>
                 <div class="app__content__section__body__card__body d-flex align-items-center w-100">
                   <p class="m-0">
-                    How-to <a href="https://github.com/ICIJ/datashare/wiki/Client-%E2%80%BA-Plugins" target="_blank">create plugins</a>
+                    How-to <a href="https://icij.gitbook.io/datashare/developers/write-plugins" target="_blank">create plugins</a>
                   </p>
                 </div>
               </div>
@@ -178,30 +178,10 @@
                 </div>
                 <div class="app__content__section__body__card__body d-flex align-items-center w-100">
                   <p class="m-0">
-                    How-to <a href="https://github.com/ICIJ/datashare/wiki/Datashare-Server-Mode" target="_blank">run in server Mode</a>
+                    How-to <a href="https://icij.gitbook.io/datashare/server-mode/about-the-server-mode" target="_blank">run in server Mode</a>
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="app__content__section app__content__section--donors">
-        <div class="container-fluid app__content__section__donors">
-          <h4 class="text-muted text-center text-uppercase text-special mb-5">
-            With the generous support of
-          </h4>
-          <div class="row">
-            <div class="col">
-              <a href="https://postkodstiftelsen.se/" target="_blank" class="app__content__section__donors__link">
-                <img src="../assets/images/donors/spl.jpg" class="mw-100" alt="" />
-              </a>
-            </div>
-            <div class="col">
-              <a href="https://brown.columbia.edu/" target="_blank" class="app__content__section__donors__link">
-                <img src="../assets/images/donors/brown.jpg" class="mw-100" alt="" />
-              </a>
             </div>
           </div>
         </div>
