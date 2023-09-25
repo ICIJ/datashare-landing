@@ -4,7 +4,7 @@
     <ul class="pl-4">
       <li>Windows: Windows 7 Service Pack 2 or higher</li>
       <li>Mac: Catalina or higher</li>
-      <li>Linux: most modern versions (Java JRE8)</li>
+      <li>Linux: most modern versions (Java JRE11)</li>
       <li>5 GB of free space on disk</li>
       <li>4 GB of RAM</li>
     </ul>
