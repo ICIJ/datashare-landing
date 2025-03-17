@@ -8,7 +8,8 @@ const api = axios.create({
 
 // Create another promise once to get all releases
 export const releases = memoize(() => {
-  return api.get('releases').then(property('data'))
+  const params = { per_page: 150 }
+  return api.get('releases', { params }).then(property('data'))
 })
 
 export const latest = async () => {
