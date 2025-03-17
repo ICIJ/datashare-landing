@@ -13,7 +13,7 @@
         </template>
         <download-list :ext="['installDatashareStandalone.exe', '.exe']" v-model="showExperimentalVersions" />
       </b-tab>
-      <b-tab lazy no-body :active="is('ubuntu')">
+      <b-tab lazy no-body :active="is('ubuntu') || is('debian')">
         <template slot="title">
           <fa :icon="['fab', 'ubuntu']" /> Ubuntu
         </template>
