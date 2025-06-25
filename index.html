@@ -1,44 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Datashare - ICIJ</title>
-
-    <meta name="description" content="Better analyze information, in all its forms">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="ICIJorg">
-    <meta name="twitter:image" content="/social.png">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://datashare.icij.org">
-    <meta property="og:image" content="/social.png">
-    <meta property="og:title" content="Datashare - ICIJ">
-    <meta property="og:description" content="Better analyze information, in all its forms">
-
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#2b5797">
-    <meta name="theme-color" content="#ffffff">
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datashare</title>
   </head>
   <body>
-    <noscript>
-      <strong>We're sorry but this page doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
     <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
 
+    <script inline src='./js/colorModeToggler.js'></script>
+    <script type="module" src="/src/main.ts"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9CQ8ZK9XR0"></script>
     <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
-     gtag('config', 'UA-109005411-2');
-     gtag('config', 'G-9CQ8ZK9XR0');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-109005411-2');
+        gtag('config', 'G-9CQ8ZK9XR0');
     </script>
   </body>
 </html>

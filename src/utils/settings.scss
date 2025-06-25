@@ -1,0 +1,299 @@
+/*
+Copy of datashare client settings.scss stylesheet
+*/
+
+$prefix: bs-;
+
+$icij: #FF0000;
+$action: #112A5C;
+$primary: #FA4070;
+$secondary: #6F6F6F;
+$tertiary: #C7C7C7;
+
+$danger: #dc3545;
+$warning: #FFBF57;
+$success: #00BB84;
+$info: #45C4FF;
+$white: #fff;
+
+$light: #F3F3F3;
+$black: #000;
+$dark: #212529;
+$darker: #0F0F10;
+
+$link-color: $action;
+$link-color-dark: $white;
+$link-hover-color: mix($black, $primary, 20%);
+$link-hover-color-dark: $primary;
+$link-decoration: none;
+
+$body-color: #212529;
+$body-bg: #fff;
+$body-color-dark: #C7C9CD;
+$body-bg-dark: #151518;
+$body-secondary-bg: #F2F0F0;
+
+$card-bg: var(--bs-body-bg);
+$card-cap-bg: rgba(var(--bs-body-color-rgb), .03);
+$translation-bg: #fcf8e3;
+
+$theme-colors: (
+  icij: #F00,
+  action: $action,
+  primary: $primary,
+  secondary: $secondary,
+  tertiary: $tertiary,
+  success: $success,
+  info: $info,
+  warning: $warning,
+  danger: $danger,
+  light: $light,
+  dark: $dark,
+  mark: #fff5bd,
+  category-ban: $secondary,
+  category-person: #ff6699,
+  category-organization: #FFB53E,
+  category-location: #4cd9aa,
+  category-email: #33beff
+);
+
+$icij-color-subtle: $icij;
+$icij-color-subtle-dark: $icij;
+$icij-text-emphasis: $dark;
+$icij-text-emphasis-dark: $white;
+$icij-bg-subtle-dark: $dark;
+$icij-border-subtle: mix($white, $icij, 60%);
+$icij-border-subtle-dark: mix($white, $icij, 80%);
+
+$action-bg-subtle: #F3F5F8;
+$action-color-subtle: $action;
+$action-text-emphasis: $action;
+
+$action-bg-subtle-dark: #232634;
+$action-border-subtle: mix($white, $action, 60%);
+$action-border-subtle-dark: mix($white, $action, 80%);
+$action-color-subtle-dark: $white;
+$action-text-emphasis-dark: $white;
+
+$primary-bg-subtle: #FFECF1;
+$primary-bg-subtle-dark: darken(#FFECF1,10%);
+$success-bg-subtle: #E5F8F3;
+$info-bg-subtle: #ECF9FF;
+$warning-bg-subtle: #FFF9EE;
+$danger-bg-subtle:#FBEBEC;
+
+$secondary-bg-subtle: mix($white, $secondary, 80%);
+$secondary-color-subtle: $secondary;
+$secondary-border-subtle: $secondary;
+$secondary-text-emphasis: $secondary;
+
+$secondary-bg-subtle-dark: #232634;
+$secondary-border-subtle-dark: #BFC1C4;
+$secondary-color-subtle-dark: #BFC1C4;
+$secondary-text-emphasis-dark: $white;
+
+$tertiary-bg-subtle: $light;
+$tertiary-bg-subtle-dark: $darker;
+$tertiary-border-subtle: $tertiary;
+$tertiary-border-subtle-dark: #3E3F3F;
+$tertiary-text-emphasis: $tertiary;
+$tertiary-text-emphasis-dark: #3E3F3F;
+
+$dark-bg-subtle: $darker;
+$dark-text-emphasis: $black;
+$dark-text-emphasis-dark: $white;
+$dark-bg-subtle-dark: $light;
+
+$enable-shadows: true;
+$enable-rounded: true;
+
+$spacer: 1rem;
+$spacer-xxs: $spacer * 0.25;
+$spacer-xs: $spacer * 0.5;
+$spacer-sm: $spacer * 0.75;
+$spacer-md: $spacer;
+$spacer-lg: $spacer * 1.5;
+$spacer-xl: $spacer * 2;
+$spacer-xxl: $spacer * 3;
+
+$font-family-sans-serif: "Inter", -apple-system, BlinkMacSystemFont, "Lato", "Source Sans Pro", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-serif: "Merriweather", Georgia, "Times New Roman", Times, serif;
+
+$headings-font-family: $font-family-sans-serif;
+$headings-font-weight: 700;
+$display-font-family:  $font-family-sans-serif;
+$special-font-family: "Medel", $headings-font-family;
+
+$text-muted: #717171;
+
+$font-size-base: 1rem;
+$font-size-sm: math.div(14, 16) * 1rem;
+$font-size-lg: math.div(20, 16) * 1rem;
+$line-height-sm: 1.7;
+
+$border-radius: 6px;
+$border-radius-sm: .2rem;
+$border-radius-lg: .375rem;
+$border-radius-xl: 0.5rem;
+$border-radius-xxl: 1rem;
+$border-radius-pill: 50rem;
+
+$box-shadow: 1px 1px 8px 5px rgba($black, .05);
+$box-shadow-lg: 1px 1px 20px 5px rgba($black, .05);
+
+$placeholder-opacity-max: 1;
+$placeholder-opacity-min: .6;
+
+$alert-border-width: 0;
+$alert-border-scale: 100%;
+
+$badge-padding-x: 0.45em;
+
+$input-bg:  var(--bs-body-bg);
+$input-focus-border-color: var(--bs-primary);
+$input-hover-border-color: $input-focus-border-color;
+$custom-control-indicator-checked-bg: $action;
+
+$btn-box-shadow: 0 0 0 0 transparent;
+$btn-hover-bg-shade-amount: 10%;
+$btn-hover-bg-tint-amount: 25%;
+$btn-disabled-opacity: 0.75;
+
+$input-btn-padding-y: 0.75em;
+$input-btn-padding-x: 1em;
+$input-btn-line-height: 1.25;
+
+$form-check-input-border: var(--bs-border-width) solid var(--bs-action-text-emphasis);
+$form-check-input-border-radius: 2px;
+$form-check-input-checked-border-color: var(--bs-action-text-emphasis);
+$form-check-input-checked-bg-color: $action;
+$form-check-input-indeterminate-bg-color: $form-check-input-checked-bg-color;
+
+$form-radio-input-border: var(--bs-border-width) solid $action;
+$form-radio-input-checked-border-color: $form-check-input-checked-border-color;
+$form-radio-input-checked-bg-color: $action;
+
+$popover-bg: var(--bs-action-bg-subtle);
+$popover-box-shadow: none;
+$popover-font-size: $font-size-base;
+$popover-max-width: 375px;
+$popover-border-width: 1px;
+$popover-border-color: var(--bs-action-border-subtle);
+$popover-body-padding-y: $spacer-lg;
+$popover-body-padding-x: $spacer-xl;
+$popover-arrow-width: $spacer-xl;
+$popover-arrow-height: $spacer;
+
+$mark-bg: var(--bs-mark);
+
+$modal-inner-padding: $spacer-xl;
+
+$modal-content-color: null;
+$modal-content-border-width: 1px;
+$modal-content-border-radius: var(--bs-border-radius);
+$modal-content-inner-border-radius: subtract($modal-content-border-radius, $modal-content-border-width);
+$modal-content-box-shadow-xs:  1px 1px 8px 5px rgba($black, 0.1);
+$modal-content-box-shadow-sm-up: 1px 1px 8px 5px rgba($black, 0.1);
+
+$modal-backdrop-bg: $secondary;
+$modal-backdrop-opacity: .5;
+
+$modal-header-border-color: transparent;
+$modal-header-border-width: $modal-content-border-width;
+$modal-header-padding-y: $modal-inner-padding;
+$modal-header-padding-x: $modal-inner-padding;
+$modal-header-padding: $modal-header-padding-y $modal-header-padding-x 0;
+
+$modal-footer-bg: transparent;
+$modal-footer-border-color: $modal-header-border-color;
+$modal-footer-border-width: $modal-header-border-width;
+
+$modal-sm: 300px;
+$modal-md: 500px;
+$modal-lg: 800px;
+$modal-xl: 1140px;
+
+$offcanvas-box-shadow: none;
+$offcanvas-border-color: var(--bs-tertiary);
+$offcanvas-width: 300px;
+$offcanvas-padding-y: $spacer;
+$offcanvas-padding-x: $spacer-xl;
+
+$kbd-padding-y: $spacer-xxs;
+$kbd-padding-x: $spacer-xs;
+$kbd-font-size: 1rem;
+$kbd-color: var(--bs-body-bg);
+$kbd-bg: var(--bs-body-color);
+
+$tooltip-max-width: 260px;
+$tooltip-opacity: 1;
+
+$input-box-shadow: 0 0 0 0 transparent;
+$b-toast-background-opacity: $tooltip-opacity;
+
+$table-cell-padding-y: $spacer;
+$table-cell-padding-x: $spacer;
+
+$table-th-font-weight: normal;
+
+$table-color: var(--bs-secondary-text-emphasis);
+$table-bg: var(--bs-body-bg);
+$table-accent-bg: transparent;
+$table-hover-bg: var(--bs-action-bg-subtle);
+$table-striped-bg: var(--bs-tertiary-bg-subtle);
+
+$nav-tabs-border-color: transparent;
+$nav-tabs-border-width: 0;
+$nav-tabs-border-radius: 0;
+$nav-tabs-link-hover-border-color: transparent transparent var(--bs-primary) transparent;
+$nav-tabs-link-active-color: var(--bs-body-color);
+$nav-tabs-link-active: transparent;
+$nav-tabs-link-active-border-color: transparent transparent var(--bs-primary) transparent;
+
+$nav-underline-gap: $spacer;
+$nav-underline-border-width: 2px;
+$nav-underline-link-active-color:  var(--bs-body-color);
+
+$dropdown-box-shadow: none;
+$dropdown-border-color: var(--bs-tertiary-border-subtle);
+$dropdown-padding-x: math.div(12, 16) * 1rem;
+$dropdown-padding-y: math.div(12, 16) * 1rem;
+$dropdown-item-padding-y: $spacer-xs;
+$dropdown-item-padding-x: $spacer-sm;
+$dropdown-link-hover-bg: var(--bs-action-bg-subtle);
+$dropdown-link-hover-color: var(--bs-action-text-emphasis);
+$dropdown-link-active-color: var(--bs-action-text-emphasis);
+$dropdown-link-active-bg: var(--bs-dropdown-bg);
+
+// Bootstrap variables and mixins must be available everywhere
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+// Our custom map to add our theme colors to classes utilities and CSS variables
+@import './maps.scss';
+
+// We also defines a few functions internally
+@import './functions.scss';
+
+$app-nav-height: 4.5rem;
+$app-nav-brand-height: $app-nav-height - ($spacer * 2);
+
+$app-sidebar-bg: color.adjust(#31313a, $lightness: -10%);
+$app-sidebar-color: #fff;
+$app-sidebar-border-color: mix($app-sidebar-color, $app-sidebar-bg, 5%);
+$app-sidebar-width: 310px;
+$app-sidebar-compact-width: 85px;
+$app-sidebar-link-color: mix($app-sidebar-bg, $app-sidebar-color, 40%);
+
+$app-context-sidebar-bg: mix(#fff, $app-sidebar-bg, 5%);
+$app-context-sidebar-color: #fff;
+$app-context-sidebar-width: 380px;
+
+$search-results-list-width: 600px;
+
+$document-max-width: 980px;
+$document-float-breakpoint-width:  1700px;
+$color-mode-type: data;
+

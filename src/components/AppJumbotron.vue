@@ -1,75 +1,109 @@
-<template>
-  <div class="app__jumbotron clearfix">
-    <div class="app__jumbotron__container">
-      <a href="https://www.icij.org" class="app__jumbotron__container__brand">
-        <brand-expansion class="mr-3" color="#fff" :size="50" mode="long" />
-        <span class="sr-only">International Consortium of Investigative Journalists</span>
-      </a>
-      <h1 class="app__jumbotron__container__heading text-special mb-0">
-        <img src="../assets/images/logo-color-square.svg" class="app__jumbotron__container__heading__brand" />
-        Datashare
-      </h1>
-      <p class="lead text-special font-weight-light">Better analyze information, in all its forms</p>
-    </div>
-  </div>
-</template>
+<script setup lang="ts">
+import { computed } from 'vue'
 
-<script>
-  export default {
-    name: 'AppJumbotron'
+import ButtonIcon from '@/components/ButtonIcon.vue'
+import DatashareDownloadModal from '@/components/DatashareDownloadModal/DatashareDownloadModal.vue'
+import ButtonDownload from '@/components/Download/ButtonDownload.vue'
+import { useAssets } from '@/composables/useAssets.ts'
+import { DEFAULT_ICON, useOs } from '@/composables/useOs.ts'
+import { useRelease } from '@/composables/useRelease.ts'
+import AppSection from '@/components/AppSection.vue'
+const { detectedOs, isCompatible } = useOs()
+
+const { latestAssets } = useRelease()
+const { osButton } = useAssets(detectedOs, latestAssets)
+const label = computed(() => {
+  if (osButton.value.name) {
+    return `Download for ${osButton.value.name}`
   }
+  return 'Download'
+})
 </script>
 
+<template>
+  <app-section class="app-jumbotron">
+    <div class="app-jumbotron__container px-lg-2">
+      <h1 class="display-1 mb-4">
+        <span class="bg-body">Find stories in<br>
+          any files</span>
+      </h1>
+      <div class="d-flex flex-column gap-3">
+        <div>
+          <button-download
+            v-if="isCompatible"
+            :asset="osButton.asset"
+            size="md"
+            :icon="osButton.icon"
+          >
+            {{ label }}
+          </button-download>
+          <button-download
+            v-else
+            asset="#download"
+            size="md"
+            :icon="DEFAULT_ICON"
+          >
+            Download
+          </button-download>
+        </div>
+        <div>
+          <button-icon
+            icon-right="eyes"
+            icon-right-weight="fill"
+            variant="outline-action"
+            class="demo-link bg-body text-action-emphasis border-action-emphasis"
+            href="https://datashare-demo.icij.org/"
+          >
+            Use the demo
+          </button-icon>
+        </div>
+        <div><datashare-download-modal class="false-link" /></div>
+      </div>
+    </div>
+  </app-section>
+</template>
+
 <style lang="scss">
-  @import '../variables.scss';
+.app-jumbotron {
+  margin-top: 6em;
+  margin-bottom: 3em;
 
-  .app__jumbotron {
+  & .app-section__container {
+    background: url('@/assets/illustrations/LandingPage_Documents_Responsive_LightAndDarkModes.svg') right / contain
+      no-repeat;
     width: 100%;
-    position: static;
-    left: 0;
-    top: 0;
+    position: relative; /* Needed for absolute positioning of the tagline */
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    height: 120%;
+    padding-bottom: 5em;
+  }
 
-    &__container {
-      @include gradient-directional($primary, $saddle-red);
-      min-height: 95vh;
-      padding: $spacer;
-      position: relative;
-      text-align: center;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+  & .display-1 {
+    font-weight: bold;
+  }
 
-      &__brand {
-        position: absolute;
-        top: $spacer * 0.5;
-        left: $spacer * 0.5;
-        color: white;
-        font-weight: bolder;
-        font-size: 1rem;
-      }
+  .demo-link {
+    text-decoration: none;
 
-      &__heading {
-        font-size: 5rem;
-        font-weight: normal;
-        position: relative;
-        white-space: nowrap;
-
-        @include media-breakpoint-down($app-jumbotron-breakpoint) {
-          font-size: 5rem;
-        }
-
-        @include media-breakpoint-down(sm) {
-          font-size: 3rem;
-        }
-
-        &__brand {
-          height: 1em;
-          position: absolute;
-          right: 100%;
-        }
-      }
+    &:hover {
+      text-decoration: underline;
     }
   }
+}
+@include color-mode(dark) {
+  .app-jumbotron {
+    & .demo-link.btn {
+      color: $light;
+    }
+  }
+}
+@include media-breakpoint-up(md) {
+  .app-jumbotron {
+    & .app-section__container {
+      background: url('@/assets/illustrations/LandingPage_Documents_LightAndDarkModes.svg') right / contain no-repeat;
+    }
+  }
+}
 </style>
