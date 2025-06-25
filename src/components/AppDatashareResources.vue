@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import DatashareResourceCard from "@/components/DatashareResource/DatashareResourceCard.vue";
-import {BImg} from "bootstrap-vue-next";
 import ImageModeSource from "@/components/ImageMode/ImageModeSource.vue";
 import ImageMode from "@/components/ImageMode/ImageMode.vue";
 import AppSection from "@/components/AppSection.vue";

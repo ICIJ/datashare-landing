@@ -3,12 +3,10 @@ import {PhosphorIcon} from "@icij/murmur-next"
 import DownloadDocker from './DownloadDocker.vue'
 import DownloadList from './DownloadList.vue'
 import DownloadSnap from './DownloadSnap.vue'
-import {OS,osDescription,simpleOs, useOs} from "@/composables/useOs.ts";
+import {OS,osDescription,simpleOs, useOs} from "@/composables/useOs";
 import TabGroup from "@/components/TabGroup/TabGroup.vue";
 import TabGroupEntry from "@/components/TabGroup/TabGroupEntry.vue";
 import ButtonIcon from "@/components/ButtonIcon.vue";
-import DatashareDownloadModalToggleExperimental
-  from "@/components/DatashareDownloadModal/DatashareDownloadModalToggleExperimental.vue";
 
 defineOptions({
   name: 'DownloadVariants'

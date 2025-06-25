@@ -7,7 +7,6 @@ import {PhosphorIcon} from "@icij/murmur-next"
 import {BTbody} from "bootstrap-vue-next";
 import type {Release} from "@/utils/types.ts";
 import DatashareDownloadModalToggleExperimental from "@/components/DatashareDownloadModal/DatashareDownloadModalToggleExperimental.vue";
-import ButtonIcon from "@/components/ButtonIcon.vue";
 
 const showExperimentalVersions = defineModel({type: Boolean})
 
