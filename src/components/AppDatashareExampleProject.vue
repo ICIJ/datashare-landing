@@ -14,7 +14,10 @@ import AppSection from '@/components/AppSection.vue'
       article-class="col-10 col-sm-6 col-md-4"
     >
       <template #image>
-        <image-mode alt="Project insights" image-class="img-fluid ">
+        <image-mode
+          alt="Project insights"
+          image-class="img-fluid "
+        >
           <image-mode-source src="@/assets/illustrations/screenshots/Understand_your_data_LightMode.png" />
           <image-mode-source
             src="@/assets/illustrations/screenshots/Understand_your_data_DarkMode.png"

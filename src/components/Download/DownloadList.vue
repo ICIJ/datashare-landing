@@ -1,12 +1,13 @@
 <script lang="ts" setup>
 import {computed} from 'vue'
-import castArray from "lodash/castArray";
+import castArray from 'lodash/castArray'
+import {PhosphorIcon} from '@icij/murmur-next'
+import {BTbody} from 'bootstrap-vue-next'
+
 import {useRelease} from '@/composables/useRelease.ts'
-import {type HumanSize, useHumanSize} from "@/composables/useHumanSize.ts"
-import {PhosphorIcon} from "@icij/murmur-next"
-import {BTbody} from "bootstrap-vue-next";
-import type {Release} from "@/utils/types.ts";
-import DatashareDownloadModalToggleExperimental from "@/components/DatashareDownloadModal/DatashareDownloadModalToggleExperimental.vue";
+import {type HumanSize, useHumanSize} from '@/composables/useHumanSize.ts'
+import type {Release} from '@/utils/types.ts'
+import DatashareDownloadModalToggleExperimental from '@/components/DatashareDownloadModal/DatashareDownloadModalToggleExperimental.vue'
 
 const showExperimentalVersions = defineModel({type: Boolean})
 
@@ -52,16 +53,27 @@ const filteredReleases = computed(() => {
 <template>
   <div>
     <b-overlay :show="!releases.length" rounded="sm">
-      <b-table-simple class="download-list" hover responsive striped>
+      <b-table-simple
+        class="download-list"
+        hover
+        responsive
+        striped
+      >
         <b-tbody>
           <b-tr v-for="release in filteredReleases" :key="release.name" class="d-flex ">
             <b-td class="download-list__row d-flex flex-grow-1 gap-2 align-items-center justify-content-between">
-            <div class=" d-flex download-list__row__version gap-2 ">
-              <a :href="release.downloadUrl" class="download-list__row__version__link font-weight-bold d-inline-flex gap-2 fw-bold">
-                <phosphor-icon name="download-simple"/>
-                <span >{{ release.name }}</span>
-              </a>
-                <phosphor-icon v-if="release.prerelease" fill name="flask" title="Experimental version" variant="info"/>
+              <div class=" d-flex download-list__row__version gap-2 ">
+                <a :href="release.downloadUrl" class="download-list__row__version__link font-weight-bold d-inline-flex gap-2 fw-bold">
+                  <phosphor-icon name="download-simple" />
+                  <span>{{ release.name }}</span>
+                </a>
+                <phosphor-icon
+                  v-if="release.prerelease"
+                  fill
+                  name="flask"
+                  title="Experimental version"
+                  variant="info"
+                />
               </div>
               <div class="download-list__row__info d-flex gap-2">
                 <span class="download-list__row__info__size text-end text-nowrap">
@@ -74,7 +86,7 @@ const filteredReleases = computed(() => {
         </b-tbody>
       </b-table-simple>
     </b-overlay>
-    <datashare-download-modal-toggle-experimental v-model="showExperimentalVersions"/>
+    <datashare-download-modal-toggle-experimental v-model="showExperimentalVersions" />
   </div>
 </template>
 

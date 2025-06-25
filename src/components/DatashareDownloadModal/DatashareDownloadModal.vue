@@ -8,9 +8,18 @@ defineProps({
 </script>
 
 <template>
-  <span v-b-modal.downloadListModal class="datashare-download-modal"
-    >{{ title }}
-    <app-modal id="downloadListModal" lazy scrollable no-footer size="lg" title="All platforms and versions">
+  <span
+    v-b-modal.downloadListModal
+    class="datashare-download-modal"
+  >{{ title }}
+    <app-modal
+      id="downloadListModal"
+      lazy
+      scrollable
+      no-footer
+      size="lg"
+      title="All platforms and versions"
+    >
       <download-variants />
     </app-modal>
   </span>

@@ -66,28 +66,27 @@ import { uniqueId } from 'lodash'
 import { PhosphorIcon } from '@icij/murmur-next'
 import { PhCircleNotch } from '@phosphor-icons/vue'
 
-import type { ButtonIconProps} from "@/utils/types";
+import type { ButtonIconProps} from '@/utils/types'
 
-const injectedVariant = inject('variant', "action")
-const injectedSize = inject('size', "md")
+const injectedVariant = inject('variant', 'action')
+const injectedSize = inject('size', 'md')
 const elementRef = useTemplateRef<HTMLElement>('element')
 
 defineOptions({
   name: 'ButtonIcon'
 })
-
-const props = withDefaults(defineProps<ButtonIconProps>(),{
+const props = withDefaults(defineProps<ButtonIconProps>(),{  square:false,
   iconLeftLabelOffset:19,
   iconSpinner:PhCircleNotch,
   hideLabel:false,
   hideTooltip:false,
-  square:false,
   tag:'button',
   type:'button',
   loadingDuration:'1s',
-  tooltipPlacement:"top",
+  tooltipPlacement:'top',
   tooltipDelay:() =>({ show: 0, hide: 0 })
 })
+
 
 const emit = defineEmits(['click:icon-right'])
 

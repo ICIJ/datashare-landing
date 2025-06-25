@@ -17,15 +17,14 @@ const { detectedOs } = useOs()
         <image-mode-source
           src="@/assets/illustrations/LandingPage_BlueDesktop_DarkMode.svg"
           color-mode="dark"
-        /> </image-mode
-    ></span>
+        /> </image-mode></span>
     <div class="app-datashare-download__main row">
       <div class="d-flex flex-column">
         <div class="app-datashare-download__main__download-buttons text-center">
           <download-buttons
             :os-value="detectedOs"
             class="app-datashare-download__main__download-buttons__wrapper"
-          ></download-buttons>
+          />
         </div>
         <datashare-download-cards />
       </div>

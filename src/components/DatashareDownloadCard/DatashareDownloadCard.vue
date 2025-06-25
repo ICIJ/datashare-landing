@@ -1,16 +1,17 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useColorMode } from 'bootstrap-vue-next'
-defineProps({
-  title: { type: String }
-})
+defineProps<{title:string}>()
 const mode = useColorMode()
 
+const isDark = computed(() => {
+  return mode.value === 'dark' 
+})
 const cardBg = computed(() => {
-  return mode.value === 'dark' ? 'bg-darker' : 'bg-light'
+  return isDark.value ? 'bg-darker' : 'bg-light'
 })
 const cardBorder = computed(() => {
-  return mode.value === 'dark' ? 'border-secondary' : 'border-tertiary'
+  return isDark.value ? 'border-secondary' : 'border-tertiary'
 })
 const classList = computed(() => {
   return `datashare-download-card border-1 ${cardBorder.value} ${cardBg.value}`
@@ -19,7 +20,9 @@ const classList = computed(() => {
 
 <template>
   <b-card :class="classList">
-    <h4 class="text-action-emphasis fs-6">{{ title }}</h4>
+    <h4 class="text-action-emphasis fs-6">
+      {{ title }}
+    </h4>
     <p class="text-small text-bg-action-emphasis m-0">
       <slot />
     </p>

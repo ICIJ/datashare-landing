@@ -3,28 +3,15 @@ import { computed, useTemplateRef } from 'vue'
 
 import { useColorMode } from '@/composables/useColorMode.ts'
 import { useQueryObserver } from '@/composables/useQueryObserver.ts'
-
-const props = defineProps({
-  defaultColorMode: {
-    type: String,
-    default: 'light'
-  },
-  src: {
-    type: String
-  },
-  alt: {
-    type: String
-  },
-  height: {
-    type: [String, Number]
-  },
-  width: {
-    type: [String, Number]
-  },
-  imageClass: {
-    type: [String, Array, Object]
-  }
-})
+interface ImageModeProps {
+  defaultColorMode?:string,
+  src?:string,
+  alt?:string,
+  height?:string|number,
+  width?:string|number,
+  imageClass?:string|string[]|any
+}
+const props = withDefaults(defineProps<ImageModeProps>(),{ defaultColorMode: 'light'})
 
 const element = useTemplateRef<HTMLElement>('element')
 // @ts-expect-error element is a ref
@@ -57,6 +44,12 @@ const src = computed(() => {
 <template>
   <picture ref="element" :class="classList">
     <slot />
-    <img :src="src" :alt="alt" :height="height" :width="width" :class="imageClass" />
+    <img
+      :src="src"
+      :alt="alt"
+      :height="height"
+      :width="width"
+      :class="imageClass"
+    >
   </picture>
 </template>

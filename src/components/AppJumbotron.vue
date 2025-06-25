@@ -16,7 +16,7 @@ const label = computed(() => {
   if (osButton.value.name) {
     return `Download for ${osButton.value.name}`
   }
-  return `Download`
+  return 'Download'
 })
 </script>
 
@@ -24,17 +24,27 @@ const label = computed(() => {
   <app-section class="app-jumbotron">
     <div class="app-jumbotron__container px-lg-2">
       <h1 class="display-1 mb-4">
-        <span class="bg-body"
-          >Find stories in<br />
-          any files</span
-        >
+        <span class="bg-body">Find stories in<br>
+          any files</span>
       </h1>
       <div class="d-flex flex-column gap-3">
         <div>
-          <button-download v-if="isCompatible" :asset="osButton.asset" size="md" :icon="osButton.icon">
+          <button-download
+            v-if="isCompatible"
+            :asset="osButton.asset"
+            size="md"
+            :icon="osButton.icon"
+          >
             {{ label }}
           </button-download>
-          <button-download v-else asset="#download" size="md" :icon="DEFAULT_ICON"> Download </button-download>
+          <button-download
+            v-else
+            asset="#download"
+            size="md"
+            :icon="DEFAULT_ICON"
+          >
+            Download
+          </button-download>
         </div>
         <div>
           <button-icon
@@ -43,8 +53,9 @@ const label = computed(() => {
             variant="outline-action"
             class="demo-link bg-body text-action-emphasis border-action-emphasis"
             href="https://datashare-demo.icij.org/"
-            >Use the demo</button-icon
           >
+            Use the demo
+          </button-icon>
         </div>
         <div><datashare-download-modal class="false-link" /></div>
       </div>

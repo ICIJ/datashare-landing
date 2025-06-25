@@ -61,8 +61,9 @@ function toggleIcijLink() {
             :icon-left-variant="iconVariant"
             @mouseenter="toggleIcijLink"
             @mouseleave="toggleIcijLink"
-            >Donate to ICIJ</button-icon
           >
+            Donate to ICIJ
+          </button-icon>
         </p>
         <p>
           <button-icon
@@ -71,8 +72,9 @@ function toggleIcijLink() {
             size="lg"
             icon-left="github-logo"
             class="action-link p-4"
-            >Contribute</button-icon
           >
+            Contribute
+          </button-icon>
         </p>
         <p>
           <button-icon
@@ -81,8 +83,9 @@ function toggleIcijLink() {
             size="lg"
             icon-left="translate"
             class="action-link p-4"
-            >Help us translate</button-icon
           >
+            Help us translate
+          </button-icon>
         </p>
       </div>
     </div>

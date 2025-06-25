@@ -1,19 +1,17 @@
 <script setup lang="ts">
-defineProps({
-  title: { type: String },
-  articleClass: { type: String },
-  imageClass: { type: String }
-})
+defineProps<{ title:string, articleClass:string, imageClass:string }>()
 </script>
 
 <template>
   <section class="datashare-example d-flex align-items-center justify-content-around gap-4">
     <div class="d-none d-md-flex" :class="imageClass">
-      <slot name="image"> </slot>
+      <slot name="image" />
     </div>
     <article :class="articleClass" class="d-flex">
       <div class="flex-shrink-1 p-2 mx-auto bg-body">
-        <header class="h4 text-body-emphasis">{{ title }}</header>
+        <header class="h4 text-body-emphasis">
+          {{ title }}
+        </header>
         <slot />
       </div>
     </article>

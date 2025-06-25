@@ -17,14 +17,18 @@ const isLight = computed(() => {
 
 <template>
   <app-section class="app-datashare-demo">
-    <image-mode width="160px" class="app-datashare-demo__image position-absolute end-0">
+    <image-mode
+      width="160px"
+      class="app-datashare-demo__image position-absolute end-0"
+    >
       <image-mode-source src="@/assets/illustrations/LandingPage_YellowPlanet_LightMode.svg" />
     </image-mode>
     <div class="app-datashare-demo__content d-flex flex-column position-relative">
       <h3 class="app-datashare-demo__content__title fw-normal col-11 px-4">
         Want to dive into the <span class="fw-bold text-nowrap"> Lux Leaks</span> documents?
-        <span class="text-nowrap gap-1"
-          >Try our <a href="https://datashare-demo.icij.org">demo</a><PhEyes weight="fill" class="ms-1 mb-1"
+        <span class="text-nowrap gap-1">Try our <a href="https://datashare-demo.icij.org">demo</a><PhEyes
+          weight="fill"
+          class="ms-1 mb-1"
         /></span>
       </h3>
       <div class="align-self-center col-10">
@@ -34,8 +38,14 @@ const isLight = computed(() => {
           width="100%"
           alt="Datashare demo screenshot"
         >
-          <image-mode-source v-if="isLight" src="@/assets/illustrations/screenshots/Demo_LightMode.png" />
-          <image-mode-source v-else src="@/assets/illustrations/screenshots/Demo_DarkMode.png" />
+          <image-mode-source
+            v-if="isLight"
+            src="@/assets/illustrations/screenshots/Demo_LightMode.png"
+          />
+          <image-mode-source
+            v-else
+            src="@/assets/illustrations/screenshots/Demo_DarkMode.png"
+          />
         </image-mode>
         <color-mode-selector v-model="colorMode" />
       </div>

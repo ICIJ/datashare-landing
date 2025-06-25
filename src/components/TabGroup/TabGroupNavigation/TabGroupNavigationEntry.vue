@@ -4,17 +4,17 @@ import {computed} from 'vue'
 import TabGroupTitle from '../TabGroupTitle.vue'
 
 interface TabGroupNavigationProps{
-  manual: boolean,
-  active: boolean,
-  icon: string|string[]|any ,
+  manual?: boolean,
+  active?: boolean,
+  icon?: string|string[]|any ,
   count?: number ,
-  activeClass: string,
-  disabled: boolean,
-  exactActiveClass: string,
+  activeClass?: string,
+  disabled?: boolean,
+  exactActiveClass?: string,
   href: string,
-  rel: string,
-  target: "_self" | "_blank" | "_parent" | "_top" | undefined,
-  to: string|any
+  rel?: string,
+  target?: '_self' | '_blank' | '_parent' | '_top' ,
+  to?: string|any
 }
 const props = defineProps<TabGroupNavigationProps>()
 
@@ -39,7 +39,10 @@ const classList = computed(() => {
     :target="target"
     :to="to"
   >
-    <tab-group-title :icon="icon" :count="count">
+    <tab-group-title
+      :icon="icon"
+      :count="count"
+    >
       <slot />
     </tab-group-title>
   </b-nav-item>

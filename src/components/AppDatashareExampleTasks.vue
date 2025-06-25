@@ -14,8 +14,14 @@ import AppSection from '@/components/AppSection.vue'
       article-class="col-md-5"
     >
       <template #image>
-        <image-mode alt="Batch search" image-class="justify-content-end img-fluid shadow-lg">
-          <image-mode-source src="@/assets/illustrations/screenshots/Quickly_surface_DarkMode.png" color-mode="dark" />
+        <image-mode
+          alt="Batch search"
+          image-class="justify-content-end img-fluid shadow-lg"
+        >
+          <image-mode-source
+            src="@/assets/illustrations/screenshots/Quickly_surface_DarkMode.png"
+            color-mode="dark"
+          />
           <image-mode-source src="@/assets/illustrations/screenshots/Quickly_surface_LightMode.png" />
         </image-mode>
       </template>

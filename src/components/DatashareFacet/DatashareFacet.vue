@@ -1,12 +1,12 @@
 <script setup lang="ts">
-defineProps({
-  title: { type: String }
-})
+defineProps<{title:string}>()
 </script>
 
 <template>
   <div class="datashare-facet col-12 col-md-4 py-4">
-    <h2 class="datashare-facet__title text-light">{{ title }}</h2>
+    <h2 class="datashare-facet__title text-light">
+      {{ title }}
+    </h2>
     <p>
       <slot />
     </p>

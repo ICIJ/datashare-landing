@@ -31,10 +31,19 @@ const classList = computed(() => {
 
 <template>
   <app-section class="bg-body fixed-top px-0 border-bottom">
-    <b-navbar toggleable="md" class="app-nav-bar">
-      <b-navbar-brand class="navbar-brand" href="#">
+    <b-navbar
+      toggleable="md"
+      class="app-nav-bar"
+    >
+      <b-navbar-brand
+        class="navbar-brand"
+        href="#"
+      >
         <image-mode class="d-inline-block align-text-bottom">
-          <image-mode-source src="@/assets/illustrations/Datashare_Logo_LightMode.svg" alt="Datashare logo" />
+          <image-mode-source
+            src="@/assets/illustrations/Datashare_Logo_LightMode.svg"
+            alt="Datashare logo"
+          />
           <image-mode-source
             src="@/assets/illustrations/Datashare_Logo_DarkMode.svg"
             alt="Datashare logo"
@@ -42,19 +51,31 @@ const classList = computed(() => {
           />
         </image-mode>
       </b-navbar-brand>
-      <b-navbar-toggle target="nav-collapse" :class="classList">
+      <b-navbar-toggle
+        target="nav-collapse"
+        :class="classList"
+      >
         <template #default>
           <phosphor-icon name="list" />
         </template>
       </b-navbar-toggle>
-      <b-collapse id="nav-collapse" is-nav>
+      <b-collapse
+        id="nav-collapse"
+        is-nav
+      >
         <tab-group-navigation class="pt-1">
-          <tab-group-navigation-entry href="#download"
-            ><phosphor-icon :name="osIcon" />Download</tab-group-navigation-entry
-          >
-          <tab-group-navigation-entry href="#demo"><PhEyes weight="fill" />Demo</tab-group-navigation-entry>
-          <tab-group-navigation-entry href="#learn"><PhStudent />Learn</tab-group-navigation-entry>
-          <tab-group-navigation-entry href="#contribute"><PhGithubLogo />Contribute</tab-group-navigation-entry>
+          <tab-group-navigation-entry href="#download">
+            <phosphor-icon :name="osIcon" />Download
+          </tab-group-navigation-entry>
+          <tab-group-navigation-entry href="#demo">
+            <PhEyes weight="fill" />Demo
+          </tab-group-navigation-entry>
+          <tab-group-navigation-entry href="#learn">
+            <PhStudent />Learn
+          </tab-group-navigation-entry>
+          <tab-group-navigation-entry href="#contribute">
+            <PhGithubLogo />Contribute
+          </tab-group-navigation-entry>
           <tab-group-navigation-entry
             href="https://icij.org/donate"
             rel="noreferrer noopener"
@@ -63,9 +84,13 @@ const classList = computed(() => {
             @mouseenter="toggleIcijLink"
             @mouseleave="toggleIcijLink"
           >
-            <phosphor-icon name="hand-heart" :weight="weight" :variant="variant" />It's free! Support
-            ICIJ</tab-group-navigation-entry
-          >
+            <phosphor-icon
+              name="hand-heart"
+              :weight="weight"
+              :variant="variant"
+            />It's free! Support
+            ICIJ
+          </tab-group-navigation-entry>
         </tab-group-navigation>
       </b-collapse>
     </b-navbar>

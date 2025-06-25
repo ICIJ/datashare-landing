@@ -4,14 +4,14 @@ import { computed } from 'vue'
 
 import SvgLinearGradient from '@/components/DatashareResource/SvgLinearGradient.vue'
 
-const props = defineProps({
-  icon: { type: String },
-  iconColor: { type: String, required: true },
-  iconWeight: { type: String },
-  title: { type: String },
-  content: { type: String },
-  externalLink: { type: String }
-})
+const props = defineProps<{
+  icon?:string;
+  iconColor:string;
+  iconWeight?:string;
+  title?:string;
+  content?:string;
+  externalLink?:string;
+}>()
 
 const iconColorId = computed(() => {
   return `svg-gradient-${props.iconColor}`
@@ -26,9 +26,11 @@ const iconColorStyle = computed(() => {
   <b-card bg-variant="action-subtle" class="datashare-resource-card border-0 py-4" body-class="d-flex flex-column">
     <div class="mb-2">
       <svg-linear-gradient :icon-color="iconColor" :icon-color-id="iconColorId" />
-      <slot name="icon"><PhosphorIcon :name="icon" :weight="iconWeight" size="50px" /> </slot>
+      <slot name="icon">
+        <PhosphorIcon :name="icon" :weight="iconWeight" size="50px" />
+      </slot>
     </div>
-    <h4 class="datashare-resource-card__title mb-4" v-html="title"></h4>
+    <h4 class="datashare-resource-card__title mb-4" v-html="title" />
     <p class="flex-grow-1 text-action-emphasis">
       <slot>{{ content }}</slot>
     </p>

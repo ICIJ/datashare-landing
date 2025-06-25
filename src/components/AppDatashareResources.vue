@@ -47,7 +47,10 @@ const resources = {
     <div class="app-datashare-resources d-flex flex-column">
       <h3 class="py-4">
         Learn how to
-        <image-mode class="app-datashare-resources__illustration" width="230">
+        <image-mode
+          class="app-datashare-resources__illustration"
+          width="230"
+        >
           <image-mode-source
             alt="Student illustration"
             src="@/assets/illustrations/LandingPage_BlueStudent_LightMode.svg"

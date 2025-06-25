@@ -37,7 +37,7 @@ const dockerComposeYmlCaret = computed(() => {
       Make sure the <code>Datashare</code> folder exists in your homedir or this command will fail. This is an example
       about how to use Datashare with Docker, data will not be persisted.
     </p>
-    <hr />
+    <hr>
     <p>
       To start Datashare with Docker Compose, you can use the following
       <a :href="dockerComposeYmlHref" download="docker-compose.yml">docker-compose.yml</a> file:

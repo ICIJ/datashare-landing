@@ -11,18 +11,20 @@ provide('modal', true)
 const modelValue = defineModel({ type: Boolean })
 
 interface AppModalProps extends AppModalHeaderProps {
-  buttonSize: 'sm' | 'md' | 'lg'
-  cancelDisabled: boolean
-  cancelTitle: string
-  cancelVariant: string
-  okDisabled: boolean
-  okOnly: boolean
-  okTitle: string
-  okVariant: string
-  size: 'sm' | 'md' | 'lg' | 'xl'
+  buttonSize?: 'sm' | 'md' | 'lg'
+  cancelDisabled?: boolean
+  cancelTitle?: string
+  cancelVariant?: string
+  okDisabled?: boolean
+  okOnly?: boolean
+  okTitle?: string
+  okVariant?: string
+  size?: 'sm' | 'md' | 'lg' | 'xl'
 }
 
-withDefaults(defineProps<AppModalProps>(), { imageWidth: '60px', noHeaderClose: false })
+withDefaults(defineProps<AppModalProps>(), {
+  imageWidth: '60px',
+  noHeaderClose: false })
 </script>
 
 <template>

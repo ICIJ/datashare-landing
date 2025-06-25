@@ -14,7 +14,10 @@ import AppSection from '@/components/AppSection.vue'
       article-class="col-10 col-sm-6 col-md-4"
     >
       <template #image>
-        <image-mode alt="User actions on a document" image-class="img-fluid">
+        <image-mode
+          alt="User actions on a document"
+          image-class="img-fluid"
+        >
           <image-mode-source src="@/assets/illustrations/screenshots/Annotate_with_your_team_LightMode.png" />
           <image-mode-source
             src="@/assets/illustrations/screenshots/Annotate_with_your_team_DarkMode.png"

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-defineProps({
-  title: { type: String }
-})
+defineProps<{title:string}>()
 </script>
 
 <template>
   <div class="datashare-feature d-flex flex-column-md position-relative col col-md-3 flex-grow-1">
-    <div class="position-absolute top-0 end-0 badge"><slot name="badge"></slot></div>
+    <div class="position-absolute top-0 end-0 badge">
+      <slot name="badge" />
+    </div>
     <b-card :title="title" class="feature-card__card bg-action-subtle my-3 border-0">
       <b-card-body><slot /></b-card-body>
     </b-card>

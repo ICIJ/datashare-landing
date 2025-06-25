@@ -1,6 +1,9 @@
 <template>
   <section class="app-section">
-    <b-container fluid="lg" class="app-section__container position-relative">
+    <b-container
+      fluid="lg"
+      class="app-section__container position-relative"
+    >
       <slot />
     </b-container>
   </section>

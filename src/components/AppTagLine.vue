@@ -1,16 +1,15 @@
+<script setup lang="ts">
+import AppSection from '@/components/AppSection.vue'
+</script>
+
 <template>
   <app-section class="app-tag-line mx-2 d-flex flex-column justify-content-center position-relative">
     <h2 class="display-6 text-center fw-bold position-relative">
-      <span class="app-tag-line__text px-1 bg-body"
-        >Tailored for investigative journalists,<br />&nbsp;useful for everyone</span
-      >
+      <span class="app-tag-line__text px-1 bg-body">Tailored for investigative journalists,<br>&nbsp;useful for everyone</span>
     </h2>
   </app-section>
 </template>
 
-<script setup lang="ts">
-import AppSection from '@/components/AppSection.vue'
-</script>
 <style lang="scss">
 .app-tag-line {
   & .app-section__container {
