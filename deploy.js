@@ -1,6 +1,6 @@
-const gh = require('gh-pages');
-const path = require('path');
-const chalk = require('chalk')
+import gh  from 'gh-pages'
+import path  from 'path'
+import chalk  from 'chalk'
 
 process.env.NODE_ENV = 'production'
 
