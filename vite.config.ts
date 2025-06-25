@@ -1,13 +1,13 @@
 import { fileURLToPath, URL } from 'node:url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
-import {BootstrapVueNextResolver} from 'bootstrap-vue-next'
+import { BootstrapVueNextResolver } from 'bootstrap-vue-next'
+
 import { PhosphorVueResolver } from './bin/resolvers'
-import {PhosphorVuePreset} from "./bin/presets";
+import { PhosphorVuePreset } from './bin/presets'
 // https://vite.dev/config/
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/datashare-landing-next/' : '/',
@@ -15,12 +15,12 @@ export default defineConfig({
     vue({
       template: {
         transformAssetUrls: {
-          "image-mode":['src'],
-          "image-mode-source":['src'],
-          "b-img":['src'],
-          source:['src'],
+          'image-mode': ['src'],
+          'image-mode-source': ['src'],
+          'b-img': ['src'],
+          source: ['src'],
           video: ['src', 'poster'],
-          img: ['src'],
+          img: ['src']
         }
       }
     }),
@@ -31,7 +31,7 @@ export default defineConfig({
      * that simply imports icons (example: `<ph-plus>`).
      */
     Components({
-      resolvers: [BootstrapVueNextResolver(),PhosphorVueResolver()],
+      resolvers: [BootstrapVueNextResolver(), PhosphorVueResolver()]
     }),
     /**
      * The "AutoImport" plugin offer a mechanism similar to the "Components" plugins
@@ -41,18 +41,14 @@ export default defineConfig({
     AutoImport({
       dts: false,
       vueTemplate: true,
-      imports: [
-        PhosphorVuePreset()
-      ],
-      resolvers: [
-        PhosphorVueResolver()
-      ]
+      imports: [PhosphorVuePreset()],
+      resolvers: [PhosphorVueResolver()]
     })
   ],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
-    },
+    }
   },
   css: {
     preprocessorOptions: {
@@ -67,5 +63,5 @@ export default defineConfig({
           `
       }
     }
-  },
+  }
 })

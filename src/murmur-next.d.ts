@@ -1,1 +1,1 @@
-declare module "@icij/murmur-next" ;
+declare module '@icij/murmur-next'
