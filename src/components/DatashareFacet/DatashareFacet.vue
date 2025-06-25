@@ -1,19 +1,19 @@
 <script setup lang="ts">
 defineProps({
-  title: {type:String}
+  title: { type: String }
 })
 </script>
 
 <template>
   <div class="datashare-facet col-12 col-md-4 py-4">
-    <h2 class="datashare-facet__title text-light">{{title}}</h2>
+    <h2 class="datashare-facet__title text-light">{{ title }}</h2>
     <p>
-    <slot/>
+      <slot />
     </p>
   </div>
 </template>
 
-<style lang="scss" >
+<style lang="scss">
 .datashare-facet {
   text-wrap: pretty;
   &__title {
@@ -34,8 +34,8 @@ defineProps({
   }
 }
 @include color-mode(dark) {
-  .app-datashare-facet{
-    background-color: var(--bs-action-bg-subtle)!important;
+  .app-datashare-facet {
+    background-color: var(--bs-action-bg-subtle) !important;
   }
 }
 </style>

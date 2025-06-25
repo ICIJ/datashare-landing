@@ -1,22 +1,25 @@
 <script setup lang="ts">
-import DatashareDownloadCard from "@/components/DatashareDownloadCard/DatashareDownloadCard.vue";
-import {computed} from "vue";
-import {useRelease} from "@/composables/useRelease.ts";
-import DatashareDownloadModal from "@/components/DatashareDownloadModal/DatashareDownloadModal.vue";
+import { computed } from 'vue'
 
-const {latestVersion} = useRelease()
-const versionNumber = computed(()=>{
+import DatashareDownloadCard from '@/components/DatashareDownloadCard/DatashareDownloadCard.vue'
+import { useRelease } from '@/composables/useRelease.ts'
+import DatashareDownloadModal from '@/components/DatashareDownloadModal/DatashareDownloadModal.vue'
+
+const { latestVersion } = useRelease()
+const versionNumber = computed(() => {
   return `Version ${latestVersion.value}`
 })
-//d-flex flex-column col-10 offset-1 gap-2
 </script>
 
 <template>
-  <b-card-group deck class="datashare-download-cards d-flex flex-column offset-2 col-8  flex-sm-row col-sm-10 offset-sm-1 ">
+  <b-card-group
+    deck
+    class="datashare-download-cards d-flex flex-column offset-2 col-8 flex-sm-row col-sm-10 offset-sm-1"
+  >
     <datashare-download-card :title="versionNumber">
       <ul>
-        <li >
-          <datashare-download-modal class="false-link"/>
+        <li>
+          <datashare-download-modal class="false-link" />
         </li>
         <li>Read the <a href="https://github.com/ICIJ/datashare/releases/latest">release note</a></li>
       </ul>
@@ -35,10 +38,8 @@ const versionNumber = computed(()=>{
     <datashare-download-card title="Contact us">
       <ul>
         <li><a href="https://github.com/icij/?q=datashare" target="_blank">On Github</a></li>
-        <li>At <a href= "mailto:datashare@icij.org">datashare@icij.org</a></li>
+        <li>At <a href="mailto:datashare@icij.org">datashare@icij.org</a></li>
       </ul>
     </datashare-download-card>
-
   </b-card-group>
-
 </template>

@@ -1,7 +1,6 @@
-import {ref, toRef, onMounted, onUnmounted} from 'vue'
+import { ref, toRef, onMounted, onUnmounted } from 'vue'
 
 export function useColorMode(element = window?.document?.body, defaultColorMode = 'light') {
-
   const elementRef = toRef(element)
   // Reactive reference to store the current color mode
   const colorMode = ref(defaultColorMode)
@@ -15,7 +14,7 @@ export function useColorMode(element = window?.document?.body, defaultColorMode 
   }
 
   // MutationObserver to watch for changes to the data-bs-theme attribute
-  let observer:MutationObserver|null = null
+  let observer: MutationObserver | null = null
 
   onMounted(() => {
     // Set initial color mode
@@ -31,7 +30,7 @@ export function useColorMode(element = window?.document?.body, defaultColorMode 
   })
 
   // Disconnect the observer when the component is unmounted
-  onUnmounted(() =>  observer?.disconnect())
+  onUnmounted(() => observer?.disconnect())
 
   return { colorMode }
 }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import {BNavbarNav} from "bootstrap-vue-next";
+import { BNavbarNav } from 'bootstrap-vue-next'
 
 const props = defineProps({
   cardHeader: {

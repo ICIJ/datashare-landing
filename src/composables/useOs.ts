@@ -1,36 +1,37 @@
-import {UAParser} from 'ua-parser-js'
-import {computed} from 'vue'
+import { UAParser } from 'ua-parser-js'
+import { computed } from 'vue'
 export enum OS {
-MACOS = 'macos',
-IOS = 'ios',
-ANDROID = 'android',
-WINDOWS = 'windows',
-DEBIAN = 'debian',
-LINUX = 'linux',
-SNAP = 'snap',
-DOCKER = 'docker',
-OTHER = 'other',
+  MACOS = 'macos',
+  IOS = 'ios',
+  ANDROID = 'android',
+  WINDOWS = 'windows',
+  DEBIAN = 'debian',
+  LINUX = 'linux',
+  SNAP = 'snap',
+  DOCKER = 'docker',
+  OTHER = 'other'
 }
 
 export const DEFAULT_ICON = 'download-simple'
-type OSAssetSimple= {
-  name:string;
-  icon:string;
+type OSAssetSimple = {
+  name: string
+  icon: string
 }
 type OSAsset = OSAssetSimple & {
-  ext:string[];
-  guide?:string;
-  asset:string|null;
-  size?:string;
-  buttons:{
-    label:string,
-    asset?:string|null,
-    icon?:string,
-    btnSize?:string,
-    wrapperClass?:string,
-    guide?:boolean}[];
+  ext: string[]
+  guide?: string
+  asset: string | null
+  size?: string
+  buttons: {
+    label: string
+    asset?: string | null
+    icon?: string
+    btnSize?: string
+    wrapperClass?: string
+    guide?: boolean
+  }[]
 }
-export const simpleOs: {[key:string]: OSAssetSimple} = {
+export const simpleOs: { [key: string]: OSAssetSimple } = {
   [OS.SNAP]: {
     name: 'Snap',
     icon: 'bird'
@@ -40,26 +41,22 @@ export const simpleOs: {[key:string]: OSAssetSimple} = {
     icon: 'shipping-container'
   }
 }
-export const osDescription:{[key:string]: OSAsset} = {
+export const osDescription: { [key: string]: OSAsset } = {
   [OS.MACOS]: {
     name: 'Mac',
     icon: 'apple-logo',
-    ext: ['.pkg','DatashareStandalone.pkg'],
+    ext: ['.pkg', 'DatashareStandalone.pkg'],
     guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-mac',
     asset: null,
-    buttons: [
-      {label: 'Download for Mac'}
-    ]
+    buttons: [{ label: 'Download for Mac' }]
   },
   [OS.WINDOWS]: {
     name: 'Windows',
     icon: 'windows-logo',
-    ext: ['.exe','installDatashareStandalone.exe'],
+    ext: ['.exe', 'installDatashareStandalone.exe'],
     guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-windows',
     asset: null,
-    buttons: [
-      {label: 'Download for Windows'}
-    ]
+    buttons: [{ label: 'Download for Windows' }]
   },
   [OS.DEBIAN]: {
     name: 'Debian',
@@ -68,7 +65,7 @@ export const osDescription:{[key:string]: OSAsset} = {
     guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-linux',
     asset: null,
     buttons: [
-      {label: 'Download .deb', asset: null, icon: 'ubuntu'},
+      { label: 'Download .deb', asset: null, icon: 'ubuntu' },
       {
         label: 'Download .tgz',
         asset: null,
@@ -86,7 +83,7 @@ export const osDescription:{[key:string]: OSAsset} = {
     guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-linux',
     asset: null,
     buttons: [
-      {label: 'Download .deb', asset: null, icon: 'linux-logo'},
+      { label: 'Download .deb', asset: null, icon: 'linux-logo' },
       {
         label: 'Download .tgz',
         asset: null,
@@ -97,17 +94,15 @@ export const osDescription:{[key:string]: OSAsset} = {
       }
     ]
   }
-
 }
-
 
 export function useOs() {
   function family() {
     const { name: os } = new UAParser().getOS()
-    return osStringToFamily(os as string);
+    return osStringToFamily(os as string)
   }
 
-  function osStringToFamily(osString:string) {
+  function osStringToFamily(osString: string) {
     if (osString.startsWith('Mac')) {
       return OS.MACOS
     } else if (osString.startsWith('iOS')) {
@@ -125,8 +120,8 @@ export function useOs() {
     }
   }
   const detectedOs = family()
-  const isCompatible = computed(()=>{
-    return [OS.MACOS,OS.WINDOWS,OS.DEBIAN,OS.LINUX].includes(detectedOs)
+  const isCompatible = computed(() => {
+    return [OS.MACOS, OS.WINDOWS, OS.DEBIAN, OS.LINUX].includes(detectedOs)
   })
-  return {detectedOs,isCompatible, family,osStringToFamily,osDescription}
+  return { detectedOs, isCompatible, family, osStringToFamily, osDescription }
 }

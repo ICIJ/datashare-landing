@@ -1,26 +1,26 @@
 <script setup lang="ts">
-import {ref, computed} from 'vue'
-import {useRelease} from "@/composables/useRelease.ts";
+import { ref, computed } from 'vue'
 
+import { useRelease } from '@/composables/useRelease.ts'
 import dockerComposeYmlRaw from '@/assets/docker-compose.yml?raw'
-import CopyInput from "@/components/Download/CopyInput.vue";
-import ButtonIcon from "@/components/ButtonIcon.vue";
+import CopyInput from '@/components/Download/CopyInput.vue'
+import ButtonIcon from '@/components/ButtonIcon.vue'
 
-defineOptions({name:'DownloadDocker'})
+defineOptions({ name: 'DownloadDocker' })
 
-const {latestVersion}  = useRelease()
+const { latestVersion } = useRelease()
 
 const dockerComposeYml = ref('')
-const dockerComposeYmlVisible =  ref(false)
+const dockerComposeYmlVisible = ref(false)
 dockerComposeYml.value = dockerComposeYmlRaw.replace('icij/datashare:latest', `icij/datashare:${latestVersion.value}`)
 
-const dockerOneLiner = computed(() =>{
+const dockerOneLiner = computed(() => {
   return `docker run --mount src=$HOME/Datashare,target=/home/datashare/data,type=bind -p 8080:8080 icij/datashare:${latestVersion.value} --mode EMBEDDED`
 })
-const dockerComposeYmlHref = computed(() =>{
+const dockerComposeYmlHref = computed(() => {
   return 'data:text/plain;charset=utf-8,' + encodeURIComponent(dockerComposeYml.value)
 })
-const dockerComposeYmlCaret = computed(() =>{
+const dockerComposeYmlCaret = computed(() => {
   return dockerComposeYmlVisible.value ? 'caret-up' : 'caret-down'
 })
 </script>
@@ -31,22 +31,25 @@ const dockerComposeYmlCaret = computed(() =>{
       To start Datashare within a <a target="_blank" href="https://www.docker.com/">Docker</a>
       container, you can use this command:
     </p>
-    <copy-input variant="action" :model-value="dockerOneLiner"/>
-
+    <copy-input variant="action" :model-value="dockerOneLiner" />
 
     <p class="text-muted">
-      Make sure the <code>Datashare</code> folder exists in your homedir
-      or this command will fail. This is an example about
-      how to use Datashare with Docker, data will not be persisted.
+      Make sure the <code>Datashare</code> folder exists in your homedir or this command will fail. This is an example
+      about how to use Datashare with Docker, data will not be persisted.
     </p>
     <hr />
     <p>
-      To start Datashare with Docker Compose,
-      you can use the following <a :href="dockerComposeYmlHref" download="docker-compose.yml">docker-compose.yml</a> file:
+      To start Datashare with Docker Compose, you can use the following
+      <a :href="dockerComposeYmlHref" download="docker-compose.yml">docker-compose.yml</a> file:
     </p>
     <div class="small card">
       <div class="d-flex">
-        <button-icon :left-icon="dockerComposeYmlCaret" v-b-toggle.docker-compose-yml variant="link" class="text-left text-dark flex-grow-1">
+        <button-icon
+          v-b-toggle.docker-compose-yml
+          :left-icon="dockerComposeYmlCaret"
+          variant="link"
+          class="text-left text-dark flex-grow-1"
+        >
           Show <code>docker-compose.yml</code>
         </button-icon>
         <haptic-copy variant="action" :text="dockerComposeYml" />

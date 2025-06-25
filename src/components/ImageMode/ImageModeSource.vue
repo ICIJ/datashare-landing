@@ -15,9 +15,9 @@ const props = defineProps({
 })
 
 onMounted(() => {
-  //@ts-expect-error access internal values
+  // @ts-expect-error access internal values
   const { exposed } = getCurrentInstance()
-  //@ts-expect-error access internal values
+  // @ts-expect-error access internal values
   element.value.__exposed__ = exposed
 })
 

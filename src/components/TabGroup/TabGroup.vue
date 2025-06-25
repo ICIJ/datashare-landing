@@ -42,7 +42,7 @@ const navClassList = computed(() => {
     'tab-group-navigation': true,
     'tab-group-navigation--nowrap': props.nowrap,
     'tab-group-navigation--flush': props.flush,
-    //@ts-expect-error navclass can be undefined or null
+    // @ts-expect-error navclass can be undefined or null
     [props.navClass]: !!props.navClass
   }
 })
