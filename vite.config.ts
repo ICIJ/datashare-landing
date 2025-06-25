@@ -10,7 +10,7 @@ import { PhosphorVueResolver } from './bin/resolvers'
 import { PhosphorVuePreset } from './bin/presets'
 // https://vite.dev/config/
 export default defineConfig({
-  base: process.env.NODE_ENV === 'production' ? '/datashare-landing-next/' : '/',
+  base: '/',
   plugins: [
     vue({
       template: {
