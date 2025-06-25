@@ -1,30 +1,10 @@
 <script setup lang="ts">
 import ButtonIcon from '@/components/ButtonIcon.vue'
 import ImageMode from '@/components/ImageMode/ImageMode.vue'
-
-defineProps({
-  title: {
-    type: String
-  },
-  image: {
-    type: String
-  },
-  imageAlt: {
-    type: String
-  },
-  imageWidth: {
-    type: [Number, String]
-  },
-  headerCloseClass: {
-    type: [String, Array, Object]
-  },
-  noHeaderClose: {
-    type: Boolean,
-    default: false
-  }
-})
+import type { AppModalHeaderProps } from '@/utils/types.ts'
 
 defineEmits(['close'])
+withDefaults(defineProps<AppModalHeaderProps>(), { noHeaderClose: false })
 </script>
 
 <template>
@@ -44,7 +24,13 @@ defineEmits(['close'])
       />
     </slot>
     <slot name="image">
-      <image-mode v-if="image" image-class="app-modal-header__image" :src="image" :alt="imageAlt" :width="imageWidth">
+      <image-mode
+        v-if="image"
+        image-class="app-modal-header__image"
+        :src="image"
+        :alt="imageAlt"
+        :width="imageWidth"
+      >
         <slot name="image-source" />
       </image-mode>
     </slot>

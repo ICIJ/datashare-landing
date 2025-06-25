@@ -3,37 +3,41 @@ import { provide } from 'vue'
 
 import AppModalHeader from './AppModalHeader.vue'
 
+import { type AppModalHeaderProps } from '@/utils/types.ts'
 
 // This tells every nested component they are in a modal
 provide('modal', true)
 
 const modelValue = defineModel({ type: Boolean })
 
-interface AppModalProps {
-  title: string,
-  image: string,
-  imageAlt: string,
-  imageWidth?: number|string ,
-  buttonSize: "sm" | "md" | "lg" ,
-  cancelDisabled: boolean,
-  cancelTitle: string,
-  cancelVariant: string,
+interface AppModalProps extends AppModalHeaderProps {
+  buttonSize: 'sm' | 'md' | 'lg'
+  cancelDisabled: boolean
+  cancelTitle: string
+  cancelVariant: string
   okDisabled: boolean
   okOnly: boolean
-  okTitle: string,
-    okVariant: string,
-  size: "sm" | "md" | "lg" | "xl",
-  headerCloseClass: string| string[] | any,
-  noHeaderClose?: boolean
+  okTitle: string
+  okVariant: string
+  size: 'sm' | 'md' | 'lg' | 'xl'
 }
 
-withDefaults(defineProps<AppModalProps>(),{imageWidth:"60px", noHeaderClose:false})
+withDefaults(defineProps<AppModalProps>(), { imageWidth: '60px', noHeaderClose: false })
 </script>
 
 <template>
-  <b-modal v-model="modelValue" :button-size="buttonSize" :size="size" :title="title" class="app-modal">
+  <b-modal
+    v-model="modelValue"
+    :button-size="buttonSize"
+    :size="size"
+    :title="title"
+    class="app-modal"
+  >
     <template #header="{ cancel, close, hide, ok, visible }">
-      <slot name="header" v-bind="{ cancel, close, hide, ok, visible }">
+      <slot
+        name="header"
+        v-bind="{ cancel, close, hide, ok, visible }"
+      >
         <app-modal-header
           :image="image"
           :image-alt="imageAlt"

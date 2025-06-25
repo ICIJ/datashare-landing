@@ -2,14 +2,14 @@
   <!-- @vue-ignore -->
   <b-button
     v-bind="buttonProps"
-    :aria-label="tooltipText"
     :id="buttonId"
+    ref="element"
+    :aria-label="tooltipText"
     :to="to"
     :class="classList"
+    class="button-icon"
     @mousenter="currentHover = true"
     @mouseleave="currentHover = false"
-    ref="element"
-    class="button-icon"
   >
     <slot name="start" />
     <phosphor-icon
@@ -26,7 +26,10 @@
       :hover="currentHover"
       class="button-icon__icon-left"
     />
-    <span v-if="!hideLabel" class="button-icon__label">
+    <span
+      v-if="!hideLabel"
+      class="button-icon__label"
+    >
       <slot v-bind="{ labelOrLoadingText }">{{ labelOrLoadingText }}</slot>
     </span>
     <phosphor-icon
@@ -62,7 +65,8 @@ import {computed, ref, inject, useTemplateRef} from 'vue'
 import { uniqueId } from 'lodash'
 import { PhosphorIcon } from '@icij/murmur-next'
 import { PhCircleNotch } from '@phosphor-icons/vue'
-import type { PopoverPlacement} from "bootstrap-vue-next";
+
+import type { ButtonIconProps} from "@/utils/types";
 
 const injectedVariant = inject('variant', "action")
 const injectedSize = inject('size', "md")
@@ -71,47 +75,7 @@ const elementRef = useTemplateRef<HTMLElement>('element')
 defineOptions({
   name: 'ButtonIcon'
 })
-interface ButtonIconProps{
-  id: string,
-  iconLeft?: string|string[]|any,
-  iconLeftVariant?: string,
-  iconLeftHoverVariant?: string,
-  iconLeftWeight?: string,
-  iconLeftHoverWeight?: string,
-  iconLeftSize: string,
-  iconLeftLabel?: string,
-  iconLeftLabelOffset:number,
-  iconRight?: string|string[]|any,
-  iconRightVariant?: string,
-  iconRightHoverVariant?: string,
-  iconRightWeight?: string,
-  iconRightHoverWeight?: string,
-  iconRightSize: string,
-  iconRightLabel?: string,
-  iconRightLabelOffset: number,
-  iconSpinner: string| any,
-  hideLabel: boolean,
-  hideTooltip: boolean,
-  label?: string,
-  square: boolean,
-  to: any,
-  variant: string,
-  size: string,
-  block: boolean,
-  pill: boolean,
-  pressed?: boolean,
-  tag: string,
-  type: string,
-  loading: boolean,
-  loadingDuration: string,
-  loadingText: string,
-  tooltipLabel?: string,
-  tooltipPlacement: PopoverPlacement,
-  tooltipDelay:{show: number, hide: number},
-  showTooltipForce: boolean,
-  hover: boolean,
-  truncate: boolean
-}
+
 const props = withDefaults(defineProps<ButtonIconProps>(),{
   iconLeftLabelOffset:19,
   iconSpinner:PhCircleNotch,
