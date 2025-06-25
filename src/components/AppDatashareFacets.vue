@@ -1,22 +1,26 @@
 <script setup lang="ts">
-
-import DatashareFacet from "@/components/DatashareFacet/DatashareFacet.vue";
-import AppSection from "@/components/AppSection.vue";
+import DatashareFacet from '@/components/DatashareFacet/DatashareFacet.vue'
+import AppSection from '@/components/AppSection.vue'
 </script>
 
 <template>
   <app-section class="app-datashare-facets text-bg-action">
-    <div class="app-datashare-facets__content row row-wrap justify-content-between p-4 my-4 ">
+    <div class="app-datashare-facets__content row row-wrap justify-content-between p-4 my-4">
       <datashare-facet title="Powerful search">
         <ul>
-          <li>Dive deep with <strong>advanced search</strong>, <strong>regex</strong> and many <strong>filters</strong></li>
+          <li>
+            Dive deep with <strong>advanced search</strong>, <strong>regex</strong> and many <strong>filters</strong>
+          </li>
           <li><strong>Batch search</strong> thousands of terms at once</li>
           <li>Get <strong>extreme scalability</strong> from one document to millions</li>
         </ul>
       </datashare-facet>
       <datashare-facet title="Maximum privacy">
         <ul>
-          <li>Work <strong>locally on your documents</strong> or upload to your <strong>own server</strong> to collaborate with your team</li>
+          <li>
+            Work <strong>locally on your documents</strong> or upload to your <strong>own server</strong> to collaborate
+            with your team
+          </li>
           <li><strong>No telemetry</strong> collected</li>
           <li><strong>No third-party interference</strong></li>
         </ul>
@@ -32,13 +36,12 @@ import AppSection from "@/components/AppSection.vue";
   </app-section>
 </template>
 <style scoped lang="scss">
-
 .app-datashare-facets {
   margin-top: -50px;
 }
 @include color-mode(dark) {
-  .app-datashare-facets{
-    background-color: var(--bs-action-bg-subtle)!important;
+  .app-datashare-facets {
+    background-color: var(--bs-action-bg-subtle) !important;
   }
 }
 </style>

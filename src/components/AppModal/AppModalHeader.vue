@@ -1,8 +1,6 @@
 <script setup lang="ts">
-
-
-import ButtonIcon from "@/components/ButtonIcon.vue";
-import ImageMode from "@/components/ImageMode/ImageMode.vue";
+import ButtonIcon from '@/components/ButtonIcon.vue'
+import ImageMode from '@/components/ImageMode/ImageMode.vue'
 
 defineProps({
   title: {
@@ -25,6 +23,8 @@ defineProps({
     default: false
   }
 })
+
+defineEmits(['close'])
 </script>
 
 <template>
