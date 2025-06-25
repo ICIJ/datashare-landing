@@ -4,13 +4,14 @@ import { useColorMode } from 'bootstrap-vue-next'
 
 import ButtonIcon from '@/components/ButtonIcon.vue'
 import AppSection from '@/components/AppSection.vue'
+import { THEME } from '@/utils/enum.ts'
 const datashareGithubURL = 'https://github.com/ICIJ/datashare'
 const translateURL = 'https://crowdin.com/project/datashare'
 const weight = ref('regular')
 const iconVariant = ref('action')
 const mode = useColorMode()
 const buttonVariant = computed(() => {
-  return mode.value === 'dark' ? 'light' : 'action'
+  return mode.value === THEME.DARK ? 'light' : 'action'
 })
 const btnClassList = computed(() => {
   let classes = 'text-nowrap p-4 fw-semibold '
