@@ -58,13 +58,11 @@
 </template>
 
 <script setup lang="ts">
-import {computed, ref, inject, useTemplateRef, type PropType} from 'vue'
+import {computed, ref, inject, useTemplateRef} from 'vue'
 import { uniqueId } from 'lodash'
 import { PhosphorIcon } from '@icij/murmur-next'
 import { PhCircleNotch } from '@phosphor-icons/vue'
-import type {PopoverPlacement} from "bootstrap-vue-next";
-
-
+import type { PopoverPlacement} from "bootstrap-vue-next";
 
 const injectedVariant = inject('variant', "action")
 const injectedSize = inject('size', "md")
@@ -73,151 +71,58 @@ const elementRef = useTemplateRef<HTMLElement>('element')
 defineOptions({
   name: 'ButtonIcon'
 })
-
-const props = defineProps({
-  id: {
-    type: String
-  },
-  iconLeft: {
-    type: [String, Object, Array],
-    default: null
-  },
-  iconLeftVariant: {
-    type: String,
-    default: null,
-  },
-  iconLeftHoverVariant: {
-    type: String,
-    default: null,
-  },
-  iconLeftWeight: {
-    type: String,
-    default: null,
-  },
-  iconLeftHoverWeight: {
-    type: String,
-    default: null,
-  },
-  iconLeftSize: {
-    type: String
-  },
-  iconLeftLabel: {
-    type: String,
-    default: null
-  },
-  iconLeftLabelOffset: {
-    type: Number,
-    default: 19
-  },
-  iconRight: {
-    type: [String, Object, Array],
-    default: null
-  },
-  iconRightVariant: {
-    type: String,
-    default: null,
-  },
-  iconRightHoverVariant: {
-    type: String,
-    default: null,
-  },
-  iconRightWeight: {
-    type: String,
-    default: null,
-  },
-  iconRightHoverWeight: {
-    type: String,
-    default: null,
-  },
-  iconRightSize: {
-    type: String
-  },
-  iconRightLabel: {
-    type: String,
-    default: null
-  },
-  iconRightLabelOffset: {
-    type: Number,
-    default: 19
-  },
-  iconSpinner: {
-    type: [String, Object],
-    default: PhCircleNotch
-  },
-  hideLabel: {
-    type: Boolean,
-    default: false
-  },
-  hideTooltip: {
-    type: Boolean,
-    default: false
-  },
-  label: {
-    type: String,
-    default: null
-  },
-  square: {
-    type: Boolean,
-    default: false
-  },
-  to: {
-    type: Object
-  },
-  variant: {
-    type: String
-  },
-  size: {
-    type: String
-  },
-  block: {
-    type: Boolean
-  },
-  pill: {
-    type: Boolean
-  },
-  pressed: {
-    type: Boolean,
-    default: null
-  },
-  tag: {
-    type: String,
-    default: 'button'
-  },
-  type: {
-    type: String,
-    default: 'button'
-  },
-  loading: {
-    type: Boolean
-  },
-  loadingDuration: {
-    type: String,
-    default: '1s'
-  },
-  loadingText: {
-    type: String
-  },
-  tooltipLabel: {
-    type: String,
-    default: null
-  },
-  tooltipPlacement: {
-    type: String as PropType<PopoverPlacement>,
-    default: "top"
-  },
-  tooltipDelay: {
-    type: Object as PropType<{ show: number, hide: number }>,
-    default: () => ({ show: 0, hide: 0 })
-  },
-  showTooltipForce: {
-    type: Boolean
-  },
-  hover: {
-    type: Boolean
-  },
-  truncate: {
-    type: Boolean
-  }
+interface ButtonIconProps{
+  id: string,
+  iconLeft?: string|string[]|any,
+  iconLeftVariant?: string,
+  iconLeftHoverVariant?: string,
+  iconLeftWeight?: string,
+  iconLeftHoverWeight?: string,
+  iconLeftSize: string,
+  iconLeftLabel?: string,
+  iconLeftLabelOffset:number,
+  iconRight?: string|string[]|any,
+  iconRightVariant?: string,
+  iconRightHoverVariant?: string,
+  iconRightWeight?: string,
+  iconRightHoverWeight?: string,
+  iconRightSize: string,
+  iconRightLabel?: string,
+  iconRightLabelOffset: number,
+  iconSpinner: string| any,
+  hideLabel: boolean,
+  hideTooltip: boolean,
+  label?: string,
+  square: boolean,
+  to: any,
+  variant: string,
+  size: string,
+  block: boolean,
+  pill: boolean,
+  pressed?: boolean,
+  tag: string,
+  type: string,
+  loading: boolean,
+  loadingDuration: string,
+  loadingText: string,
+  tooltipLabel?: string,
+  tooltipPlacement: PopoverPlacement,
+  tooltipDelay:{show: number, hide: number},
+  showTooltipForce: boolean,
+  hover: boolean,
+  truncate: boolean
+}
+const props = withDefaults(defineProps<ButtonIconProps>(),{
+  iconLeftLabelOffset:19,
+  iconSpinner:PhCircleNotch,
+  hideLabel:false,
+  hideTooltip:false,
+  square:false,
+  tag:'button',
+  type:'button',
+  loadingDuration:'1s',
+  tooltipPlacement:"top",
+  tooltipDelay:() =>({ show: 0, hide: 0 })
 })
 
 const emit = defineEmits(['click:icon-right'])

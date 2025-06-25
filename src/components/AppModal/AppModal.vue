@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {type PropType, provide} from 'vue'
+import { provide } from 'vue'
 
 import AppModalHeader from './AppModalHeader.vue'
 
@@ -9,56 +9,25 @@ provide('modal', true)
 
 const modelValue = defineModel({ type: Boolean })
 
-defineProps({
-  title: {
-    type: String
-  },
-  image: {
-    type: String
-  },
-  imageAlt: {
-    type: String
-  },
-  imageWidth: {
-    type: [Number, String],
-    default: '60px'
-  },
-  buttonSize: {
-    type: String as PropType< "sm" | "md" | "lg" >,
-  },
-  cancelDisabled: {
-    type: Boolean
-  },
-  cancelTitle: {
-    type: String
-  },
-  cancelVariant: {
-    type: String
-  },
-  okDisabled: {
-    type: Boolean
-  },
-  okOnly: {
-    type: Boolean
-  },
-  okTitle: {
-    type: String
-  },
-  okVariant: {
-    type: String
-  },
-  size: {
-    type: String as PropType< "sm" | "md" | "lg" | "xl">,
-    default: "lg",
-  },
-  headerCloseClass: {
-    type: [String, Array, Object]
-  },
-  noHeaderClose: {
-    type: Boolean,
-    default: false
-  }
-})
+interface AppModalProps {
+  title: string,
+  image: string,
+  imageAlt: string,
+  imageWidth?: number|string ,
+  buttonSize: "sm" | "md" | "lg" ,
+  cancelDisabled: boolean,
+  cancelTitle: string,
+  cancelVariant: string,
+  okDisabled: boolean
+  okOnly: boolean
+  okTitle: string,
+    okVariant: string,
+  size: "sm" | "md" | "lg" | "xl",
+  headerCloseClass: string| string[] | any,
+  noHeaderClose?: boolean
+}
+
+withDefaults(defineProps<AppModalProps>(),{imageWidth:"60px", noHeaderClose:false})
 </script>
 
 <template>
@@ -90,9 +59,10 @@ defineProps({
       </slot>
     </template>
     <template #footer="{ cancel, close, hide, ok, visible }">
-
-      <slot name="footer" v-bind="{ cancel, close, hide, ok, visible }">
-      </slot>
+      <slot
+        name="footer"
+        v-bind="{ cancel, close, hide, ok, visible }"
+      />
     </template>
     <template #default="{ cancel, close, hide, ok, visible }">
       <slot v-bind="{ cancel, close, hide, ok, visible }" />

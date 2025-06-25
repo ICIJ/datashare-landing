@@ -1,9 +1,9 @@
 import { computed, type Ref } from 'vue'
 
 import type { Asset } from '@/utils/types.ts'
-import { OS, useOs } from '@/composables/useOs.ts'
+import { OS, type OsType, useOs } from '@/composables/useOs.ts'
 
-export function useAssets(osValue: OS, assets: Ref<Asset[]>) {
+export function useAssets(osValue: OsType, assets: Ref<Asset[]>) {
   const { osDescription, isCompatible } = useOs()
 
   function getAssetsByExtension(exts: { [key: string]: Asset[] }, asset: Asset) {

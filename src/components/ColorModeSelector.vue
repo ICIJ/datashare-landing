@@ -1,11 +1,11 @@
 <script setup lang="ts">
 
-import {computed, type PropType} from "vue";
+import {computed} from "vue";
 import {PhMoon, PhSun} from "@phosphor-icons/vue";
 import  {THEME} from "@/utils/enum.ts";
 import type { Theme } from '@/utils/types.ts'
 
-const colorMode = defineModel({type:String as PropType<Theme>, default:THEME.LIGHT})
+const colorMode = defineModel<Theme>({default:THEME.LIGHT})
 const isLight = computed(()=>{
   return colorMode.value === THEME.LIGHT ?'fill':'regular'
 })

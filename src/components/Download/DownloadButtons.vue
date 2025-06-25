@@ -20,17 +20,13 @@
 </template>
 
 <script setup lang="ts">
-import {OS, useOs} from "@/composables/useOs.ts";
+import {type OsType, useOs} from "@/composables/useOs.ts";
 import {useRelease} from "@/composables/useRelease.ts";
-import { type PropType} from "vue";
 import ButtonDownload from "@/components/Download/ButtonDownload.vue";
 import {useAssets} from "@/composables/useAssets.ts";
 import DatashareDownloadModal from "@/components/DatashareDownloadModal/DatashareDownloadModal.vue";
 defineOptions({name: 'DownloadButtons'})
-
-const props = defineProps({
-  osValue: { type: String as PropType<OS>, required: true },
-})
+const props = defineProps<{osValue:OsType}>()
 
 const { isCompatible}=useOs()
 const {latestAssets} = useRelease()

@@ -11,7 +11,7 @@ export enum OS {
   DOCKER = 'docker',
   OTHER = 'other'
 }
-
+export type OsType = `${OS}`
 export const DEFAULT_ICON = 'download-simple'
 type OSAssetSimple = {
   name: string

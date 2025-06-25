@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {computed, type PropType} from 'vue'
+import {computed} from 'vue'
 import castArray from "lodash/castArray";
 import {useRelease} from '@/composables/useRelease.ts'
 import {type HumanSize, useHumanSize} from "@/composables/useHumanSize.ts"
@@ -10,11 +10,9 @@ import DatashareDownloadModalToggleExperimental from "@/components/DatashareDown
 
 const showExperimentalVersions = defineModel({type: Boolean})
 
-const props = defineProps({
-  ext: {
-    type: [String, Array] as PropType<string | string[]>,
-  }
-})
+const props = defineProps<{
+  ext: string|string[],
+}>()
 
 const {humanSize} = useHumanSize()
 const {releases, getAsset, publishedAt} = useRelease()

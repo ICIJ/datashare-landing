@@ -1,44 +1,22 @@
 <script setup lang="ts">
-import {computed, type PropType} from 'vue'
+import {computed} from 'vue'
 
 import TabGroupTitle from '../TabGroupTitle.vue'
 
-const props = defineProps({
-  manual: {
-    type: Boolean
-  },
-  active: {
-    type: Boolean
-  },
-  icon: {
-    type: [String, Object, Array]
-  },
-  count: {
-    type: Number,
-    default: null
-  },
-  activeClass: {
-    type: String
-  },
-  disabled: {
-    type: Boolean
-  },
-  exactActiveClass: {
-    type: String
-  },
-  href: {
-    type: String
-  },
-  rel: {
-    type: String
-  },
-  target: {
-    type: String as PropType<"_self" | "_blank" | "_parent" | "_top" | undefined>
-  },
-  to: {
-    type: [Object,String]
-  }
-})
+interface TabGroupNavigationProps{
+  manual: boolean,
+  active: boolean,
+  icon: string|string[]|any ,
+  count?: number ,
+  activeClass: string,
+  disabled: boolean,
+  exactActiveClass: string,
+  href: string,
+  rel: string,
+  target: "_self" | "_blank" | "_parent" | "_top" | undefined,
+  to: string|any
+}
+const props = defineProps<TabGroupNavigationProps>()
 
 const classList = computed(() => {
   return {
