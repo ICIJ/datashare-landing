@@ -7,6 +7,14 @@ import compat from './bin/eslint/compat'
 import { globals as iconsGlobals } from './bin/icons'
 
 export default defineConfigWithVueTs(
+  globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**', 'public/**', 'src/assets/**', 'node_modules']),
+  pluginVue.configs['flat/recommended'],
+  vueTsConfigs.recommended,
+  ...compat.extends('@icij/eslint-config-icij'),
+  {
+    ...pluginVitest.configs.recommended,
+    files: ['tests/*']
+  },
   {
     files: ['**/*.{ts,mts,tsx,vue}'],
     languageOptions: {
@@ -23,13 +31,5 @@ export default defineConfigWithVueTs(
       'vue/valid-v-slot': 'off',
       'import/extensions': 'off'
     }
-  },
-  globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**', 'public/**', 'src/assets/**', 'node_modules']),
-  ...compat.extends('@icij/eslint-config-icij'),
-  pluginVue.configs['flat/recommended'],
-  vueTsConfigs.recommended,
-  {
-    ...pluginVitest.configs.recommended,
-    files: ['tests/*']
   }
 )
