@@ -16,7 +16,7 @@ const props = defineProps<{
 }>()
 
 const {humanSize} = useHumanSize()
-const {releases, getAsset, publishedAt} = useRelease()
+const {releases, getAsset, publishedAt, error} = useRelease()
 
 const exts = computed((): string[] => {
   return castArray(props.ext)
@@ -52,8 +52,12 @@ const filteredReleases = computed(() => {
 
 <template>
   <div>
-    <b-overlay :show="!releases.length" rounded="sm">
+    <b-overlay :show="!releases.length && !error" rounded="sm">
+      <div v-if="error" class="py-3">
+        An error occurred. <a href="https://github.com/ICIJ/datashare/releases">Explore all versions</a> on Github
+      </div>
       <b-table-simple
+        v-else
         class="download-list"
         hover
         responsive

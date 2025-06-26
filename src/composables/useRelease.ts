@@ -10,10 +10,16 @@ import type { Release, Asset } from '@/utils/types'
 
 export function useRelease() {
   const releases = ref<Release[]>([])
-
+  const error=ref<string|null>(null)
   onBeforeMount(async () => {
-    const results = await getReleases()
-    releases.value = orderByDate(results)
+    try {
+      error.value=null
+      const results = await getReleases()
+      releases.value = orderByDate(results)
+    } catch (err:any) {
+      error.value=err as string
+      releases.value = []
+    }
   })
 
   const getData = async (response: Response): Promise<Release[]> => {
@@ -23,7 +29,7 @@ export function useRelease() {
     return response.json()
   }
 
-  const getReleases = memoize(() => {
+  const getReleases = memoize(function()  {
     const baseURL = 'https://api.github.com/repos/ICIJ/datashare-installer/releases'
     const params = new URLSearchParams({ per_page: '100' })
     return fetch(`${baseURL}?${params}`).then(getData)
@@ -72,6 +78,7 @@ export function useRelease() {
   }
 
   return {
+    error,
     releases,
     latest,
     latestVersion,
