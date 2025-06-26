@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { PhEyes } from '@phosphor-icons/vue'
-import {  ref } from 'vue'
+import { computed, ref } from 'vue'
 
 import ImageMode from '@/components/ImageMode/ImageMode.vue'
 import ImageModeSource from '@/components/ImageMode/ImageModeSource.vue'
@@ -8,8 +8,12 @@ import ColorModeSelector from '@/components/ColorModeSelector.vue'
 import AppSection from '@/components/AppSection.vue'
 import type { Theme } from '@/utils/types.ts'
 import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
-const {mode, isDark} = useColorModePersisted()
+import { THEME } from '@/utils/enum.ts'
+const {mode} = useColorModePersisted()
 const colorMode = ref<Theme>(mode.value)
+const isDarkSelected = computed(()=>{
+  return colorMode.value === THEME.DARK
+})
 </script>
 
 <template>
@@ -36,7 +40,7 @@ const colorMode = ref<Theme>(mode.value)
           alt="Datashare demo screenshot"
         >
           <image-mode-source
-            v-if="isDark"
+            v-if="isDarkSelected"
             src="@/assets/illustrations/screenshots/Demo_DarkMode.png"
           />
           <image-mode-source

@@ -48,7 +48,7 @@ const dockerComposeYmlCaret = computed(() => {
           v-b-toggle.docker-compose-yml
           :left-icon="dockerComposeYmlCaret"
           variant="link"
-          class="text-left text-dark flex-grow-1"
+          class="text-left text-bg-body flex-grow-1"
         >
           Show <code>docker-compose.yml</code>
         </button-icon>

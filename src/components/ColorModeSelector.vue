@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import {computed} from 'vue'
-import {PhMoon, PhSun} from '@phosphor-icons/vue'
+import {PhosphorIcon} from '@icij/murmur-next'
 
 import  {THEME} from '@/utils/enum.ts'
 import type { Theme } from '@/utils/types.ts'
 
 const colorMode = defineModel<Theme>({default:THEME.LIGHT})
 const isDark = computed(()=>{
-  return colorMode.value === THEME.DARK 
+  return colorMode.value === THEME.DARK
 })
 const isLightActive = computed(()=>{
   return !isDark.value ? 'fill' : 'regular'
@@ -24,13 +24,13 @@ const isDarkActive = computed(()=>{
         value="light"
         class="color-mode-selector__radio"
       >
-        <span class="d-inline-flex align-items-center gap-1"><PhSun :weight="isLightActive" />Light mode</span>
+        <span class="d-inline-flex align-items-center gap-1"><phosphor-icon name="sun" :weight="isLightActive" />Light mode</span>
       </b-form-radio>
       <b-form-radio
         value="dark"
         class="color-mode-selector__radio"
       >
-        <span class="d-inline-flex align-items-center gap-1"><PhMoon :weight="isDarkActive" />Dark mode</span>
+        <span class="d-inline-flex align-items-center gap-1"><phosphor-icon name="moon" :weight="isDarkActive" />Dark mode</span>
       </b-form-radio>
     </b-form-radio-group>
   </div>
