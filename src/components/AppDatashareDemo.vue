@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { PhEyes } from '@phosphor-icons/vue'
 import { computed, ref } from 'vue'
+import { useColorMode } from 'bootstrap-vue-next'
 
 import ImageMode from '@/components/ImageMode/ImageMode.vue'
 import ImageModeSource from '@/components/ImageMode/ImageModeSource.vue'
@@ -8,8 +9,8 @@ import ColorModeSelector from '@/components/ColorModeSelector.vue'
 import AppSection from '@/components/AppSection.vue'
 import type { Theme } from '@/utils/types.ts'
 import { THEME } from '@/utils/enum.ts'
-
-const colorMode = ref<Theme>(THEME.LIGHT)
+const mode = useColorMode()
+const colorMode = ref<Theme>(mode.value)
 const isLight = computed(() => {
   return colorMode.value === THEME.LIGHT
 })
@@ -24,7 +25,7 @@ const isLight = computed(() => {
       <image-mode-source src="@/assets/illustrations/LandingPage_YellowPlanet_LightMode.svg" />
     </image-mode>
     <div class="app-datashare-demo__content d-flex flex-column position-relative">
-      <h3 class="app-datashare-demo__content__title fw-normal col-11 px-4">
+      <h3 class="app-datashare-demo__content__title fw-normal col-11">
         Want to dive into the <span class="fw-bold text-nowrap"> Lux Leaks</span> documents?
         <span class="text-nowrap gap-1">Try our <a href="https://datashare-demo.icij.org">demo</a><PhEyes
           weight="fill"

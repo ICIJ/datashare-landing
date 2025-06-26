@@ -11,7 +11,7 @@ import AppSection from '@/components/AppSection.vue'
       class="app-datashare-example-tasks flex-row-reverse justify-content-md-between"
       title="Quickly surface what’s important"
       image-class="col-md-7 justify-content-end"
-      article-class="col-md-5"
+      article-class="col-md-4"
     >
       <template #image>
         <image-mode

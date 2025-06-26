@@ -7,7 +7,7 @@ import AppSection from '@/components/AppSection.vue'
   <app-section>
     <b-card-group
       deck
-      class="app-datashare-features px-lg-2"
+      class="app-datashare-features"
     >
       <datashare-feature title="Extract text and search">
         Process all types of documents, even images. Make them searchable.

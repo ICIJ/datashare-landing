@@ -8,7 +8,7 @@ defineProps<{ title:string, articleClass:string, imageClass:string }>()
       <slot name="image" />
     </div>
     <article :class="articleClass" class="d-flex">
-      <div class="flex-shrink-1 p-2 mx-auto bg-body">
+      <div class="flex-shrink-1 p-2 mx-2 bg-body">
         <header class="h4 text-body-emphasis">
           {{ title }}
         </header>

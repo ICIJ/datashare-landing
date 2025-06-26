@@ -5,7 +5,7 @@ import AppSection from '@/components/AppSection.vue'
 
 <template>
   <app-section class="app-datashare-facets text-bg-action">
-    <div class="app-datashare-facets__content row row-wrap justify-content-between p-4 my-4">
+    <div class="app-datashare-facets__content row row-wrap justify-content-between py-4 my-4">
       <datashare-facet title="Powerful search">
         <ul>
           <li>

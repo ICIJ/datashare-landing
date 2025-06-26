@@ -32,12 +32,12 @@ const versionNumber = computed(() => {
     </datashare-download-card>
     <datashare-download-card title="Docu&shy;men&shy;ta&shy;tion">
       <ul>
-        <li><a href="https://icij.gitbook.io/datashare">Read the user guide</a></li>
+        <li>Read the <a href="https://icij.gitbook.io/datashare">user guide</a></li>
       </ul>
     </datashare-download-card>
     <datashare-download-card title="Contact us">
       <ul>
-        <li><a href="https://github.com/icij/?q=datashare" target="_blank">On Github</a></li>
+        <li>On <a href="https://github.com/icij/?q=datashare" target="_blank">Github</a></li>
         <li>At <a href="mailto:datashare@icij.org">datashare@icij.org</a></li>
       </ul>
     </datashare-download-card>

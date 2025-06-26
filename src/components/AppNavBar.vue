@@ -11,6 +11,7 @@ import AppSection from '@/components/AppSection.vue'
 import ImageModeSource from '@/components/ImageMode/ImageModeSource.vue'
 import ImageMode from '@/components/ImageMode/ImageMode.vue'
 import { THEME } from '@/utils/enum.ts'
+import ThemeDropdown from '@/components/ThemeDropdown.vue'
 const { detectedOs, osDescription, isCompatible } = useOs()
 const weight = ref<'regular' | 'fill'>('regular')
 const variant = ref('body')
@@ -30,7 +31,7 @@ const classList = computed(() => {
 </script>
 
 <template>
-  <app-section class="bg-body fixed-top px-0 border-bottom">
+  <app-section class="bg-body fixed-top p-0 border-bottom" nav>
     <b-navbar
       toggleable="md"
       class="app-nav-bar"
@@ -92,6 +93,9 @@ const classList = computed(() => {
             ICIJ
           </tab-group-navigation-entry>
         </tab-group-navigation>
+        <b-navbar-nav class="ms-auto mb-2 mb-lg-0">
+          <theme-dropdown />
+        </b-navbar-nav>
       </b-collapse>
     </b-navbar>
   </app-section>

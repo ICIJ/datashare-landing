@@ -22,7 +22,7 @@ const label = computed(() => {
 
 <template>
   <app-section class="app-jumbotron">
-    <div class="app-jumbotron__container px-lg-2">
+    <div class="app-jumbotron__container">
       <h1 class="display-1 mb-4">
         <span class="bg-body">Find stories in<br>
           any files</span>

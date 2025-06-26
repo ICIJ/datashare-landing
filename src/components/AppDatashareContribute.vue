@@ -8,7 +8,7 @@ import { THEME } from '@/utils/enum.ts'
 const datashareGithubURL = 'https://github.com/ICIJ/datashare'
 const translateURL = 'https://crowdin.com/project/datashare'
 const weight = ref('regular')
-const iconVariant = ref('action')
+const iconVariant = ref(null)
 const mode = useColorMode()
 const buttonVariant = computed(() => {
   return mode.value === THEME.DARK ? 'light' : 'action'
@@ -18,7 +18,7 @@ const btnClassList = computed(() => {
   return (classes += mode.value === 'dark' ? 'bg-white' : '')
 })
 function toggleIcijLink() {
-  iconVariant.value = iconVariant.value === 'action' ? 'primary' : 'action'
+  iconVariant.value = iconVariant.value ===  null ? 'primary' : null
   weight.value = weight.value === 'regular' ? 'fill' : 'regular'
 }
 </script>
@@ -94,7 +94,7 @@ function toggleIcijLink() {
 
 <style scoped lang="scss">
 .app-datashare-contribute {
-  padding: 4em 1em;
+  padding: 4em 0;
 
   &__description {
     h3 {

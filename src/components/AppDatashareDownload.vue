@@ -50,10 +50,10 @@ const { detectedOs } = useOs()
     left: -2em;
   }
   &__main {
-    padding-bottom: 4em;
+    padding: 6em 0;
 
     &__download-buttons {
-      padding: 6em 0;
+      margin-bottom: 5em ;
 
       &__wrapper {
         background: inherit;
