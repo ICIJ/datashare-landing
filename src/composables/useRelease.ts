@@ -1,5 +1,5 @@
 import memoize from 'lodash/memoize'
-import { onBeforeMount, ref, computed } from 'vue'
+import { ref, computed } from 'vue'
 import orderBy from 'lodash/orderBy'
 import filter from 'lodash/filter'
 import some from 'lodash/some'
@@ -11,16 +11,24 @@ import type { Release, Asset } from '@/utils/types'
 export function useRelease() {
   const releases = ref<Release[]>([])
   const error=ref<string|null>(null)
-  onBeforeMount(async () => {
-    try {
-      error.value=null
-      const results = await getReleases()
-      releases.value = orderByDate(results)
-    } catch (err:any) {
-      error.value=err as string
-      releases.value = []
+  const loading=ref<boolean>(false)
+
+  const retrieveReleases = async ()=>{
+    if(!loading.value && (!releases.value.length || error.value !== null)) {
+      try {
+        loading.value = true
+        error.value = null
+        const results = await getReleases()
+        releases.value = orderByDate(results)
+      } catch (err: any) {
+        error.value = err as string
+        releases.value = []
+      } finally {
+        loading.value = false
+      }
     }
-  })
+  }
+
 
   const getData = async (response: Response): Promise<Release[]> => {
     if (!response.ok) {
@@ -85,6 +93,7 @@ export function useRelease() {
     latestYear,
     latestAssets,
     publishedAt,
-    getAsset
+    getAsset,
+    retrieveReleases
   }
 }

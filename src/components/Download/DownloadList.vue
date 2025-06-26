@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import {computed} from 'vue'
+import { computed,onBeforeMount } from 'vue'
 import castArray from 'lodash/castArray'
 import {PhosphorIcon} from '@icij/murmur-next'
 import {BTbody} from 'bootstrap-vue-next'
@@ -16,8 +16,10 @@ const props = defineProps<{
 }>()
 
 const {humanSize} = useHumanSize()
-const {releases, getAsset, publishedAt, error} = useRelease()
-
+const {releases, getAsset, publishedAt, error,retrieveReleases} = useRelease()
+onBeforeMount(async ()=> {
+  await retrieveReleases()
+})
 const exts = computed((): string[] => {
   return castArray(props.ext)
 })
@@ -52,7 +54,7 @@ const filteredReleases = computed(() => {
 
 <template>
   <div>
-    <b-overlay :show="!releases.length && !error" rounded="sm">
+    <b-overlay :show="!releases.length && !error" rounded="sm" class="p-4">
       <div v-if="error" class="py-3">
         An error occurred. <a href="https://github.com/ICIJ/datashare/releases">Explore all versions</a> on Github
       </div>

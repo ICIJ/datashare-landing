@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { onBeforeMount } from 'vue'
+
 import AppJumbotron from '@/components/AppJumbotron.vue'
 import AppDatashareFeatures from '@/components/AppDatashareFeatures.vue'
 import AppTagLine from '@/components/AppTagLine.vue'
@@ -14,8 +16,8 @@ import AppDatashareExampleTasks from '@/components/AppDatashareExampleTasks.vue'
 import AppDatashareExampleTeam from '@/components/AppDatashareExampleTeam.vue'
 import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
 const { mode } = useColorModePersisted()
-
 mode.value = mode.store.value
+
 </script>
 
 <template>
