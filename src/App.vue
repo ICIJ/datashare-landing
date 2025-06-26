@@ -12,6 +12,10 @@ import AppDatashareContribute from '@/components/AppDatashareContribute.vue'
 import AppDatashareExampleProject from '@/components/AppDatashareExampleProject.vue'
 import AppDatashareExampleTasks from '@/components/AppDatashareExampleTasks.vue'
 import AppDatashareExampleTeam from '@/components/AppDatashareExampleTeam.vue'
+import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
+const { mode } = useColorModePersisted()
+
+mode.value = mode.store.value
 </script>
 
 <template>

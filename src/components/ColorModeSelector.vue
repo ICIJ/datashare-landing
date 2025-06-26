@@ -6,11 +6,14 @@ import  {THEME} from '@/utils/enum.ts'
 import type { Theme } from '@/utils/types.ts'
 
 const colorMode = defineModel<Theme>({default:THEME.LIGHT})
-const isLight = computed(()=>{
-  return colorMode.value === THEME.LIGHT ?'fill':'regular'
-})
 const isDark = computed(()=>{
-  return colorMode.value ===  THEME.DARK?'fill':'regular'
+  return colorMode.value === THEME.DARK 
+})
+const isLightActive = computed(()=>{
+  return !isDark.value ? 'fill' : 'regular'
+})
+const isDarkActive = computed(()=>{
+  return isDark.value? 'fill' : 'regular'
 })
 </script>
 
@@ -21,13 +24,13 @@ const isDark = computed(()=>{
         value="light"
         class="color-mode-selector__radio"
       >
-        <span class="d-inline-flex align-items-center gap-1"><PhSun :weight="isLight" />Light mode</span>
+        <span class="d-inline-flex align-items-center gap-1"><PhSun :weight="isLightActive" />Light mode</span>
       </b-form-radio>
       <b-form-radio
         value="dark"
         class="color-mode-selector__radio"
       >
-        <span class="d-inline-flex align-items-center gap-1"><PhMoon :weight="isDark" />Dark mode</span>
+        <span class="d-inline-flex align-items-center gap-1"><PhMoon :weight="isDarkActive" />Dark mode</span>
       </b-form-radio>
     </b-form-radio-group>
   </div>

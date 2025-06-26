@@ -1,19 +1,15 @@
 <script setup lang="ts">
 import { PhEyes } from '@phosphor-icons/vue'
-import { computed, ref } from 'vue'
-import { useColorMode } from 'bootstrap-vue-next'
+import {  ref } from 'vue'
 
 import ImageMode from '@/components/ImageMode/ImageMode.vue'
 import ImageModeSource from '@/components/ImageMode/ImageModeSource.vue'
 import ColorModeSelector from '@/components/ColorModeSelector.vue'
 import AppSection from '@/components/AppSection.vue'
 import type { Theme } from '@/utils/types.ts'
-import { THEME } from '@/utils/enum.ts'
-const mode = useColorMode()
+import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
+const {mode, isDark} = useColorModePersisted()
 const colorMode = ref<Theme>(mode.value)
-const isLight = computed(() => {
-  return colorMode.value === THEME.LIGHT
-})
 </script>
 
 <template>
@@ -40,12 +36,12 @@ const isLight = computed(() => {
           alt="Datashare demo screenshot"
         >
           <image-mode-source
-            v-if="isLight"
-            src="@/assets/illustrations/screenshots/Demo_LightMode.png"
+            v-if="isDark"
+            src="@/assets/illustrations/screenshots/Demo_DarkMode.png"
           />
           <image-mode-source
             v-else
-            src="@/assets/illustrations/screenshots/Demo_DarkMode.png"
+            src="@/assets/illustrations/screenshots/Demo_LightMode.png"
           />
         </image-mode>
         <color-mode-selector v-model="colorMode" />

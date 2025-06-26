@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { useColorMode } from 'bootstrap-vue-next'
 import { computed } from 'vue'
 
 import ButtonIcon from '@/components/ButtonIcon.vue'
-import { THEME } from '@/utils/enum.ts'
+import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
 
 defineProps({
   asset: { type: String },
@@ -11,15 +10,14 @@ defineProps({
   icon: { type: String },
   label: { type: String }
 })
-const mode = useColorMode()
-const isLight = computed(() => mode.value === THEME.LIGHT)
-const variant = computed(() => (isLight.value ? 'action' : 'light'))
+const {isDark} = useColorModePersisted()
+const variant = computed(() => (isDark.value ?  'light':'action'))
 </script>
 
 <template>
   <button-icon
     class="button-download"
-    :class="{ 'text-action': !isLight }"
+    :class="{ 'text-action': isDark }"
     :variant="variant"
     :href="asset"
     :size="size"

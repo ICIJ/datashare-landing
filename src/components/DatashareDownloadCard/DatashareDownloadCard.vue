@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useColorMode } from 'bootstrap-vue-next'
-defineProps<{title:string}>()
-const mode = useColorMode()
 
-const isDark = computed(() => {
-  return mode.value === 'dark' 
-})
+import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
+
+defineProps<{title:string}>()
+
+const {isDark} = useColorModePersisted()
+
 const cardBg = computed(() => {
   return isDark.value ? 'bg-darker' : 'bg-light'
 })

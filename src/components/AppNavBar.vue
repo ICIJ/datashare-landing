@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { PhGithubLogo, PhStudent } from '@phosphor-icons/vue'
 import { PhosphorIcon } from '@icij/murmur-next'
 import { ref, computed } from 'vue'
-import { useColorMode } from 'bootstrap-vue-next'
 
 import TabGroupNavigation from '@/components/TabGroup/TabGroupNavigation/TabGroupNavigation.vue'
 import TabGroupNavigationEntry from '@/components/TabGroup/TabGroupNavigation/TabGroupNavigationEntry.vue'
@@ -10,11 +8,15 @@ import { DEFAULT_ICON, useOs } from '@/composables/useOs.ts'
 import AppSection from '@/components/AppSection.vue'
 import ImageModeSource from '@/components/ImageMode/ImageModeSource.vue'
 import ImageMode from '@/components/ImageMode/ImageMode.vue'
-import { THEME } from '@/utils/enum.ts'
 import ThemeDropdown from '@/components/ThemeDropdown.vue'
+import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
+
 const { detectedOs, osDescription, isCompatible } = useOs()
+const {isDark} = useColorModePersisted()
+
 const weight = ref<'regular' | 'fill'>('regular')
 const variant = ref('body')
+
 function toggleIcijLink() {
   variant.value = variant.value === 'body' ? 'primary' : 'body'
   weight.value = weight.value === 'regular' ? 'fill' : 'regular'
@@ -22,18 +24,19 @@ function toggleIcijLink() {
 const osIcon = computed(() => {
   return isCompatible.value ? osDescription[detectedOs].icon : DEFAULT_ICON
 })
-const mode = useColorMode()
+
+
 const classList = computed(() => {
   let classes = 'py-2 mb-1 '
   return (classes +=
-    mode.value === THEME.DARK ? 'bg-action-subtle text-bg-action' : 'bg-action text-bg-action border-0 ')
+    isDark.value ? 'bg-action-subtle text-bg-action' : 'bg-action text-bg-action border-0 ')
 })
 </script>
 
 <template>
   <app-section class="bg-body fixed-top p-0 border-bottom" nav>
     <b-navbar
-      toggleable="md"
+      toggleable="lg"
       class="app-nav-bar"
     >
       <b-navbar-brand
@@ -69,13 +72,13 @@ const classList = computed(() => {
             <phosphor-icon :name="osIcon" />Download
           </tab-group-navigation-entry>
           <tab-group-navigation-entry href="#demo">
-            <PhEyes weight="fill" />Demo
+            <phosphor-icon name="eyes" weight="fill" />Demo
           </tab-group-navigation-entry>
           <tab-group-navigation-entry href="#learn">
-            <PhStudent />Learn
+            <phosphor-icon name="student" />Learn
           </tab-group-navigation-entry>
           <tab-group-navigation-entry href="#contribute">
-            <PhGithubLogo />Contribute
+            <phosphor-icon name="github-logo" />Contribute
           </tab-group-navigation-entry>
           <tab-group-navigation-entry
             href="https://icij.org/donate"
@@ -93,8 +96,8 @@ const classList = computed(() => {
             ICIJ
           </tab-group-navigation-entry>
         </tab-group-navigation>
-        <b-navbar-nav class="ms-auto mb-2 mb-lg-0">
-          <theme-dropdown />
+        <b-navbar-nav class="ms-auto my-auto">
+          <theme-dropdown class="ms-2 pt-3 pb-2 p-lg-0" />
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>

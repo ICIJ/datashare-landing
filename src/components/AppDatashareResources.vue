@@ -62,12 +62,12 @@ const resources = {
           />
         </image-mode>
       </h3>
-        <div class="d-flex flex-row flex-wrap flex-md-nowrap gap-4 p-sm-0">
+      <div class="d-flex flex-row flex-wrap flex-md-nowrap gap-4 p-sm-0">
         <datashare-resource-card v-bind="resources.search" />
         <datashare-resource-card v-bind="resources.collaboration" />
         <datashare-resource-card v-bind="resources.api" />
         <datashare-resource-card v-bind="resources.modular" />
-        </div>
+      </div>
     </div>
   </app-section>
 </template>

@@ -1,21 +1,20 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
-import { useColorMode } from 'bootstrap-vue-next'
 
 import ButtonIcon from '@/components/ButtonIcon.vue'
 import AppSection from '@/components/AppSection.vue'
-import { THEME } from '@/utils/enum.ts'
+import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
 const datashareGithubURL = 'https://github.com/ICIJ/datashare'
 const translateURL = 'https://crowdin.com/project/datashare'
 const weight = ref('regular')
-const iconVariant = ref(null)
-const mode = useColorMode()
+const iconVariant = ref<'primary'|null>(null)
+const { isDark } = useColorModePersisted()
 const buttonVariant = computed(() => {
-  return mode.value === THEME.DARK ? 'light' : 'action'
+  return isDark.value ? 'light' : 'action'
 })
 const btnClassList = computed(() => {
   let classes = 'text-nowrap p-4 fw-semibold '
-  return (classes += mode.value === 'dark' ? 'bg-white' : '')
+  return (classes += isDark.value ? 'bg-white' : '')
 })
 function toggleIcijLink() {
   iconVariant.value = iconVariant.value ===  null ? 'primary' : null
