@@ -16,8 +16,7 @@ defineOptions({
 
 const showExperimentalVersions = defineModel({type:Boolean, default: false})
 
-//const {detectedOs} = useOs()
-const detectedOs = OS.WINDOWS
+const {detectedOs} = useOs()
 function is(name: OS) {
   if (name === OS.MACOS && [OS.MACOS,OS.IOS].includes(detectedOs)){
     return true
