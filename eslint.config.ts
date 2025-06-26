@@ -37,6 +37,7 @@ export default defineConfigWithVueTs(
       '@stylistic/indent': ['error', 2],
       '@stylistic/comma-dangle': ['error', 'only-multiline'],
       '@stylistic/curly-newline': ['error', 'always'],
+      '@stylistic/space-in-parens': ['error', 'never'],
       'vue/max-attributes-per-line': ['error', {
         'singleline': {
           'max': 3

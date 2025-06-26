@@ -11,7 +11,7 @@ const props = defineProps<{
   affiliation?:string,
 }>()
 
-function getLogoPath(logoName:string, mode:'Light'|'Dark' = 'Light' ) :string{
+function getLogoPath(logoName:string, mode:'Light'|'Dark' = 'Light') :string{
   return `./logos/${logoName}_${mode}Mode.png`
 }
 const logoLight =computed(()=>props.logo?getLogoPath(props.logo):null)
