@@ -16,7 +16,7 @@ const props = defineProps<{
 }>()
 
 const {humanSize} = useHumanSize()
-const {releases, getAsset, publishedAt, error,retrieveReleases} = useRelease()
+const {releases, getAsset, publishedAt, error,retrieveReleases,isLoading} = useRelease()
 onBeforeMount(async ()=> {
   await retrieveReleases()
 })
@@ -54,7 +54,7 @@ const filteredReleases = computed(() => {
 
 <template>
   <div>
-    <b-overlay :show="!releases.length && !error" rounded="sm" class="p-4">
+    <b-overlay :show="isLoading" rounded="sm" class="p-4">
       <div v-if="error" class="py-3">
         An error occurred. <a href="https://github.com/ICIJ/datashare/releases">Explore all versions</a> on Github
       </div>

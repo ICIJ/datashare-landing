@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { onBeforeMount } from 'vue'
-
 import AppJumbotron from '@/components/AppJumbotron.vue'
 import AppDatashareFeatures from '@/components/AppDatashareFeatures.vue'
 import AppTagLine from '@/components/AppTagLine.vue'

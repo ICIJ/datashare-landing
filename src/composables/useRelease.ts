@@ -11,12 +11,12 @@ import type { Release, Asset } from '@/utils/types'
 export function useRelease() {
   const releases = ref<Release[]>([])
   const error=ref<string|null>(null)
-  const loading=ref<boolean>(false)
+  const isLoading=ref<boolean>(false)
 
   const retrieveReleases = async ()=>{
-    if(!loading.value && (!releases.value.length || error.value !== null)) {
+    if(!releases.value.length || error.value !== null) {
       try {
-        loading.value = true
+        isLoading.value = true
         error.value = null
         const results = await getReleases()
         releases.value = orderByDate(results)
@@ -24,7 +24,7 @@ export function useRelease() {
         error.value = err as string
         releases.value = []
       } finally {
-        loading.value = false
+        isLoading.value = false
       }
     }
   }
