@@ -103,17 +103,18 @@ export function useOs() {
   }
 
   function osStringToFamily(osString: string) {
-    if (osString.startsWith('Mac')) {
+    const osLower = osString.toLowerCase()
+    if (osLower.startsWith('mac')) {
       return OS.MACOS
-    } else if (osString.startsWith('iOS')) {
+    } else if (osLower.startsWith('ios')) {
       return OS.IOS
-    } else if (osString.startsWith('Android')) {
+    } else if (osLower.startsWith('android')) {
       return OS.ANDROID
-    } else if (osString.startsWith('Windows')) {
+    } else if (osLower.startsWith('windows')) {
       return OS.WINDOWS
-    } else if (/Ubuntu|Debian|Raspbian.*/.test(osString)) {
+    } else if (/ubuntu|debian|raspbian.*/.test(osLower)) {
       return OS.DEBIAN
-    } else if (/Linux/.test(osString)) {
+    } else if (/linux/.test(osLower)) {
       return OS.LINUX
     } else {
       return OS.OTHER
