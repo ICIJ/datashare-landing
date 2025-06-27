@@ -7,9 +7,15 @@ import DatashareDownloadModal from '@/components/DatashareDownloadModal/Datashar
 import { ReleasesKey } from '@/utils/types.ts'
 
 const releases = inject(ReleasesKey)
-const { latestVersion } = useRelease(releases)
+const { latestVersion,latestYear } = useRelease(releases)
+const versionYear = computed(() => {
+  return latestYear.value ? ` - ${latestYear.value}`:''
+})
+const versionLatest = computed(() => {
+  return latestVersion.value ? ` ${latestVersion.value}`:''
+})
 const versionNumber = computed(() => {
-  return `Version ${latestVersion.value??''}`
+  return `Version${versionLatest.value}${versionYear.value}`
 })
 </script>
 
