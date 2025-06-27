@@ -12,6 +12,7 @@ import DatashareDownloadModalToggleExperimental from '@/components/DatashareDown
 const showExperimentalVersions = defineModel({type: Boolean})
 
 const props = defineProps<{
+  description:string,
   ext: string|string[],
 }>()
 
@@ -60,39 +61,45 @@ const filteredReleases = computed(() => {
       <div v-if="error" class="p-4 my-3">
         An error occurred. <a href="https://github.com/ICIJ/datashare/releases">Explore all versions</a> on Github
       </div>
-      <b-table-simple
-        v-else
-        class="download-list"
-        hover
-        responsive
-        striped
-      >
-        <b-tbody>
-          <b-tr v-for="release in filteredReleases" :key="release.name" class="d-flex ">
-            <b-td class="download-list__row d-flex flex-grow-1 gap-2 align-items-center justify-content-between">
-              <div class=" d-flex download-list__row__version gap-2 ">
-                <a :href="release.downloadUrl" class="download-list__row__version__link font-weight-bold d-inline-flex gap-2 fw-bold">
-                  <phosphor-icon name="download-simple" />
-                  <span>{{ release.name }}</span>
-                </a>
-                <phosphor-icon
-                  v-if="release.prerelease"
-                  fill
-                  name="flask"
-                  title="Experimental version"
-                  variant="info"
-                />
-              </div>
-              <div class="download-list__row__info d-flex gap-2">
-                <span class="download-list__row__info__size text-end text-nowrap">
-                  <span class=" format-number">{{ release.humanSize.size }}</span> {{ release.humanSize.unit }}
-                </span>
-                <span class="download-list__row__info__date text-end text-body text-nowrap">  {{ release.publishedAt }} </span>
-              </div>
-            </b-td>
-          </b-tr>
-        </b-tbody>
-      </b-table-simple>
+      <div v-else>
+        <p class="text-body">
+          <slot name="description">
+            {{ description }}
+          </slot>
+        </p>
+        <b-table-simple
+          class="download-list"
+          hover
+          responsive
+          striped
+        >
+          <b-tbody>
+            <b-tr v-for="release in filteredReleases" :key="release.name" class="d-flex ">
+              <b-td class="download-list__row d-flex flex-grow-1 gap-2 align-items-center justify-content-between">
+                <div class=" d-flex download-list__row__version gap-2 ">
+                  <a :href="release.downloadUrl" class="download-list__row__version__link font-weight-bold d-inline-flex gap-2 fw-bold">
+                    <phosphor-icon name="download-simple" />
+                    <span>{{ release.name }}</span>
+                  </a>
+                  <phosphor-icon
+                    v-if="release.prerelease"
+                    fill
+                    name="flask"
+                    title="Experimental version"
+                    variant="info"
+                  />
+                </div>
+                <div class="download-list__row__info d-flex gap-2">
+                  <span class="download-list__row__info__size text-end text-nowrap">
+                    <span class=" format-number">{{ release.humanSize.size }}</span> {{ release.humanSize.unit }}
+                  </span>
+                  <span class="download-list__row__info__date text-end text-body text-nowrap">  {{ release.publishedAt }} </span>
+                </div>
+              </b-td>
+            </b-tr>
+          </b-tbody>
+        </b-table-simple>
+      </div>
     </b-overlay>
     <datashare-download-modal-toggle-experimental v-model="showExperimentalVersions" />
   </div>

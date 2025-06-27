@@ -7,7 +7,6 @@ import CopyInput from '@/components/Download/CopyInput.vue'
 defineOptions({ name: 'DownloadList' })
 
 const showExperimentalVersions = defineModel({ type: Boolean })
-
 const snapInstallStableCmd = 'sudo snap install datashare'
 const snapBetaInstallCmd = 'sudo snap install datashare --beta'
 const snapInstallCmd = computed(() => {

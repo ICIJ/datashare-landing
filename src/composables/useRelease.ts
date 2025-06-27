@@ -1,12 +1,12 @@
 import memoize from 'lodash/memoize'
-import { ref, computed, type Ref } from 'vue'
+import { computed, ref, type Ref } from 'vue'
 import orderBy from 'lodash/orderBy'
 import filter from 'lodash/filter'
 import some from 'lodash/some'
 import endsWith from 'lodash/endsWith'
 import findIndex from 'lodash/findIndex'
 
-import type { Release, Asset } from '@/utils/types'
+import type { Asset, Release } from '@/utils/types'
 
 export function useRelease(newReleases:Ref<Release[]> = ref([])) {
   const releases = newReleases
@@ -71,18 +71,20 @@ export function useRelease(newReleases:Ref<Release[]> = ref([])) {
     // The asset must end with at least one of the given extensions
     return filter(release.assets, ({ name }) => some(exts, (ext) => endsWith(name, ext)))
   }
-
-  function getAsset(release: Release, exts: string[]): Asset {
+  function getAssetsOrderedByName(release: Release, exts: string[]): Asset[] {
     // Get all the available assets for this release and the component extensions
     const assets = getAssets(release, exts)
 
     // Order them to be in same order than the extension list
-    const orderedAssets = orderBy(assets, ({ name }) => {
+    // Then finally give the first asset
+    return orderBy(assets, ({ name }) => {
       // The index of the asset in the extension list define its priority
       return findIndex(exts, (ext) => endsWith(name, ext))
     })
-    // Then finally give the first asset
-    return orderedAssets[0]
+  }
+
+  function getAsset(release: Release, exts: string[]): Asset {
+    return getAssetsOrderedByName(release, exts)[0]
   }
 
   return {

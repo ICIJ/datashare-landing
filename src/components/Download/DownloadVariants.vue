@@ -18,33 +18,55 @@ const showExperimentalVersions = defineModel({type:Boolean, default: false})
 
 const {detectedOs} = useOs()
 function is(name: OS) {
-  if (name === OS.MACOS && [OS.MACOS,OS.IOS].includes(detectedOs)){
-    return true
-  }
-  if (name === OS.LINUX && ![OS.MACOS,OS.IOS,OS.WINDOWS].includes(detectedOs)) {
-    return true
-  }
   return detectedOs === name
 }
-const osTabs= [OS.LINUX, OS.MACOS, OS.WINDOWS]
+
+const tabs= [{
+  active:()=>is(OS.LINUX) || is(OS.DEBIAN),
+  icon:osDescription[OS.LINUX].icon,
+  name:osDescription[OS.LINUX].name,
+  ext:osDescription[OS.DEBIAN].ext,
+  description:osDescription[OS.DEBIAN].description
+},
+{
+  active:()=>is(OS.MACOS) || is(OS.IOS),
+  icon:osDescription[OS.MACOS].icon,
+  name:osDescription[OS.MACOS].name,
+  ext:osDescription[OS.MACOS].ext,
+  description:osDescription[OS.MACOS].description
+},
+{
+  active:()=>is(OS.WINDOWS) || is(OS.ANDROID),
+  icon:osDescription[OS.WINDOWS].icon,
+  name:osDescription[OS.WINDOWS].name,
+  ext:osDescription[OS.WINDOWS].ext,
+  description:osDescription[OS.WINDOWS].description
+},
+{
+  active:()=>is(OS.OTHER),
+  icon:osDescription[OS.OTHER].icon,
+  name:osDescription[OS.OTHER].name,
+  ext:osDescription[OS.LINUX].ext,
+  description:osDescription[OS.OTHER].description
+}]
 </script>
 
 <template>
   <div class="d-flex flex-column">
     <tab-group card no-fade>
       <tab-group-entry
-        v-for="osTab in osTabs"
-        :key="osTab"
-        class="tab-group-entry"
+        v-for="tab in tabs"
+        :key="tab.name"
         lazy
         no-body
-        :active="is(osTab)"
+        :active="tab.active()"
       >
         <template #title>
-          <phosphor-icon :name="osDescription[osTab].icon" /> {{ osDescription[osTab].name }}
+          <phosphor-icon :name="tab.icon" /> {{ tab.name }}
         </template>
-        <download-list v-model="showExperimentalVersions" :ext="osDescription[osTab].ext" />
+        <download-list v-model="showExperimentalVersions" :ext="tab.ext" :description="tab.description" />
       </tab-group-entry>
+
       <tab-group-entry lazy no-body>
         <template #title>
           <phosphor-icon :name="simpleOs[OS.SNAP].icon" /> {{ simpleOs[OS.SNAP].name }}

@@ -47,9 +47,10 @@ export function useAssets(osValue: OsType, assets: Ref<Asset[]>) {
     descriptionWithAssets[OS.DEBIAN].asset = assetForDebian.value
     descriptionWithAssets[OS.DEBIAN].buttons[0].asset = assetForDebian.value
     descriptionWithAssets[OS.DEBIAN].buttons[1].asset = assetForLinux.value
-    descriptionWithAssets[OS.LINUX].asset = assetForLinux.value
+    descriptionWithAssets[OS.LINUX].asset = assetForDebian.value
     descriptionWithAssets[OS.LINUX].buttons[0].asset = assetForDebian.value
     descriptionWithAssets[OS.LINUX].buttons[1].asset = assetForLinux.value
+    descriptionWithAssets[OS.LINUX].asset = assetForDebian.value
     return descriptionWithAssets
   })
   const osButton = computed(() => {
