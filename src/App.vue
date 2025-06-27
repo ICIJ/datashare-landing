@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { onBeforeMount, provide } from 'vue'
+
 import AppJumbotron from '@/components/AppJumbotron.vue'
 import AppDatashareFeatures from '@/components/AppDatashareFeatures.vue'
 import AppTagLine from '@/components/AppTagLine.vue'
@@ -13,8 +15,17 @@ import AppDatashareExampleProject from '@/components/AppDatashareExampleProject.
 import AppDatashareExampleTasks from '@/components/AppDatashareExampleTasks.vue'
 import AppDatashareExampleTeam from '@/components/AppDatashareExampleTeam.vue'
 import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
+import { useRelease } from '@/composables/useRelease.ts'
+import { ReleasesKey } from '@/utils/types.ts'
 const { mode } = useColorModePersisted()
 mode.value = mode.store.value
+
+const { retrieveReleases, releases } = useRelease()
+onBeforeMount(async()=>{
+  await retrieveReleases()
+})
+
+provide(ReleasesKey, releases)
 
 </script>
 

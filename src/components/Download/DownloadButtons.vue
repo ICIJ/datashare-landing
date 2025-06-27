@@ -1,15 +1,19 @@
 <script setup lang="ts">
+import { inject } from 'vue'
+
 import {type OsType, useOs} from '@/composables/useOs.ts'
 import {useRelease} from '@/composables/useRelease.ts'
 import ButtonDownload from '@/components/Download/ButtonDownload.vue'
 import {useAssets} from '@/composables/useAssets.ts'
 import DatashareDownloadModal from '@/components/DatashareDownloadModal/DatashareDownloadModal.vue'
+import { ReleasesKey } from '@/utils/types.ts'
 
 defineOptions({name: 'DownloadButtons'})
 const props = defineProps<{osValue:OsType}>()
 
 const { isCompatible}=useOs()
-const {latestAssets} = useRelease()
+const releases = inject(ReleasesKey)
+const {latestAssets} = useRelease(releases)
 const {osButton}=useAssets(props.osValue,latestAssets)
 </script>
 

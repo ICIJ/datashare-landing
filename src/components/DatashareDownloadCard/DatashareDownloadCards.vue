@@ -1,13 +1,15 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, inject } from 'vue'
 
 import DatashareDownloadCard from '@/components/DatashareDownloadCard/DatashareDownloadCard.vue'
 import { useRelease } from '@/composables/useRelease.ts'
 import DatashareDownloadModal from '@/components/DatashareDownloadModal/DatashareDownloadModal.vue'
+import { ReleasesKey } from '@/utils/types.ts'
 
-const { latestVersion } = useRelease()
+const releases = inject(ReleasesKey)
+const { latestVersion } = useRelease(releases)
 const versionNumber = computed(() => {
-  return `Version ${latestVersion.value}`
+  return `Version ${latestVersion.value??''}`
 })
 </script>
 

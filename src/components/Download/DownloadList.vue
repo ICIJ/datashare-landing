@@ -1,12 +1,12 @@
 <script lang="ts" setup>
-import { computed,onBeforeMount } from 'vue'
+import { computed, inject, onBeforeMount } from 'vue'
 import castArray from 'lodash/castArray'
 import {PhosphorIcon} from '@icij/murmur-next'
 import {BTbody} from 'bootstrap-vue-next'
 
 import {useRelease} from '@/composables/useRelease.ts'
 import {type HumanSize, useHumanSize} from '@/composables/useHumanSize.ts'
-import type {Release} from '@/utils/types.ts'
+import { type Release, ReleasesKey } from '@/utils/types.ts'
 import DatashareDownloadModalToggleExperimental from '@/components/DatashareDownloadModal/DatashareDownloadModalToggleExperimental.vue'
 
 const showExperimentalVersions = defineModel({type: Boolean})
@@ -16,7 +16,9 @@ const props = defineProps<{
 }>()
 
 const {humanSize} = useHumanSize()
-const {releases, getAsset, publishedAt, error,retrieveReleases,isLoading} = useRelease()
+
+const releases = inject(ReleasesKey)
+const {getAsset, publishedAt, error,retrieveReleases,isLoading} = useRelease(releases)
 onBeforeMount(async ()=> {
   await retrieveReleases()
 })
@@ -48,14 +50,14 @@ const getReleasesWithFirstAsset = (acc: dtoRelease[], release: Release) => {
 }
 
 const filteredReleases = computed(() => {
-  return releases.value?.reduce(getReleasesWithFirstAsset, [])
+  return releases?.value?.reduce(getReleasesWithFirstAsset, [])
 })
 </script>
 
 <template>
   <div>
-    <b-overlay :show="isLoading" rounded="sm" class="p-4">
-      <div v-if="error" class="py-3">
+    <b-overlay :show="isLoading" rounded="sm">
+      <div v-if="error" class="p-4 my-3">
         An error occurred. <a href="https://github.com/ICIJ/datashare/releases">Explore all versions</a> on Github
       </div>
       <b-table-simple

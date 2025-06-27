@@ -1,5 +1,5 @@
 import memoize from 'lodash/memoize'
-import { ref, computed } from 'vue'
+import { ref, computed, type Ref } from 'vue'
 import orderBy from 'lodash/orderBy'
 import filter from 'lodash/filter'
 import some from 'lodash/some'
@@ -8,8 +8,8 @@ import findIndex from 'lodash/findIndex'
 
 import type { Release, Asset } from '@/utils/types'
 
-export function useRelease() {
-  const releases = ref<Release[]>([])
+export function useRelease(newReleases:Ref<Release[]> = ref([])) {
+  const releases = newReleases
   const error=ref<string|null>(null)
   const isLoading=ref<boolean>(false)
 
@@ -87,13 +87,14 @@ export function useRelease() {
 
   return {
     error,
-    releases,
+    isLoading,
     latest,
     latestVersion,
     latestYear,
     latestAssets,
-    publishedAt,
+    releases,
     getAsset,
-    retrieveReleases
+    publishedAt,
+    retrieveReleases,
   }
 }

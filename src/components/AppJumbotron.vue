@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onBeforeMount } from 'vue'
+import { computed, inject } from 'vue'
 
 import ButtonIcon from '@/components/ButtonIcon.vue'
 import DatashareDownloadModal from '@/components/DatashareDownloadModal/DatashareDownloadModal.vue'
@@ -8,12 +8,11 @@ import { useAssets } from '@/composables/useAssets.ts'
 import { DEFAULT_ICON, useOs } from '@/composables/useOs.ts'
 import { useRelease } from '@/composables/useRelease.ts'
 import AppSection from '@/components/AppSection.vue'
+import { ReleasesKey } from '@/utils/types.ts'
 const { detectedOs, isCompatible } = useOs()
 
-const { latestAssets,retrieveReleases } = useRelease()
-onBeforeMount(async()=>{
-  await retrieveReleases()
-})
+const releases = inject(ReleasesKey)
+const { latestAssets } = useRelease(releases)
 const { osButton } = useAssets(detectedOs, latestAssets)
 const label = computed(() => {
   if (osButton.value.name) {

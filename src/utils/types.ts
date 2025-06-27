@@ -1,4 +1,5 @@
 import type { PopoverPlacement } from 'bootstrap-vue-next'
+import type { InjectionKey, Ref } from 'vue'
 
 import type { THEME } from '@/utils/enum.ts'
 
@@ -70,3 +71,5 @@ export interface ButtonIconProps{
   hover?: boolean,
   truncate?: boolean
 }
+
+export const ReleasesKey = Symbol() as InjectionKey<Ref<Release[]>>
