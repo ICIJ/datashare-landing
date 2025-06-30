@@ -23,7 +23,7 @@ const iconColorStyle = computed(() => {
 
 <template>
   <!-- @vue-ignore -->
-  <b-card bg-variant="action-subtle" class="datashare-resource-card border-0 py-4" body-class="d-flex flex-column">
+  <b-card bg-variant="action-subtle" class="datashare-resource-card border-0 p-4" body-class="d-flex flex-column">
     <div class="mb-2">
       <svg-linear-gradient :icon-color="iconColor" :icon-color-id="iconColorId" />
       <slot name="icon">
