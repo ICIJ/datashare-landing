@@ -19,7 +19,7 @@ const link = 'https://docs.google.com/forms/d/e/1FAIpQLSeThKmdrCUigCUnDMpWonG-KV
   <b-container
     v-if="isAvailable"
     fluid="lg"
-    class="d-flex justify-content-center justify-content-lg-end fixed-bottom "
+    class="d-flex justify-content-end fixed-bottom "
   >
     <datashare-alert
       class="col-10 col-lg-6"
