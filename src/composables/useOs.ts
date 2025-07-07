@@ -71,11 +71,11 @@ export const osDescription: { [key: string]: OSAsset } = {
     guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-linux',
     asset: null,
     buttons: [
-      { label: 'Download .deb', asset: null, icon: 'ubuntu' },
+      { label: 'Download .deb', asset: null, icon: 'linux-logo' },
       {
         label: 'Download .tgz',
         asset: null,
-        icon: 'linux-logo',
+        icon: 'coffee',
         btnSize: 'xs',
         wrapperClass: 'small',
         guide: false
@@ -94,7 +94,7 @@ export const osDescription: { [key: string]: OSAsset } = {
       {
         label: 'Download .tgz',
         asset: null,
-        icon: 'linux-logo',
+        icon: 'coffee',
         btnSize: 'xs',
         wrapperClass: 'small',
         guide: false
