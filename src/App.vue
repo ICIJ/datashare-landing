@@ -17,6 +17,7 @@ import AppDatashareExampleTeam from '@/components/AppDatashareExampleTeam.vue'
 import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
 import { useRelease } from '@/composables/useRelease.ts'
 import { ReleasesKey } from '@/utils/types.ts'
+import AppAlert from '@/components/AppAlert.vue'
 const { mode } = useColorModePersisted()
 mode.value = mode.store.value
 
@@ -26,6 +27,7 @@ onBeforeMount(async()=>{
 })
 
 provide(ReleasesKey, releases)
+const alertExpiration = 'Aug 15 2025'
 
 </script>
 
@@ -45,7 +47,10 @@ provide(ReleasesKey, releases)
       <app-datashare-demo id="demo" class="app-section" />
       <app-datashare-resources id="learn" class="app-section" />
       <app-datashare-contribute id="contribute" class="app-section" />
+      <app-alert :expiration-date="alertExpiration" />
     </div>
+
+
     <generic-footer />
   </b-container>
 </template>
