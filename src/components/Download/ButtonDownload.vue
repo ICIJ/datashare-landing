@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-import ButtonIcon from '@/components/ButtonIcon.vue'
+
 import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
 
 defineProps({

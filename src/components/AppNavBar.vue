@@ -2,12 +2,11 @@
 import { PhosphorIcon } from '@icij/murmur-next'
 import { ref, computed } from 'vue'
 
+
 import TabGroupNavigation from '@/components/TabGroup/TabGroupNavigation/TabGroupNavigation.vue'
 import TabGroupNavigationEntry from '@/components/TabGroup/TabGroupNavigation/TabGroupNavigationEntry.vue'
 import { DEFAULT_ICON, useOs } from '@/composables/useOs.ts'
 import AppSection from '@/components/AppSection.vue'
-import ImageModeSource from '@/components/ImageMode/ImageModeSource.vue'
-import ImageMode from '@/components/ImageMode/ImageMode.vue'
 import ThemeDropdown from '@/components/ThemeDropdown.vue'
 import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
 

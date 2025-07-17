@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue'
 
-import ButtonIcon from '@/components/ButtonIcon.vue'
+
 import DatashareDownloadModal from '@/components/DatashareDownloadModal/DatashareDownloadModal.vue'
 import ButtonDownload from '@/components/Download/ButtonDownload.vue'
 import { useAssets } from '@/composables/useAssets.ts'

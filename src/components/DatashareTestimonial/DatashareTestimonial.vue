@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import {computed} from 'vue'
 
-import ImageMode from '@/components/ImageMode/ImageMode.vue'
-import ImageModeSource from '@/components/ImageMode/ImageModeSource.vue'
 
 const props = defineProps<{
   quote:string,

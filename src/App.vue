@@ -49,8 +49,6 @@ const alertExpiration = 'Aug 15 2025'
       <app-datashare-contribute id="contribute" class="app-section" />
       <app-alert :expiration-date="alertExpiration" />
     </div>
-
-
     <generic-footer />
   </b-container>
 </template>

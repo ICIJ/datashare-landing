@@ -2,8 +2,7 @@
 import { PhEyes } from '@phosphor-icons/vue'
 import { computed, ref } from 'vue'
 
-import ImageMode from '@/components/ImageMode/ImageMode.vue'
-import ImageModeSource from '@/components/ImageMode/ImageModeSource.vue'
+
 import ColorModeSelector from '@/components/ColorModeSelector.vue'
 import AppSection from '@/components/AppSection.vue'
 import type { Theme } from '@/utils/types.ts'

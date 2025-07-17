@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import ButtonIcon from '@/components/ButtonIcon.vue'
-import ImageMode from '@/components/ImageMode/ImageMode.vue'
+
 import type { AppModalHeaderProps } from '@/utils/types.ts'
 
 defineEmits(['close'])

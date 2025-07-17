@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
-import ButtonIcon from '@/components/ButtonIcon.vue'
+
 import AppSection from '@/components/AppSection.vue'
 import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
 const datashareGithubURL = 'https://github.com/ICIJ/datashare'

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref, computed, inject } from 'vue'
 
+
 import { useRelease } from '@/composables/useRelease.ts'
 import dockerComposeYmlRaw from '@/assets/docker-compose.yml?raw'
 import CopyInput from '@/components/Download/CopyInput.vue'
-import ButtonIcon from '@/components/ButtonIcon.vue'
 import { ReleasesKey } from '@/utils/types.ts'
 
 defineOptions({ name: 'DownloadDocker' })

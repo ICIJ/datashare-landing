@@ -1,9 +1,9 @@
 <script setup lang="ts">
+
+
 import DownloadButtons from '@/components/Download/DownloadButtons.vue'
 import DatashareDownloadCards from '@/components/DatashareDownloadCard/DatashareDownloadCards.vue'
 import { useOs } from '@/composables/useOs.ts'
-import ImageMode from '@/components/ImageMode/ImageMode.vue'
-import ImageModeSource from '@/components/ImageMode/ImageModeSource.vue'
 import AppSection from '@/components/AppSection.vue'
 
 const { detectedOs } = useOs()
