@@ -681,10 +681,10 @@
     eslint-plugin-vue "^9.9.0"
     prettier "^2.8.4"
 
-"@icij/murmur-next@^4.5.2":
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/@icij/murmur-next/-/murmur-next-4.5.2.tgz#1fc30d7a1d5ce2ae566fbc30d749ee3f6b331adc"
-  integrity sha512-AiBajRo7rxRR5TcWEhGkO03gG9xsx3+U7ajQR7zsHkNQTflNtgehUq6MRXTSDAXWKr8M4rUfnkv3DntcjUo1MQ==
+"@icij/murmur-next@^4.5.5":
+  version "4.5.5"
+  resolved "https://registry.yarnpkg.com/@icij/murmur-next/-/murmur-next-4.5.5.tgz#48c98cd385db25cdb1516a7600239e1328444fb8"
+  integrity sha512-xhewMfktLeV+dj8dNwox1EtpKSriurd9Zyg7z4xyx2f6y0xwdf7f8aivzcGfE56WzR8pxftzUm838ssrNSol+g==
   dependencies:
     "@phosphor-icons/vue" "^2.2.1"
     "@storybook/preset-scss" "^1.0.3"

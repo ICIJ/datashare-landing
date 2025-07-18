@@ -16,7 +16,7 @@
     "predeploy": "yarn build"
   },
   "dependencies": {
-    "@icij/murmur-next": "^4.5.2",
+    "@icij/murmur-next": "^4.5.5",
     "@phosphor-icons/vue": "^2.2.1",
     "bootstrap": "^5.3.7",
     "bootstrap-vue-next": "^0.30.4",

@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { computed, inject, onBeforeMount } from 'vue'
 import castArray from 'lodash/castArray'
-import {PhosphorIcon} from '@icij/murmur-next'
 import {BTbody} from 'bootstrap-vue-next'
 
 import {useRelease} from '@/composables/useRelease.ts'

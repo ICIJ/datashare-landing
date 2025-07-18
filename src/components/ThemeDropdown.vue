@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useColorMode } from 'bootstrap-vue-next'
 import { computed } from 'vue'
-import { PhosphorIcon } from '@icij/murmur-next'
+
 
 import type { Theme } from '@/utils/types.ts'
 import ThemeDropdownItem from '@/components/ThemeDropdownItem.vue'

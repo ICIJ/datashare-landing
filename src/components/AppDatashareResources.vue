@@ -1,6 +1,4 @@
 <script setup lang="ts">
-
-
 import DatashareResourceCard from '@/components/DatashareResource/DatashareResourceCard.vue'
 import AppSection from '@/components/AppSection.vue'
 const resources = {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PhosphorIcon } from '@icij/murmur-next'
+
 import { computed } from 'vue'
 
 import SvgLinearGradient from '@/components/DatashareResource/SvgLinearGradient.vue'

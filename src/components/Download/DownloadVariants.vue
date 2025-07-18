@@ -1,7 +1,4 @@
 <script setup lang="ts">
-import {PhosphorIcon} from '@icij/murmur-next'
-
-
 import DownloadDocker from './DownloadDocker.vue'
 import DownloadList from './DownloadList.vue'
 import DownloadSnap from './DownloadSnap.vue'
