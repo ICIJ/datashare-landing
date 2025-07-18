@@ -4,7 +4,7 @@ import { computed } from 'vue'
 import DatashareAlert from '@/components/DatashareAlert/DatashareAlert.vue'
 const props = defineProps({
   expirationDate: {type:String},
-  currentDate: {type:String, default: new Date().getTime()},
+  currentDate: {type:String, default: new Date().getTime().toString()},
 
 })
 const isAvailable = computed(()=>{
