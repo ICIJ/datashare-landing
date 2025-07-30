@@ -12,22 +12,12 @@ h1, h2, h3, h4, h5, h6{
   color:var(--bs-action-text-emphasis);
 }
 
-.app-body a,.app-modal a, .false-link{
+.app-body a,.app-modal a, .false-link {
   text-decoration: underline;
   cursor: pointer;
   
   &:not(.btn):hover {
     color: $primary;
-  }
-}
-
-.nav-link{
-  display: inline-flex;
-  align-items: center;
-  gap: 0.2em;
-  color:$action-color-subtle;
-  &:hover{
-    color:$primary;
   }
 }
 
@@ -61,137 +51,20 @@ h1, h2, h3, h4, h5, h6{
   border-color: $input-hover-border-color;
 }
 
-body {
-  font-size: 1rem;
-  overflow: auto;
-  // This is not ideal but it prevents some weird display issues with Chrome
-  overflow-x: hidden;
-
-  // Disable overflow scrollbar when the sidebar or the filters panel are in full width and not closed
-  &:has(.app-sidebar--full-width:not(.app-sidebar--closed)),
-  &:has(.filters-panel--full-width:not(.filters-panel--closed)) {
-    overflow: hidden;
-  }
-}
-
 // This class should be provided by default in Bootstrap 5 but for some reasong it's not working.
 .bg-body {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-body-bg-rgb), var(--bs-bg-opacity)) !important;
 }
 
-.text-special {
-  font-family: $special-font-family;
-}
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2em;
+  color: $action-color-subtle;
 
-.content-placeholder {
-  padding: $spacer;
-}
-
-.tooltip {
-  &-lg .tooltip-inner {
-    max-width: 90vw;
-  }
-}
-
-// Truncated element in a flexbox child must not fully collapse when the
-// flex container is resized down.
-// @see https://drafts.csswg.org/css-flexbox/#min-size-auto
-.flex-truncate,
-.flex-truncate.d-flex > *,
-.flex-truncate.d-inline-flex > *,
-.flex-truncate.row > [class*='col-'],
-.flex-truncate.row > .col,
-.flex-truncate .d-flex > *,
-.flex-truncate .d-inline-flex > *,
-.flex-truncate .row > [class*='col-'],
-.flex-truncate .row > .col,
-.flex-truncate .list-group-item,
-.flex-truncate .text-truncate {
-  min-width: 0;
-}
-
-.table.card > tbody > tr:last-of-type > td,
-.table-responsive.card > .table > tbody > tr:last-of-type > td {
-  border-bottom-width: 0;
-}
-
-.popover {
-
-  .popover-body {
-    & >.dropdown-menu {
-      background: inherit;
-      color: inherit;
-      float: none;
-
-      .dropdown-item:not(.active) {
-        background: transparent;
-        color: inherit;
-
-        &:hover {
-          background: rgba(var(--bs-body-bg-rgb), 0.7);
-        }
-      }
-    }
-
-    .card-header {
-      background-color: transparent;
-
-      .nav-item .nav-link {
-
-        &:hover {
-          border-color: transparent;
-          text-decoration: underline;
-        }
-      }
-
-      .nav-item .nav-link.active {
-        border-color: transparent;
-        font-weight: bold;
-      }
-    }
-
-    .card-body {
-      background: $popover-header-bg;
-    }
-  }
-
-  &.popover-body-p-0 {
-    .popover-body {
-      padding: 0;
-
-      & .vc-container.vc-gray {
-        border-radius: 4px;
-      }
-
-    }
-  }
-
-  &.popover-body-overflow-hidden:not(.dropdown-menu) .popover-body {
-    border-radius: inherit;
-    overflow: hidden;
-  }
-}
-
-html[data-bs-theme] body .Toastify {
-  --toastify-toast-width: 470px;
-
-  &__toast {
-    &-body {
-      padding: 0;
-    }
-
-    &--error {
-      background: var(--bs-danger-text-emphasis);
-      color: var(--bs-danger-bg-subtle);
-    }
-
-    @each $state in map-keys($theme-colors) {
-      &--#{$state} {
-        background: var(--bs-#{$state}-bg-subtle);
-        color: var(--bs-#{$state}-text-emphasis);
-      }
-    }
+  &:hover {
+    color: $primary;
   }
 }
 
@@ -215,7 +88,6 @@ html[data-bs-theme] body .Toastify {
 }
 
 .tab-group-navigation-entry {
-
   &:not(&--manual) > .nav-link.router-link-active,
   &:not(&--manual) > .nav-link.router-link-exact-active,
   &:not(&--manual) > .nav-link.active,
