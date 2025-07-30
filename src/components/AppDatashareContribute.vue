@@ -1,23 +1,19 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 
-
-import AppSection from '@/components/AppSection.vue'
 import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
+import AppSection from '@/components/AppSection.vue'
+
 const datashareGithubURL = 'https://github.com/ICIJ/datashare'
 const translateURL = 'https://crowdin.com/project/datashare'
 const weight = ref('regular')
-const iconVariant = ref<'primary'|null>(null)
+const iconVariant = ref<'primary' | null>(null)
 const { isDark } = useColorModePersisted()
-const buttonVariant = computed(() => {
-  return isDark.value ? 'light' : 'action'
-})
-const btnClassList = computed(() => {
-  let classes = 'text-nowrap p-4 fw-semibold '
-  return (classes += isDark.value ? 'bg-white' : '')
-})
+const buttonVariant = computed(() => isDark.value ? 'light' : 'action')
+const btnClassList = computed(() => ({ 'bg-white': isDark.value }))
+
 function toggleIcijLink() {
-  iconVariant.value = iconVariant.value ===  null ? 'primary' : null
+  iconVariant.value = iconVariant.value === null ? 'primary' : null
   weight.value = weight.value === 'regular' ? 'fill' : 'regular'
 }
 </script>
@@ -50,6 +46,7 @@ function toggleIcijLink() {
         <p>
           <button-icon
             :class="btnClassList"
+            class="text-nowrap p-4 fw-semibold"
             href="https://icij.org/donate"
             rel="noreferrer noopener"
             size="lg"

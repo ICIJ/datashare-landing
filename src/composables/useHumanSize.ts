@@ -5,7 +5,8 @@ enum Unit {
   GB = 'GB',
   TB = 'TB'
 }
-export type HumanSize = {
+
+export interface HumanSize {
   size: string
   unit: Unit
 }

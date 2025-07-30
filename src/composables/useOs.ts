@@ -1,5 +1,6 @@
 import { UAParser } from 'ua-parser-js'
 import { computed } from 'vue'
+
 export enum OS {
   MACOS = 'macos',
   IOS = 'ios',
@@ -13,11 +14,13 @@ export enum OS {
 }
 export type OsType = `${OS}`
 export const DEFAULT_ICON = 'download-simple'
-type OSAssetSimple = {
+
+interface OSAssetSimple {
   name: string
-  icon: string,
+  icon: string
   description: string
 }
+
 type OSAsset = OSAssetSimple & {
   ext: string[]
   guide?: string
@@ -32,23 +35,25 @@ type OSAsset = OSAssetSimple & {
     guide?: boolean
   }[]
 }
-export const simpleOs: { [key: string]: OSAssetSimple } = {
+
+export const simpleOs: Record<string, OSAssetSimple> = {
   [OS.SNAP]: {
     name: 'Snap',
     icon: 'bird',
-    description:'List of Snap packages to Datashare application on Ubuntu.'
+    description: 'List of Snap packages to Datashare application on Ubuntu.'
   },
   [OS.DOCKER]: {
     name: 'Docker',
     icon: 'shipping-container',
-    description:'Run datashare as a Docker container.'
+    description: 'Run datashare as a Docker container.'
   }
 }
-export const osDescription: { [key: string]: OSAsset } = {
+
+export const osDescription: Record<string, OSAsset> = {
   [OS.MACOS]: {
     name: 'Mac',
     icon: 'apple-logo',
-    description:'List of installer packages (.pkg) to run Datashare on macOS.',
+    description: 'List of installer packages (.pkg) to run Datashare on macOS.',
     ext: ['.pkg', 'DatashareStandalone.pkg'],
     guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-mac',
     asset: null,
@@ -57,7 +62,7 @@ export const osDescription: { [key: string]: OSAsset } = {
   [OS.WINDOWS]: {
     name: 'Windows',
     icon: 'windows-logo',
-    description:'List of executables (.exe) to run Datashare on Windows.',
+    description: 'List of executables (.exe) to run Datashare on Windows.',
     ext: ['.exe', 'installDatashareStandalone.exe'],
     guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-windows',
     asset: null,
@@ -66,7 +71,7 @@ export const osDescription: { [key: string]: OSAsset } = {
   [OS.DEBIAN]: {
     name: 'Debian',
     icon: 'linux-logo',
-    description:'List of Debian packages (.deb) to run Datashare on Debian-based system like Ubuntu.',
+    description: 'List of Debian packages (.deb) to run Datashare on Debian-based system like Ubuntu.',
     ext: ['.deb'],
     guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-linux',
     asset: null,
@@ -85,7 +90,7 @@ export const osDescription: { [key: string]: OSAsset } = {
   [OS.LINUX]: {
     name: 'Linux',
     icon: 'linux-logo',
-    description:'List of archives (.tar.gz) containing Datashare as a JAR (Java Archive) packaged application.',
+    description: 'List of archives (.tar.gz) containing Datashare as a JAR (Java Archive) packaged application.',
     ext: ['.tgz'],
     guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-linux',
     asset: null,
@@ -105,7 +110,7 @@ export const osDescription: { [key: string]: OSAsset } = {
     name: 'Java',
     icon: 'coffee',
     ext: ['.tgz'],
-    description:'List of archives (.tar.gz) containing Datashare as a JAR (Java Archive) packaged application.',
+    description: 'List of archives (.tar.gz) containing Datashare as a JAR (Java Archive) packaged application.',
     guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-linux',
     asset: null,
     buttons: [
@@ -124,23 +129,29 @@ export function useOs() {
     const osLower = osString.toLowerCase()
     if (osLower.startsWith('mac')) {
       return OS.MACOS
-    } else if (osLower.startsWith('ios')) {
+    }
+    else if (osLower.startsWith('ios')) {
       return OS.IOS
-    } else if (osLower.startsWith('android')) {
+    }
+    else if (osLower.startsWith('android')) {
       return OS.ANDROID
-    } else if (osLower.startsWith('windows')) {
+    }
+    else if (osLower.startsWith('windows')) {
       return OS.WINDOWS
-    } else if (/ubuntu|debian|raspbian.*/.test(osLower)) {
+    }
+    else if (/ubuntu|debian|raspbian.*/.test(osLower)) {
       return OS.DEBIAN
-    } else if (/linux/.test(osLower)) {
+    }
+    else if (/linux/.test(osLower)) {
       return OS.LINUX
-    } else {
+    }
+    else {
       return OS.OTHER
     }
   }
+
   const detectedOs = family()
-  const isCompatible = computed(() => {
-    return [OS.MACOS, OS.WINDOWS, OS.DEBIAN, OS.LINUX].includes(detectedOs)
-  })
+  const isCompatible = computed(() => [OS.MACOS, OS.WINDOWS, OS.DEBIAN, OS.LINUX].includes(detectedOs))
+
   return { detectedOs, isCompatible, family, osStringToFamily, osDescription }
 }

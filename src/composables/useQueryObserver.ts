@@ -3,8 +3,8 @@ import { first, get } from 'lodash'
 
 export function useQueryObserver(root: HTMLElement | null = window.document.body, once = false) {
   const rootRef = toRef(root)
-  const elements = reactive<{ [key: string]: Element[] }>({})
-  const observers = reactive<{ [key: string]: MutationObserver }>({})
+  const elements = reactive<Record<string, Element[]>>({})
+  const observers = reactive<Record<string, MutationObserver>>({})
 
   const hasElements = (selector: string) => {
     return get(elements, [selector, 'length'], 0) > 0

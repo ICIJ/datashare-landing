@@ -1,42 +1,42 @@
 <script lang="ts" setup>
 import { computed, inject, onBeforeMount } from 'vue'
 import castArray from 'lodash/castArray'
-import {BTbody} from 'bootstrap-vue-next'
+import { BTbody } from 'bootstrap-vue-next'
 
-import {useRelease} from '@/composables/useRelease.ts'
-import {type HumanSize, useHumanSize} from '@/composables/useHumanSize.ts'
-import { type Release, ReleasesKey } from '@/utils/types.ts'
+import { type HumanSize, useHumanSize } from '@/composables/useHumanSize.ts'
+import { useRelease } from '@/composables/useRelease.ts'
 import DatashareDownloadModalToggleExperimental from '@/components/DatashareDownloadModal/DatashareDownloadModalToggleExperimental.vue'
+import { type Release, ReleasesKey } from '@/utils/types.ts'
 
-const showExperimentalVersions = defineModel({type: Boolean})
+const showExperimentalVersions = defineModel({ type: Boolean })
 
 const props = defineProps<{
-  description:string,
-  ext: string|string[],
+  description: string
+  ext: string | string[]
 }>()
 
-const {humanSize} = useHumanSize()
+const { humanSize } = useHumanSize()
 
 const releases = inject(ReleasesKey)
-const {getAsset, publishedAt, error,retrieveReleases,isLoading} = useRelease(releases)
-onBeforeMount(async ()=> {
-  await retrieveReleases()
-})
-const exts = computed((): string[] => {
-  return castArray(props.ext)
-})
-type dtoRelease = {
-  name: string,
-  downloadUrl: string,
-  publishedAt: string,
-  humanSize: HumanSize,
-  prerelease: boolean,
+const { getAsset, publishedAt, error, retrieveReleases, isLoading } = useRelease(releases)
+
+onBeforeMount(retrieveReleases)
+
+const exts = computed((): string[] => castArray(props.ext))
+
+interface dtoRelease {
+  name: string
+  downloadUrl: string
+  publishedAt: string
+  humanSize: HumanSize
+  prerelease: boolean
 }
+
 const getReleasesWithFirstAsset = (acc: dtoRelease[], release: Release) => {
   const asset = getAsset(release, exts.value)
-  //filter
+  // filter
   if (!!asset && (showExperimentalVersions.value || !release.prerelease)) {
-    //map
+    // map
     const result = {
       name: release.name,
       downloadUrl: asset.browser_download_url,
@@ -56,8 +56,14 @@ const filteredReleases = computed(() => {
 
 <template>
   <div>
-    <b-overlay :show="isLoading" rounded="sm">
-      <div v-if="error" class="p-4 my-3">
+    <b-overlay
+      :show="isLoading"
+      rounded="sm"
+    >
+      <div
+        v-if="error"
+        class="p-4 my-3"
+      >
         An error occurred. <a href="https://github.com/ICIJ/datashare/releases">Explore all versions</a> on Github
       </div>
       <div v-else>
@@ -73,10 +79,17 @@ const filteredReleases = computed(() => {
           striped
         >
           <b-tbody>
-            <b-tr v-for="release in filteredReleases" :key="release.name" class="d-flex ">
+            <b-tr
+              v-for="release in filteredReleases"
+              :key="release.name"
+              class="d-flex "
+            >
               <b-td class="download-list__row d-flex flex-grow-1 gap-2 align-items-center justify-content-between">
                 <div class=" d-flex download-list__row__version gap-2 ">
-                  <a :href="release.downloadUrl" class="download-list__row__version__link font-weight-bold d-inline-flex gap-2 fw-bold">
+                  <a
+                    :href="release.downloadUrl"
+                    class="download-list__row__version__link font-weight-bold d-inline-flex gap-2 fw-bold"
+                  >
                     <phosphor-icon name="download-simple" />
                     <span>{{ release.name }}</span>
                   </a>
@@ -103,7 +116,6 @@ const filteredReleases = computed(() => {
     <datashare-download-modal-toggle-experimental v-model="showExperimentalVersions" />
   </div>
 </template>
-
 
 <style lang="scss">
 .download-list {

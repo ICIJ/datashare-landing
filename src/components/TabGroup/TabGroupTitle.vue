@@ -1,6 +1,4 @@
 <script setup lang="ts">
-
-
 defineProps({
   icon: {
     type: [String, Object, Array]
@@ -30,7 +28,11 @@ defineProps({
       />
     </template>
     <slot />
-    <b-badge v-if="count !== null" :variant="null" pill>
+    <b-badge
+      v-if="count !== null"
+      :variant="null"
+      pill
+    >
       {{ count }}
     </b-badge>
   </span>

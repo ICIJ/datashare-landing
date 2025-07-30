@@ -1,10 +1,8 @@
 <script setup lang="ts">
-
-
-import DownloadButtons from '@/components/Download/DownloadButtons.vue'
-import DatashareDownloadCards from '@/components/DatashareDownloadCard/DatashareDownloadCards.vue'
 import { useOs } from '@/composables/useOs.ts'
 import AppSection from '@/components/AppSection.vue'
+import DatashareDownloadCards from '@/components/DatashareDownloadCard/DatashareDownloadCards.vue'
+import DownloadButtons from '@/components/Download/DownloadButtons.vue'
 
 const { detectedOs } = useOs()
 </script>
@@ -17,7 +15,9 @@ const { detectedOs } = useOs()
         <image-mode-source
           src="@/assets/illustrations/LandingPage_BlueDesktop_DarkMode.svg"
           color-mode="dark"
-        /> </image-mode></span>
+        />
+      </image-mode>
+    </span>
     <div class="app-datashare-download__main row">
       <div class="d-flex flex-column">
         <div class="app-datashare-download__main__download-buttons text-center">
@@ -38,11 +38,13 @@ const { detectedOs } = useOs()
     background-color: var(--bs-action-bg-subtle);
   }
 }
+
 @include color-mode(light) {
   .app-datashare-download {
     background: linear-gradient(77deg, $action-bg-subtle 80%, $action-color-subtle 240%);
   }
 }
+
 .app-datashare-download {
   margin-top: 2em;
   &__image {

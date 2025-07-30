@@ -1,15 +1,14 @@
-import type { PopoverPlacement } from 'bootstrap-vue-next'
 import type { InjectionKey, Ref } from 'vue'
 
 import type { THEME } from '@/utils/enum.ts'
 
-export type Asset = {
+export interface Asset {
   name: string
   browser_download_url: string
   size: number
 }
 
-export type Release = {
+export interface Release {
   url: string
   name: string
   tag_name: string
@@ -23,11 +22,11 @@ export type Release = {
 
 export type Theme = `${THEME}`
 export interface AppModalHeaderProps {
-  title: string,
-  image?: string,
-  imageAlt?: string,
-  imageWidth?:number|string,
-  headerCloseClass?: string | string[] ,
+  title: string
+  image?: string
+  imageAlt?: string
+  imageWidth?: number | string
+  headerCloseClass?: string | string[]
   noHeaderClose?: boolean
 }
 

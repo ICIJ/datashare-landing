@@ -10,4 +10,3 @@
     <slot />
   </b-alert>
 </template>
-

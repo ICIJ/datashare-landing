@@ -1,26 +1,33 @@
 <script setup lang="ts">
 import { inject } from 'vue'
 
-import {type OsType, useOs} from '@/composables/useOs.ts'
-import {useRelease} from '@/composables/useRelease.ts'
+import { type OsType, useOs } from '@/composables/useOs.ts'
+import { useRelease } from '@/composables/useRelease.ts'
 import ButtonDownload from '@/components/Download/ButtonDownload.vue'
-import {useAssets} from '@/composables/useAssets.ts'
+import { useAssets } from '@/composables/useAssets.ts'
 import DatashareDownloadModal from '@/components/DatashareDownloadModal/DatashareDownloadModal.vue'
 import { ReleasesKey } from '@/utils/types.ts'
 
-defineOptions({name: 'DownloadButtons'})
-const props = defineProps<{osValue:OsType}>()
+defineOptions({ name: 'DownloadButtons' })
+const props = defineProps<{ osValue: OsType }>()
 
-const { isCompatible}=useOs()
+const { isCompatible } = useOs()
 const releases = inject(ReleasesKey)
-const {latestAssets} = useRelease(releases)
-const {osButton}=useAssets(props.osValue,latestAssets)
+const { latestAssets } = useRelease(releases)
+const { osButton } = useAssets(props.osValue, latestAssets)
 </script>
 
 <template>
   <div class="download-buttons d-flex flex-column gap-2">
-    <div v-if="isCompatible && osButton.buttons?.length" class=" d-flex flex-column gap-2">
-      <div v-for="({ label, asset, icon, wrapperClass, btnSize}, i) in osButton.buttons" :key="i" :class="wrapperClass">
+    <div
+      v-if="isCompatible && osButton.buttons?.length"
+      class=" d-flex flex-column gap-2"
+    >
+      <div
+        v-for="({ label, asset, icon, wrapperClass, btnSize}, i) in osButton.buttons"
+        :key="i"
+        :class="wrapperClass"
+      >
         <button-download
           :asset="asset || osButton.asset"
           :size="btnSize || osButton.size"
@@ -42,7 +49,3 @@ const {osButton}=useAssets(props.osValue,latestAssets)
     </div>
   </div>
 </template>
-
-
-
-
