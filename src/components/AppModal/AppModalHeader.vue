@@ -14,7 +14,6 @@ withDefaults(defineProps<AppModalHeaderProps>(), { noHeaderClose: false })
         icon-left="x"
         hide-label
         hide-tooltip
-        tooltip-placement="right"
         variant="outline-secondary"
         class="app-modal-header__close ms-auto"
         :class="headerCloseClass"
