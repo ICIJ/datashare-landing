@@ -18,9 +18,9 @@ export default defineConfig({
           'image-mode': ['src'],
           'image-mode-source': ['src'],
           'b-img': ['src'],
-          source: ['src'],
-          video: ['src', 'poster'],
-          img: ['src']
+          'source': ['src'],
+          'video': ['src', 'poster'],
+          'img': ['src']
         }
       }
     }),
