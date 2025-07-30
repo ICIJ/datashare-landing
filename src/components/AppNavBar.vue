@@ -20,15 +20,19 @@ function toggleIcijLink() {
   variant.value = variant.value === 'body' ? 'primary' : 'body'
   weight.value = weight.value === 'regular' ? 'fill' : 'regular'
 }
+
 const osIcon = computed(() => {
   return isCompatible.value ? osDescription[detectedOs].icon : DEFAULT_ICON
 })
 
-
-const classList = computed(() => {
-  let classes = 'py-2 mb-1 '
-  return (classes +=
-    isDark.value ? 'bg-action-subtle text-bg-action' : 'bg-action text-bg-action border-0 ')
+const togglerClassList = computed(() => {
+  return {
+    'bg-action-subtle': isDark.value,
+    'bg-action': !isDark.value,
+    'text-bg-action': isDark.value,
+    'text-bg-action-subtle': !isDark.value,
+    'border-0': !isDark.value
+  }
 })
 </script>
 
@@ -56,7 +60,8 @@ const classList = computed(() => {
       </b-navbar-brand>
       <b-navbar-toggle
         target="nav-collapse"
-        :class="classList"
+        class="py-2 mb-1"
+        :class="togglerClassList"
       >
         <template #default>
           <phosphor-icon name="list" />
