@@ -1,18 +1,16 @@
 <script setup lang="ts">
-import { PhEyes } from '@phosphor-icons/vue'
 import { computed, ref } from 'vue'
+import { PhEyes } from '@phosphor-icons/vue'
 
-
-import ColorModeSelector from '@/components/ColorModeSelector.vue'
-import AppSection from '@/components/AppSection.vue'
-import type { Theme } from '@/utils/types.ts'
-import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
 import { THEME } from '@/utils/enum.ts'
-const {mode} = useColorModePersisted()
+import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
+import AppSection from '@/components/AppSection.vue'
+import ColorModeSelector from '@/components/ColorModeSelector.vue'
+import type { Theme } from '@/utils/types.ts'
+
+const { mode } = useColorModePersisted()
 const colorMode = ref<Theme>(mode.value)
-const isDarkSelected = computed(()=>{
-  return colorMode.value === THEME.DARK
-})
+const isDarkSelected = computed(() => colorMode.value === THEME.DARK)
 </script>
 
 <template>
@@ -26,10 +24,13 @@ const isDarkSelected = computed(()=>{
     <div class="app-datashare-demo__content d-flex flex-column position-relative">
       <h3 class="app-datashare-demo__content__title fw-normal col-11">
         Want to dive into the <span class="fw-bold text-nowrap"> Lux Leaks</span> documents?
-        <span class="text-nowrap gap-1">Try our <a href="https://datashare-demo.icij.org">demo</a><PhEyes
-          weight="fill"
-          class="ms-1 mb-1"
-        /></span>
+        <span class="text-nowrap gap-1">
+          Try our <a href="https://datashare-demo.icij.org">demo</a>
+          <PhEyes
+            weight="fill"
+            class="ms-1 mb-1"
+          />
+        </span>
       </h3>
       <div class="align-self-center col-10">
         <image-mode

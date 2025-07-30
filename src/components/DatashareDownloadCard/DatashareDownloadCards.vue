@@ -7,12 +7,12 @@ import DatashareDownloadModal from '@/components/DatashareDownloadModal/Datashar
 import { ReleasesKey } from '@/utils/types.ts'
 
 const releases = inject(ReleasesKey)
-const { latestVersion,latestYear } = useRelease(releases)
+const { latestVersion, latestYear } = useRelease(releases)
 const versionYear = computed(() => {
-  return latestYear.value ? ` - ${latestYear.value}`:''
+  return latestYear.value ? ` - ${latestYear.value}` : ''
 })
 const versionLatest = computed(() => {
-  return latestVersion.value ? ` ${latestVersion.value}`:''
+  return latestVersion.value ? ` ${latestVersion.value}` : ''
 })
 const versionNumber = computed(() => {
   return `Version${versionLatest.value}${versionYear.value}`
@@ -45,7 +45,12 @@ const versionNumber = computed(() => {
     </datashare-download-card>
     <datashare-download-card title="Contact us">
       <ul>
-        <li>On <a href="https://github.com/icij/?q=datashare" target="_blank">Github</a></li>
+        <li>
+          On <a
+            href="https://github.com/icij/?q=datashare"
+            target="_blank"
+          >Github</a>
+        </li>
         <li>At <a href="mailto:datashare@icij.org">datashare@icij.org</a></li>
       </ul>
     </datashare-download-card>

@@ -3,23 +3,25 @@ import { computed } from 'vue'
 
 import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
 
-defineProps<{title:string}>()
+defineProps<{ title: string }>()
 
-const {isDark} = useColorModePersisted()
+const { isDark } = useColorModePersisted()
 
-const cardBg = computed(() => {
-  return isDark.value ? 'bg-darker' : 'bg-light'
-})
-const cardBorder = computed(() => {
-  return isDark.value ? 'border-secondary' : 'border-tertiary'
-})
 const classList = computed(() => {
-  return `datashare-download-card border-1 ${cardBorder.value} ${cardBg.value}`
+  return {
+    'bg-darker': isDark.value,
+    'bg-light': !isDark.value,
+    'border-secondary': isDark.value,
+    'border-tertiary': !isDark.value
+  }
 })
 </script>
 
 <template>
-  <b-card :class="classList">
+  <b-card
+    class="datashare-download-card border-1"
+    :class="classList"
+  >
     <h4 class="text-action-emphasis fs-6">
       {{ title }}
     </h4>

@@ -1,13 +1,20 @@
 <script setup lang="ts">
-
-
 const showExperimentalVersion = defineModel({ type: Boolean })
 </script>
 
 <template>
   <div class="datashare-modal-toggle-experimental border-top pt-4">
-    <b-form-checkbox v-model="showExperimentalVersion" class="d-flex gap-2" title="Experimental versions">
-      <span class="d-inline-block" style="width: 14em">Show experimental versions </span>
+    <b-form-checkbox
+      v-model="showExperimentalVersion"
+      class="d-flex gap-2"
+      title="Experimental versions"
+    >
+      <span
+        class="d-inline-block"
+        style="width: 14em"
+      >
+        Show experimental versions
+      </span>
       <phosphor-icon
         :fill="showExperimentalVersion"
         name="flask"

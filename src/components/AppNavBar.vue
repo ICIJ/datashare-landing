@@ -1,17 +1,15 @@
 <script setup lang="ts">
-
 import { ref, computed } from 'vue'
 
-
+import { DEFAULT_ICON, useOs } from '@/composables/useOs.ts'
+import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
+import AppSection from '@/components/AppSection.vue'
 import TabGroupNavigation from '@/components/TabGroup/TabGroupNavigation/TabGroupNavigation.vue'
 import TabGroupNavigationEntry from '@/components/TabGroup/TabGroupNavigation/TabGroupNavigationEntry.vue'
-import { DEFAULT_ICON, useOs } from '@/composables/useOs.ts'
-import AppSection from '@/components/AppSection.vue'
 import ThemeDropdown from '@/components/ThemeDropdown.vue'
-import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
 
 const { detectedOs, osDescription, isCompatible } = useOs()
-const {isDark} = useColorModePersisted()
+const { isDark } = useColorModePersisted()
 
 const weight = ref<'regular' | 'fill'>('regular')
 const variant = ref('body')
@@ -28,16 +26,16 @@ const osIcon = computed(() => {
 const togglerClassList = computed(() => {
   return {
     'bg-action-subtle': isDark.value,
-    'bg-action': !isDark.value,
-    'text-bg-action': isDark.value,
-    'text-bg-action-subtle': !isDark.value,
-    'border-0': !isDark.value
+    'text-bg-action': isDark.value
   }
 })
 </script>
 
 <template>
-  <app-section class="bg-body fixed-top p-0 border-bottom" nav>
+  <app-section
+    class="bg-body fixed-top p-0 border-bottom"
+    nav
+  >
     <b-navbar
       toggleable="lg"
       class="app-nav-bar"
@@ -76,7 +74,10 @@ const togglerClassList = computed(() => {
             <phosphor-icon :name="osIcon" />Download
           </tab-group-navigation-entry>
           <tab-group-navigation-entry href="#demo">
-            <phosphor-icon name="eyes" weight="fill" />Demo
+            <phosphor-icon
+              name="eyes"
+              weight="fill"
+            />Demo
           </tab-group-navigation-entry>
           <tab-group-navigation-entry href="#learn">
             <phosphor-icon name="student" />Learn

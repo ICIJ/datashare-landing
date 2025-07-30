@@ -8,16 +8,19 @@
 @import 'bootstrap-vue-next/dist/bootstrap-vue-next.css';
 @import '@icij/murmur-next/dist/lib/murmur.css';
 
-h1,h2,h3,h4,h5,h6{
+h1, h2, h3, h4, h5, h6{
   color:var(--bs-action-text-emphasis);
 }
+
 .app-body a,.app-modal a, .false-link{
-    text-decoration: underline;
-    cursor: pointer;
-    &:not(.btn):hover {
-      color: $primary;
-    }
+  text-decoration: underline;
+  cursor: pointer;
+  
+  &:not(.btn):hover {
+    color: $primary;
+  }
 }
+
 .nav-link{
   display: inline-flex;
   align-items: center;
@@ -27,8 +30,6 @@ h1,h2,h3,h4,h5,h6{
     color:$primary;
   }
 }
-
-
 
 .dropdown-item {
   border-radius: var(--bs-border-radius);

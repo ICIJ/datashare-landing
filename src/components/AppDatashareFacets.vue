@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import DatashareFacet from '@/components/DatashareFacet/DatashareFacet.vue'
 import AppSection from '@/components/AppSection.vue'
+import DatashareFacet from '@/components/DatashareFacet/DatashareFacet.vue'
 </script>
 
 <template>
@@ -35,10 +35,12 @@ import AppSection from '@/components/AppSection.vue'
     </div>
   </app-section>
 </template>
+
 <style scoped lang="scss">
 .app-datashare-facets {
   margin-top: -50px;
 }
+
 @include color-mode(dark) {
   .app-datashare-facets {
     background-color: var(--bs-action-bg-subtle) !important;

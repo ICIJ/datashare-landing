@@ -1,13 +1,19 @@
 <script setup lang="ts">
-defineProps<{ title:string, articleClass:string, imageClass:string }>()
+defineProps<{ title: string, articleClass: string, imageClass: string }>()
 </script>
 
 <template>
   <section class="datashare-example d-flex align-items-center justify-content-around gap-4">
-    <div class="d-none d-md-flex" :class="imageClass">
+    <div
+      class="d-none d-md-flex"
+      :class="imageClass"
+    >
       <slot name="image" />
     </div>
-    <article :class="articleClass" class="d-flex">
+    <article
+      :class="articleClass"
+      class="d-flex"
+    >
       <div class="flex-shrink-1 p-2 mx-2 bg-body">
         <header class="h4 text-body-emphasis">
           {{ title }}
@@ -26,6 +32,7 @@ defineProps<{ title:string, articleClass:string, imageClass:string }>()
     }
   }
 }
+
 @include color-mode(light) {
   .datashare-example {
     & img {
@@ -33,6 +40,7 @@ defineProps<{ title:string, articleClass:string, imageClass:string }>()
     }
   }
 }
+
 .datashare-example {
   margin: 2em 0;
   & article {
@@ -44,6 +52,7 @@ defineProps<{ title:string, articleClass:string, imageClass:string }>()
     border-radius: var(--bs-border-radius-xl);
   }
 }
+
 @include media-breakpoint-down(md) {
   .datashare-example {
     & article {

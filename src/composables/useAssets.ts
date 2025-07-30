@@ -6,7 +6,7 @@ import { OS, type OsType, useOs } from '@/composables/useOs.ts'
 export function useAssets(osValue: OsType, assets: Ref<Asset[]>) {
   const { osDescription, isCompatible } = useOs()
 
-  function getAssetsByExtension(exts: { [key: string]: Asset[] }, asset: Asset) {
+  function getAssetsByExtension(exts: Record<string, Asset[]>, asset: Asset) {
     const ext = `.${asset.name.split('.').pop()}`
     if (ext) (exts[ext] ??= []).push(asset)
     return exts

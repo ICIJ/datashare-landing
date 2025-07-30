@@ -3,13 +3,20 @@ import { computed } from 'vue'
 
 import { THEME } from '@/utils/enum.ts'
 
-export function useColorModePersisted() {
-  const mode = useColorMode({persist:true})
+export function useColorModePersisted({ persist = true, restore = false }: { persist?: boolean, restore?: boolean } = {}) {
+  const mode = useColorMode({ persist })
+
+  if (restore) {
+    mode.value = mode.store.value
+  }
+
   const isDark = computed(() => {
     return mode.value === THEME.DARK
   })
+
   const isLight = computed(() => {
     return mode.value === THEME.DARK
   })
-  return {mode,isDark,isLight}
+
+  return { mode, isDark, isLight }
 }

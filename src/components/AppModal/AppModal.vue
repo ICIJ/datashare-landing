@@ -24,7 +24,8 @@ interface AppModalProps extends AppModalHeaderProps {
 
 withDefaults(defineProps<AppModalProps>(), {
   imageWidth: '60px',
-  noHeaderClose: false })
+  noHeaderClose: false
+})
 </script>
 
 <template>

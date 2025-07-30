@@ -1,21 +1,23 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+
 interface TabGroupProps {
-  cardHeader?: boolean,
-  fill?: boolean,
-  justified?: boolean,
-  lazy?: boolean,
-  small?: boolean,
-  tag?: string,
-  vertical?: boolean,
-  nowrap?: boolean,
-  flush?: boolean,
-  activeNavItemClass?: string,
-  navItemClass?: string,
-  activeTabClass?: string,
-  contentClass?: string,
+  cardHeader?: boolean
+  fill?: boolean
+  justified?: boolean
+  lazy?: boolean
+  small?: boolean
+  tag?: string
+  vertical?: boolean
+  nowrap?: boolean
+  flush?: boolean
+  activeNavItemClass?: string
+  navItemClass?: string
+  activeTabClass?: string
+  contentClass?: string
   navClass?: string
 }
+
 const props = defineProps<TabGroupProps>()
 
 const navClassList = computed(() => {

@@ -12,6 +12,9 @@ defineProps({
       class="font-monospace"
       @click="$event.target.select()"
     />
-    <haptic-copy :variant="variant" :text="text" />
+    <haptic-copy
+      :variant="variant"
+      :text="text"
+    />
   </b-input-group>
 </template>

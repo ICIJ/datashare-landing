@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-
 import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
 
 defineProps({
@@ -10,8 +9,9 @@ defineProps({
   icon: { type: String },
   label: { type: String }
 })
-const {isDark} = useColorModePersisted()
-const variant = computed(() => (isDark.value ?  'light':'action'))
+
+const { isDark } = useColorModePersisted()
+const variant = computed(() => (isDark.value ? 'light' : 'action'))
 </script>
 
 <template>

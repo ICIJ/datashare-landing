@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import DatashareExample from '@/components/DatashareExample/DatashareExample.vue'
 import AppSection from '@/components/AppSection.vue'
+import DatashareExample from '@/components/DatashareExample/DatashareExample.vue'
 </script>
 
 <template>

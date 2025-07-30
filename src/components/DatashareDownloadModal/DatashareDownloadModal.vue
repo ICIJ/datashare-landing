@@ -11,7 +11,8 @@ defineProps({
   <span
     v-b-modal.downloadListModal
     class="datashare-download-modal"
-  >{{ title }}
+  >
+    {{ title }}
     <app-modal
       id="downloadListModal"
       lazy

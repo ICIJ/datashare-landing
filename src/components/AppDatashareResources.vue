@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import DatashareResourceCard from '@/components/DatashareResource/DatashareResourceCard.vue'
 import AppSection from '@/components/AppSection.vue'
+import DatashareResourceCard from '@/components/DatashareResource/DatashareResourceCard.vue'
+
 const resources = {
   search: {
     title: 'Search in your documents effi&shy;cien&shy;tly',
@@ -74,6 +75,7 @@ const resources = {
 .app-datashare-resources {
   position: relative;
   padding: 3.5em 0;
+
   &__illustration {
     position: absolute;
     left: 5.5em;
