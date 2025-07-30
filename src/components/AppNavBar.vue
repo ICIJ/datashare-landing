@@ -96,8 +96,8 @@ const togglerClassList = computed(() => {
               name="hand-heart"
               :weight="weight"
               :variant="variant"
-            />It's free! Support
-            ICIJ
+            />
+            It's free! Support ICIJ
           </tab-group-navigation-entry>
         </tab-group-navigation>
         <b-navbar-nav class="ms-auto my-auto">
