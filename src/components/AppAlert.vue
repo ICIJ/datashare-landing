@@ -8,8 +8,8 @@ const props = defineProps({
     type: String
   },
   currentDate: {
-    type: String,
-    default: new Date().getTime().toString()
+    type: [String, Date],
+    default: new Date()
   },
 })
 
