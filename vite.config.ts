@@ -63,5 +63,9 @@ export default defineConfig({
           `
       }
     }
+  },
+  optimizeDeps: {
+    exclude: ['@phosphor-icons/vue']
   }
+
 })
