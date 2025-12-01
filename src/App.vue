@@ -25,7 +25,7 @@ const { retrieveReleases, releases } = useRelease()
 provide(ReleasesKey, releases)
 onBeforeMount(retrieveReleases)
 
-const alertExpiration = 'Sep 15 2025'
+const alertExpiration = 'Feb 15 2026'
 </script>
 
 <template>

@@ -20,7 +20,7 @@ const isAvailable = computed(() => {
   return true
 })
 
-const link = 'https://docs.google.com/forms/d/e/1FAIpQLSeThKmdrCUigCUnDMpWonG-KV-twAresdKZvd4uEgOFNKJfEg/viewform?usp=sharing&ouid=116923431922054991575'
+const link = 'https://forms.gle/cisaKQLpeb9tBduSA'
 </script>
 <template>
   <b-container
@@ -31,7 +31,7 @@ const link = 'https://docs.google.com/forms/d/e/1FAIpQLSeThKmdrCUigCUnDMpWonG-KV
     <datashare-alert
       class="col-10 col-lg-6"
     >
-      We’re building new features to extract structured content.
+      What do you think about the new design?
       <span class="text-nowrap">
         Take <a
           :href="link"
