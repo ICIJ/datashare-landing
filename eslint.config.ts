@@ -1,8 +1,6 @@
 import globals from 'globals'
 import icijeslint from '@icij/eslint-config'
 
-import { globals as iconsGlobals } from './bin/icons.js'
-
 export default [
   {
     ignores: ['public']
@@ -38,7 +36,6 @@ export default [
   {
     languageOptions: {
       globals: {
-        ...iconsGlobals,
         // Vite uses process.env for environment variables
         process: true
       }

@@ -5,10 +5,9 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { BootstrapVueNextResolver } from 'bootstrap-vue-next'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 
-import { PhosphorVueResolver } from './bin/resolvers'
-import { PhosphorVuePreset } from './bin/presets'
-// https://vite.dev/config/
 export default defineConfig({
   base: '/',
   plugins: [
@@ -27,22 +26,32 @@ export default defineConfig({
     vueDevTools(),
     /**
      * The "Components" plugin resolvers imports automatically component in vue
-     * templates For PhosphorVueResolver we use an homemade resolver
-     * that simply imports icons (example: `<ph-plus>`).
+     * templates. IconsResolver auto-imports icons using `<i-ph-*>` syntax.
      */
     Components({
-      resolvers: [BootstrapVueNextResolver(), PhosphorVueResolver()]
+      resolvers: [
+        BootstrapVueNextResolver(),
+        IconsResolver({ prefix: 'i', enabledCollections: ['ph'] })
+      ]
     }),
     /**
      * The "AutoImport" plugin offer a mechanism similar to the "Components" plugins
-     * but it targets javascript variable and references. This allows to imports component
-     * directly in `<script setup>` or in vue template ref (example: `<component :is="PhPlus" />`)
+     * but it targets javascript variable and references.
      */
     AutoImport({
       dts: false,
       vueTemplate: true,
-      imports: [PhosphorVuePreset()],
-      resolvers: [PhosphorVueResolver()]
+      imports: [],
+      resolvers: [IconsResolver({ prefix: 'i', enabledCollections: ['ph'] })]
+    }),
+    /**
+     * The "Icons" plugin generates icon components from Iconify collections.
+     * Icons are used via <i-{collection}-{icon}> syntax (e.g., <i-ph-user />).
+     */
+    Icons({
+      scale: 1.25,
+      compiler: 'vue3',
+      autoInstall: true
     })
   ],
   resolve: {
@@ -64,8 +73,6 @@ export default defineConfig({
       }
     }
   },
-  optimizeDeps: {
-    exclude: ['@phosphor-icons/vue']
-  }
+  optimizeDeps: {}
 
 })
