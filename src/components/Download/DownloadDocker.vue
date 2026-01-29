@@ -6,6 +6,9 @@ import dockerComposeYmlRaw from '@/assets/docker-compose.yml?raw'
 import CopyInput from '@/components/Download/CopyInput.vue'
 import { ReleasesKey } from '@/utils/types.ts'
 
+import IPhCaretUp from '~icons/ph/caret-up'
+import IPhCaretDown from '~icons/ph/caret-down'
+
 defineOptions({ name: 'DownloadDocker' })
 
 const releases = inject(ReleasesKey)
@@ -22,7 +25,7 @@ const dockerComposeYmlHref = computed(() => {
   return 'data:text/plain;charset=utf-8,' + encodeURIComponent(dockerComposeYml.value)
 })
 const dockerComposeYmlCaret = computed(() => {
-  return dockerComposeYmlVisible.value ? 'caret-up' : 'caret-down'
+  return dockerComposeYmlVisible.value ? IPhCaretUp : IPhCaretDown
 })
 </script>
 
@@ -57,7 +60,7 @@ const dockerComposeYmlCaret = computed(() => {
       <div class="d-flex">
         <button-icon
           v-b-toggle.docker-compose-yml
-          :left-icon="dockerComposeYmlCaret"
+          :icon-left="dockerComposeYmlCaret"
           variant="link"
           class="text-left text-bg-body flex-grow-1"
         >

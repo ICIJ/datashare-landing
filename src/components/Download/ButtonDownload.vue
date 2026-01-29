@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, type Component } from 'vue'
 
 import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
 
-defineProps({
-  asset: { type: String },
-  size: { type: String },
-  icon: { type: String },
-  label: { type: String }
-})
+defineProps<{
+  asset?: string
+  size?: string
+  icon?: Component
+  label?: string
+}>()
 
 const { isDark } = useColorModePersisted()
 const variant = computed(() => (isDark.value ? 'light' : 'action'))

@@ -1,5 +1,13 @@
 import { UAParser } from 'ua-parser-js'
-import { computed } from 'vue'
+import { computed, type Component } from 'vue'
+
+import IPhAppleLogo from '~icons/ph/apple-logo'
+import IPhWindowsLogo from '~icons/ph/windows-logo'
+import IPhLinuxLogo from '~icons/ph/linux-logo'
+import IPhBird from '~icons/ph/bird'
+import IPhShippingContainer from '~icons/ph/shipping-container'
+import IPhCoffee from '~icons/ph/coffee'
+import IPhDownloadSimple from '~icons/ph/download-simple'
 
 export enum OS {
   MACOS = 'macos',
@@ -13,11 +21,11 @@ export enum OS {
   OTHER = 'other'
 }
 export type OsType = `${OS}`
-export const DEFAULT_ICON = 'download-simple'
+export const DEFAULT_ICON = IPhDownloadSimple
 
 interface OSAssetSimple {
   name: string
-  icon: string
+  icon: Component
   description: string
 }
 
@@ -29,7 +37,7 @@ type OSAsset = OSAssetSimple & {
   buttons: {
     label: string
     asset?: string | null
-    icon?: string
+    icon?: Component
     btnSize?: string
     wrapperClass?: string
     guide?: boolean
@@ -39,12 +47,12 @@ type OSAsset = OSAssetSimple & {
 export const simpleOs: Record<string, OSAssetSimple> = {
   [OS.SNAP]: {
     name: 'Snap',
-    icon: 'bird',
+    icon: IPhBird,
     description: 'List of Snap packages to Datashare application on Ubuntu.'
   },
   [OS.DOCKER]: {
     name: 'Docker',
-    icon: 'shipping-container',
+    icon: IPhShippingContainer,
     description: 'Run datashare as a Docker container.'
   }
 }
@@ -52,7 +60,7 @@ export const simpleOs: Record<string, OSAssetSimple> = {
 export const osDescription: Record<string, OSAsset> = {
   [OS.MACOS]: {
     name: 'Mac',
-    icon: 'apple-logo',
+    icon: IPhAppleLogo,
     description: 'List of installer packages (.pkg) to run Datashare on macOS.',
     ext: ['.pkg', 'DatashareStandalone.pkg'],
     guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-mac',
@@ -61,7 +69,7 @@ export const osDescription: Record<string, OSAsset> = {
   },
   [OS.WINDOWS]: {
     name: 'Windows',
-    icon: 'windows-logo',
+    icon: IPhWindowsLogo,
     description: 'List of executables (.exe) to run Datashare on Windows.',
     ext: ['.exe', 'installDatashareStandalone.exe'],
     guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-windows',
@@ -70,17 +78,17 @@ export const osDescription: Record<string, OSAsset> = {
   },
   [OS.DEBIAN]: {
     name: 'Debian',
-    icon: 'linux-logo',
+    icon: IPhLinuxLogo,
     description: 'List of Debian packages (.deb) to run Datashare on Debian-based system like Ubuntu.',
     ext: ['.deb'],
     guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-linux',
     asset: null,
     buttons: [
-      { label: 'Download .deb', asset: null, icon: 'linux-logo' },
+      { label: 'Download .deb', asset: null, icon: IPhLinuxLogo },
       {
         label: 'Download .tgz',
         asset: null,
-        icon: 'coffee',
+        icon: IPhCoffee,
         btnSize: 'xs',
         wrapperClass: 'small',
         guide: false
@@ -89,17 +97,17 @@ export const osDescription: Record<string, OSAsset> = {
   },
   [OS.LINUX]: {
     name: 'Linux',
-    icon: 'linux-logo',
+    icon: IPhLinuxLogo,
     description: 'List of archives (.tar.gz) containing Datashare as a JAR (Java Archive) packaged application.',
     ext: ['.tgz'],
     guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-linux',
     asset: null,
     buttons: [
-      { label: 'Download .deb', asset: null, icon: 'linux-logo' },
+      { label: 'Download .deb', asset: null, icon: IPhLinuxLogo },
       {
         label: 'Download .tgz',
         asset: null,
-        icon: 'coffee',
+        icon: IPhCoffee,
         btnSize: 'xs',
         wrapperClass: 'small',
         guide: false
@@ -108,13 +116,13 @@ export const osDescription: Record<string, OSAsset> = {
   },
   [OS.OTHER]: {
     name: 'Java',
-    icon: 'coffee',
+    icon: IPhCoffee,
     ext: ['.tgz'],
     description: 'List of archives (.tar.gz) containing Datashare as a JAR (Java Archive) packaged application.',
     guide: 'https://icij.gitbook.io/datashare/local-mode/install-datashare-on-linux',
     asset: null,
     buttons: [
-      { label: 'Download .tar.gz', asset: null, icon: 'coffee' },
+      { label: 'Download .tar.gz', asset: null, icon: IPhCoffee },
     ]
   }
 }

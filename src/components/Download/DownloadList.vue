@@ -90,15 +90,13 @@ const filteredReleases = computed(() => {
                     :href="release.downloadUrl"
                     class="download-list__row__version__link font-weight-bold d-inline-flex gap-2 fw-bold"
                   >
-                    <phosphor-icon name="download-simple" />
+                    <i-ph-download-simple />
                     <span>{{ release.name }}</span>
                   </a>
-                  <phosphor-icon
+                  <i-ph-flask-fill
                     v-if="release.prerelease"
-                    fill
-                    name="flask"
                     title="Experimental version"
-                    variant="info"
+                    class="text-info"
                   />
                 </div>
                 <div class="download-list__row__info d-flex gap-2">

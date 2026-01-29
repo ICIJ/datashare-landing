@@ -8,6 +8,8 @@ import { useAssets } from '@/composables/useAssets.ts'
 import DatashareDownloadModal from '@/components/DatashareDownloadModal/DatashareDownloadModal.vue'
 import { ReleasesKey } from '@/utils/types.ts'
 
+import IPhDownloadSimple from '~icons/ph/download-simple'
+
 defineOptions({ name: 'DownloadButtons' })
 const props = defineProps<{ osValue: OsType }>()
 
@@ -39,7 +41,7 @@ const { osButton } = useAssets(props.osValue, latestAssets)
     </div>
     <div v-else>
       <button-icon
-        icon-left="download-simple"
+        :icon-left="IPhDownloadSimple"
         variant="secondary"
         class=" p-4"
         size="lg"

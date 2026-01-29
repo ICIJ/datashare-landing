@@ -4,10 +4,15 @@ import { computed } from 'vue'
 import { THEME } from '@/utils/enum.ts'
 import type { Theme } from '@/utils/types.ts'
 
+import IPhSun from '~icons/ph/sun'
+import IPhSunFill from '~icons/ph/sun-fill'
+import IPhMoon from '~icons/ph/moon'
+import IPhMoonFill from '~icons/ph/moon-fill'
+
 const colorMode = defineModel<Theme>({ default: THEME.LIGHT })
 const isDark = computed(() => colorMode.value === THEME.DARK)
-const isLightActive = computed(() => !isDark.value ? 'fill' : 'regular')
-const isDarkActive = computed(() => isDark.value ? 'fill' : 'regular')
+const lightIcon = computed(() => !isDark.value ? IPhSunFill : IPhSun)
+const darkIcon = computed(() => isDark.value ? IPhMoonFill : IPhMoon)
 </script>
 
 <template>
@@ -18,10 +23,7 @@ const isDarkActive = computed(() => isDark.value ? 'fill' : 'regular')
         class="color-mode-selector__radio"
       >
         <span class="d-inline-flex align-items-center gap-1">
-          <phosphor-icon
-            name="sun"
-            :weight="isLightActive"
-          />
+          <component :is="lightIcon" />
           Light mode
         </span>
       </b-form-radio>
@@ -30,10 +32,7 @@ const isDarkActive = computed(() => isDark.value ? 'fill' : 'regular')
         class="color-mode-selector__radio"
       >
         <span class="d-inline-flex align-items-center gap-1">
-          <phosphor-icon
-            name="moon"
-            :weight="isDarkActive"
-          />
+          <component :is="darkIcon" />
           Dark mode
         </span>
       </b-form-radio>

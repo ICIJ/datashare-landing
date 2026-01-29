@@ -8,6 +8,9 @@ import { DEFAULT_ICON, useOs } from '@/composables/useOs.ts'
 import { useRelease } from '@/composables/useRelease.ts'
 import AppSection from '@/components/AppSection.vue'
 import { ReleasesKey } from '@/utils/types.ts'
+
+import IPhEyesFill from '~icons/ph/eyes-fill'
+
 const { detectedOs, isCompatible } = useOs()
 
 const releases = inject(ReleasesKey)
@@ -49,8 +52,7 @@ const label = computed(() => {
         </div>
         <div>
           <button-icon
-            icon-right="eyes"
-            icon-right-weight="fill"
+            :icon-right="IPhEyesFill"
             variant="outline-action"
             class="demo-link bg-body text-action-emphasis border-action-emphasis"
             href="https://datashare-demo.icij.org/"

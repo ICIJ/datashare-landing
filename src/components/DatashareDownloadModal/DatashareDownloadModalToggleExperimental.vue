@@ -1,5 +1,11 @@
 <script setup lang="ts">
+import IPhFlask from '~icons/ph/flask'
+import IPhFlaskFill from '~icons/ph/flask-fill'
+import { computed } from 'vue'
+
 const showExperimentalVersion = defineModel({ type: Boolean })
+
+const flaskIcon = computed(() => showExperimentalVersion.value ? IPhFlaskFill : IPhFlask)
 </script>
 
 <template>
@@ -15,11 +21,10 @@ const showExperimentalVersion = defineModel({ type: Boolean })
       >
         Show experimental versions
       </span>
-      <phosphor-icon
-        :fill="showExperimentalVersion"
-        name="flask"
+      <component
+        :is="flaskIcon"
         title="Experimental version"
-        variant="info"
+        class="text-info"
       />
     </b-form-checkbox>
     <span class="text-body-tertiary small">Experimental versions are unstable and might present bugs. Use them at your own risk.</span>
