@@ -17,15 +17,15 @@
   },
   "dependencies": {
     "@icij/murmur-next": "^4.5.5",
-    "@phosphor-icons/vue": "^2.2.1",
     "bootstrap": "^5.3.7",
-    "bootstrap-vue-next": "^0.30.4",
+    "bootstrap-vue-next": "^0.42.0",
     "lodash": "^4.17.21",
     "ua-parser-js": "^2.0.4",
     "vue": "^3.5.17"
   },
   "devDependencies": {
     "@icij/eslint-config": "^3.0.3",
+    "@iconify-json/ph": "^1.2.2",
     "@tsconfig/node22": "^22.0.1",
     "@types/jsdom": "^21.1.7",
     "@types/lodash": "^4.17.20",
@@ -43,6 +43,7 @@
     "sass": "^1.79.3",
     "typescript": "^5.8.3",
     "unplugin-auto-import": "^19.3.0",
+    "unplugin-icons": "^23.0.1",
     "unplugin-vue-components": "^28.8.0",
     "vite": "^7.0.5",
     "vite-plugin-vue-devtools": "^7.7.7",
