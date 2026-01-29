@@ -27,7 +27,7 @@ const isActive = computed(() => {
   <b-dropdown-item
     class="theme-dropdown-item "
     :active="isActive"
-    @click="$emit('update',theme)"
+    @click="$emit('update', theme)"
   >
     <span class="text-action-emphasis ">
       <component :is="currentIcon" />

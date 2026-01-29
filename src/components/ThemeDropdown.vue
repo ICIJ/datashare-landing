@@ -81,16 +81,15 @@ function updateTheme(newTheme: Theme) {
 </template>
 
 <style lang="scss">
-.nav-link.dropdown-toggle{
+.nav-link.dropdown-toggle {
   color: var(--bs-action-text-emphasis);
 
   &:hover {
-    color:var(--bs-primary);
+    color: var(--bs-primary);
   }
 
-  &.show{
-
-    color:var(--bs-primary);
+  &.show {
+    color: var(--bs-primary);
   }
 }
 </style>
