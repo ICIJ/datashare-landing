@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { type Component } from 'vue'
+import { isNil } from 'lodash'
 
 defineProps<{
   icon?: Component
@@ -23,7 +24,7 @@ defineProps<{
     </template>
     <slot />
     <b-badge
-      v-if="count !== null && count !== undefined"
+      v-if="!isNil(count)"
       :variant="null"
       pill
     >
