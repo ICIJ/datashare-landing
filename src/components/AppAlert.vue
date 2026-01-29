@@ -9,7 +9,7 @@ const props = defineProps({
   },
   currentDate: {
     type: [String, Date],
-    default: new Date()
+    default: () => new Date()
   },
 })
 
