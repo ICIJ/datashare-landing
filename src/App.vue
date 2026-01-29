@@ -29,7 +29,7 @@ const alertExpiration = 'Feb 15 2026'
 </script>
 
 <template>
-  <div>
+  <b-app>
     <app-nav-bar id="app-nav-bar" />
     <div
       id="nav-scroller"
@@ -78,7 +78,7 @@ const alertExpiration = 'Feb 15 2026'
       <app-alert :expiration-date="alertExpiration" />
     </div>
     <generic-footer />
-  </div>
+  </b-app>
 </template>
 
 <style scoped lang="scss"></style>
