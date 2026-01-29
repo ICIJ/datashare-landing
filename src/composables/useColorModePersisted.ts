@@ -15,7 +15,7 @@ export function useColorModePersisted({ persist = true, restore = false }: { per
   })
 
   const isLight = computed(() => {
-    return mode.value === THEME.DARK
+    return mode.value === THEME.LIGHT
   })
 
   return { mode, isDark, isLight }
