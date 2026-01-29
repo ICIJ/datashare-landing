@@ -24,7 +24,7 @@ onBeforeMount(retrieveReleases)
 
 const exts = computed((): string[] => castArray(props.ext))
 
-interface dtoRelease {
+interface ReleaseDTO {
   name: string
   downloadUrl: string
   publishedAt: string
@@ -32,7 +32,7 @@ interface dtoRelease {
   prerelease: boolean
 }
 
-const getReleasesWithFirstAsset = (acc: dtoRelease[], release: Release) => {
+const getReleasesWithFirstAsset = (acc: ReleaseDTO[], release: Release) => {
   const asset = getAsset(release, exts.value)
   // filter
   if (!!asset && (showExperimentalVersions.value || !release.prerelease)) {

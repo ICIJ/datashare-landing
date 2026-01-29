@@ -3,7 +3,7 @@ import DownloadDocker from './DownloadDocker.vue'
 import DownloadList from './DownloadList.vue'
 import DownloadSnap from './DownloadSnap.vue'
 
-import { OS, osDescription, simpleOs, useOs } from '@/composables/useOs'
+import { OS, osDescription, simpleOs, useOs } from '@/composables/useOs.ts'
 import TabGroup from '@/components/TabGroup/TabGroup.vue'
 import TabGroupEntry from '@/components/TabGroup/TabGroupEntry.vue'
 
