@@ -11,7 +11,7 @@ import IPhMoonFill from '~icons/ph/moon-fill'
 
 const colorMode = defineModel<Theme>({ default: THEME.LIGHT })
 const isDark = computed(() => colorMode.value === THEME.DARK)
-const lightIcon = computed(() => !isDark.value ? IPhSunFill : IPhSun)
+const lightIcon = computed(() => isDark.value ? IPhSun : IPhSunFill)
 const darkIcon = computed(() => isDark.value ? IPhMoonFill : IPhMoon)
 </script>
 
