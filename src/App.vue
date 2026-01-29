@@ -41,11 +41,11 @@ const alertExpiration = 'Feb 15 2026'
         class="app-section"
       />
       <app-datashare-features
-        id="features "
+        id="features"
         class="app-section"
       />
       <app-tag-line
-        id="tag-line "
+        id="tag-line"
         class="app-section"
       />
       <app-datashare-facets
