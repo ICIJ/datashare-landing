@@ -4,17 +4,22 @@ import { ref, computed } from 'vue'
 import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
 import AppSection from '@/components/AppSection.vue'
 
+import IPhHandHeart from '~icons/ph/hand-heart'
+import IPhHandHeartFill from '~icons/ph/hand-heart-fill'
+import IPhGithubLogo from '~icons/ph/github-logo'
+import IPhTranslate from '~icons/ph/translate'
+
 const datashareGithubURL = 'https://github.com/ICIJ/datashare'
 const translateURL = 'https://crowdin.com/project/datashare'
-const weight = ref('regular')
-const iconVariant = ref<'primary' | null>(null)
+const isFilled = ref(false)
 const { isDark } = useColorModePersisted()
 const buttonVariant = computed(() => isDark.value ? 'light' : 'action')
 const btnClassList = computed(() => ({ 'bg-white': isDark.value }))
 
+const donateIcon = computed(() => isFilled.value ? IPhHandHeartFill : IPhHandHeart)
+
 function toggleIcijLink() {
-  iconVariant.value = iconVariant.value === null ? 'primary' : null
-  weight.value = weight.value === 'regular' ? 'fill' : 'regular'
+  isFilled.value = !isFilled.value
 }
 </script>
 
@@ -51,10 +56,8 @@ function toggleIcijLink() {
             rel="noreferrer noopener"
             size="lg"
             target="_blank"
-            icon-left="hand-heart"
+            :icon-left="donateIcon"
             :variant="buttonVariant"
-            :icon-left-weight="weight"
-            :icon-left-variant="iconVariant"
             @mouseenter="toggleIcijLink"
             @mouseleave="toggleIcijLink"
           >
@@ -66,7 +69,7 @@ function toggleIcijLink() {
             :href="datashareGithubURL"
             variant="outline-action"
             size="lg"
-            icon-left="github-logo"
+            :icon-left="IPhGithubLogo"
             class="action-link p-4"
           >
             Contribute
@@ -77,7 +80,7 @@ function toggleIcijLink() {
             :href="translateURL"
             variant="outline-action"
             size="lg"
-            icon-left="translate"
+            :icon-left="IPhTranslate"
             class="action-link p-4"
           >
             Help us translate

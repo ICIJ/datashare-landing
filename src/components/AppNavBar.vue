@@ -8,15 +8,18 @@ import TabGroupNavigation from '@/components/TabGroup/TabGroupNavigation/TabGrou
 import TabGroupNavigationEntry from '@/components/TabGroup/TabGroupNavigation/TabGroupNavigationEntry.vue'
 import ThemeDropdown from '@/components/ThemeDropdown.vue'
 
+import IPhHandHeart from '~icons/ph/hand-heart'
+import IPhHandHeartFill from '~icons/ph/hand-heart-fill'
+
 const { detectedOs, osDescription, isCompatible } = useOs()
 const { isDark } = useColorModePersisted()
 
-const weight = ref<'regular' | 'fill'>('regular')
+const isFilled = ref(false)
 const variant = ref('body')
 
 function toggleIcijLink() {
   variant.value = variant.value === 'body' ? 'primary' : 'body'
-  weight.value = weight.value === 'regular' ? 'fill' : 'regular'
+  isFilled.value = !isFilled.value
 }
 
 const osIcon = computed(() => {
@@ -62,7 +65,7 @@ const togglerClassList = computed(() => {
         :class="togglerClassList"
       >
         <template #default>
-          <phosphor-icon name="list" />
+          <i-ph-list />
         </template>
       </b-navbar-toggle>
       <b-collapse
@@ -71,19 +74,16 @@ const togglerClassList = computed(() => {
       >
         <tab-group-navigation class="pt-1">
           <tab-group-navigation-entry href="#download">
-            <phosphor-icon :name="osIcon" />Download
+            <component :is="osIcon" />Download
           </tab-group-navigation-entry>
           <tab-group-navigation-entry href="#demo">
-            <phosphor-icon
-              name="eyes"
-              weight="fill"
-            />Demo
+            <i-ph-eyes-fill />Demo
           </tab-group-navigation-entry>
           <tab-group-navigation-entry href="#learn">
-            <phosphor-icon name="student" />Learn
+            <i-ph-student />Learn
           </tab-group-navigation-entry>
           <tab-group-navigation-entry href="#contribute">
-            <phosphor-icon name="github-logo" />Contribute
+            <i-ph-github-logo />Contribute
           </tab-group-navigation-entry>
           <tab-group-navigation-entry
             href="https://icij.org/donate"
@@ -93,10 +93,9 @@ const togglerClassList = computed(() => {
             @mouseenter="toggleIcijLink"
             @mouseleave="toggleIcijLink"
           >
-            <phosphor-icon
-              name="hand-heart"
-              :weight="weight"
-              :variant="variant"
+            <component
+              :is="isFilled ? IPhHandHeartFill : IPhHandHeart"
+              :class="{ 'text-primary': variant === 'primary' }"
             />
             It's free! Support ICIJ
           </tab-group-navigation-entry>

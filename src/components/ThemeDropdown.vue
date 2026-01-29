@@ -1,30 +1,42 @@
 <script setup lang="ts">
 import { useColorMode } from 'bootstrap-vue-next'
-import { computed } from 'vue'
+import { computed, type Component } from 'vue'
 
 import type { Theme } from '@/utils/types.ts'
 import ThemeDropdownItem from '@/components/ThemeDropdownItem.vue'
 import { THEME } from '@/utils/enum.ts'
 
-const themes: Record<string, { icon: string
+import IPhSun from '~icons/ph/sun'
+import IPhSunFill from '~icons/ph/sun-fill'
+import IPhMoon from '~icons/ph/moon'
+import IPhMoonFill from '~icons/ph/moon-fill'
+import IPhPaintRoller from '~icons/ph/paint-roller'
+import IPhPaintRollerFill from '~icons/ph/paint-roller-fill'
+
+const themes: Record<string, {
+  icon: Component
+  iconFill: Component
   theme: Theme
   label: string
   title: string
-  weight?: string }> = {
+}> = {
   light: {
-    icon: 'sun',
+    icon: IPhSun,
+    iconFill: IPhSunFill,
     theme: 'light',
     title: 'Theme Light',
     label: 'Light'
   },
   dark: {
-    icon: 'moon',
+    icon: IPhMoon,
+    iconFill: IPhMoonFill,
     theme: 'dark',
     title: 'Theme Dark',
     label: 'Dark'
   },
   auto: {
-    icon: 'paint-roller',
+    icon: IPhPaintRoller,
+    iconFill: IPhPaintRollerFill,
     theme: 'auto',
     title: 'Theme Auto',
     label: 'Auto',
@@ -33,8 +45,10 @@ const themes: Record<string, { icon: string
 
 const mode = useColorMode({ persist: true })
 const currentTitle = computed(() => themes[mode.store.value].title)
-const currentIcon = computed(() => themes[mode.store.value].icon)
-const iconWeight = computed(() => mode.value === THEME.DARK ? 'fill' : 'regular')
+const currentIcon = computed(() => {
+  const themeConfig = themes[mode.store.value]
+  return mode.value === THEME.DARK ? themeConfig.iconFill : themeConfig.icon
+})
 
 function updateTheme(newTheme: Theme) {
   mode.value = newTheme
@@ -46,9 +60,8 @@ function updateTheme(newTheme: Theme) {
     right
   >
     <template #button-content>
-      <phosphor-icon
-        :name="currentIcon"
-        :weight="iconWeight"
+      <component
+        :is="currentIcon"
         :title="currentTitle"
       />
     </template>

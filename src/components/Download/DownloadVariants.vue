@@ -7,6 +7,8 @@ import { OS, osDescription, simpleOs, useOs } from '@/composables/useOs'
 import TabGroup from '@/components/TabGroup/TabGroup.vue'
 import TabGroupEntry from '@/components/TabGroup/TabGroupEntry.vue'
 
+import IPhGithubLogo from '~icons/ph/github-logo'
+
 defineOptions({
   name: 'DownloadVariants'
 })
@@ -65,7 +67,7 @@ const tabs = [
         :active="tab.active()"
       >
         <template #title>
-          <phosphor-icon :name="tab.icon" /> {{ tab.name }}
+          <component :is="tab.icon" /> {{ tab.name }}
         </template>
         <download-list
           v-model="showExperimentalVersions"
@@ -78,7 +80,7 @@ const tabs = [
         no-body
       >
         <template #title>
-          <phosphor-icon :name="simpleOs[OS.SNAP].icon" /> {{ simpleOs[OS.SNAP].name }}
+          <component :is="simpleOs[OS.SNAP].icon" /> {{ simpleOs[OS.SNAP].name }}
         </template>
         <download-snap v-model="showExperimentalVersions" />
       </tab-group-entry>
@@ -87,13 +89,13 @@ const tabs = [
         lazy
       >
         <template #title>
-          <phosphor-icon :name="simpleOs[OS.DOCKER].icon" /> {{ simpleOs[OS.DOCKER].name }}
+          <component :is="simpleOs[OS.DOCKER].icon" /> {{ simpleOs[OS.DOCKER].name }}
         </template>
         <download-docker />
       </tab-group-entry>
     </tab-group>
     <button-icon
-      icon-left="github-logo"
+      :icon-left="IPhGithubLogo"
       variant="outline-secondary"
       class="align-self-end"
       href="https://github.com/ICIJ/datashare/releases"

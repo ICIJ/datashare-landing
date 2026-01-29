@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { PhEyes } from '@phosphor-icons/vue'
 
 import { THEME } from '@/utils/enum.ts'
 import { useColorModePersisted } from '@/composables/useColorModePersisted.ts'
@@ -26,10 +25,7 @@ const isDarkSelected = computed(() => colorMode.value === THEME.DARK)
         Want to dive into the <span class="fw-bold text-nowrap"> Lux Leaks</span> documents?
         <span class="text-nowrap gap-1">
           Try our <a href="https://datashare-demo.icij.org">demo</a>
-          <PhEyes
-            weight="fill"
-            class="ms-1 mb-1"
-          />
+          <i-ph-eyes-fill class="ms-1 mb-1" />
         </span>
       </h3>
       <div class="align-self-center col-10">

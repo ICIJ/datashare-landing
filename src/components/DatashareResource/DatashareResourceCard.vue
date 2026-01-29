@@ -1,12 +1,11 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, type Component } from 'vue'
 
 import SvgLinearGradient from '@/components/SvgLinearGradient.vue'
 
 const props = defineProps<{
-  icon?: string
+  icon?: Component
   iconColor: string
-  iconWeight?: string
   title?: string
   content?: string
   externalLink?: string
@@ -33,10 +32,9 @@ const iconColorStyle = computed(() => {
         :icon-color-id="iconColorId"
       />
       <slot name="icon">
-        <PhosphorIcon
-          :name="icon"
-          :weight="iconWeight"
-          size="50px"
+        <component
+          :is="icon"
+          class="datashare-resource-card__icon"
         />
       </slot>
     </div>
@@ -48,7 +46,7 @@ const iconColorStyle = computed(() => {
       <slot>{{ content }}</slot>
     </p>
 
-    <a :href="externalLink">Learn more<PhArrowUpRight class="ms-1" /></a>
+    <a :href="externalLink">Learn more<i-ph-arrow-up-right class="ms-1" /></a>
   </b-card>
 </template>
 
@@ -66,7 +64,10 @@ const iconColorStyle = computed(() => {
     flex: 1 1 250px !important;
     width: 25%;
   }
-  .phosphor-icon {
+  &__icon {
+    width: 50px;
+    height: 50px;
+
     svg {
       fill: v-bind(iconColorStyle);
     }

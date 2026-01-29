@@ -1,17 +1,21 @@
 <script setup lang="ts">
 import { useColorMode } from 'bootstrap-vue-next'
-import { computed } from 'vue'
+import { computed, type Component } from 'vue'
 
 import type { Theme } from '@/utils/types.ts'
 
 const mode = useColorMode({ persist: true })
-const props = defineProps<{ theme: Theme, label: string, icon: string, weight?: string }>()
+const props = defineProps<{
+  theme: Theme
+  label: string
+  icon: Component
+  iconFill: Component
+}>()
 
 defineEmits(['update'])
 
-const iconWeight = computed(() => {
-  if (props.weight) return props.weight
-  return mode.value === 'light' ? 'regular' : 'fill'
+const currentIcon = computed(() => {
+  return mode.value === 'light' ? props.icon : props.iconFill
 })
 
 const isActive = computed(() => {
@@ -26,10 +30,7 @@ const isActive = computed(() => {
     @click="$emit('update',theme)"
   >
     <span class="text-action-emphasis ">
-      <phosphor-icon
-        :name="icon"
-        :weight="iconWeight"
-      />
+      <component :is="currentIcon" />
       {{ label }}
     </span>
   </b-dropdown-item>

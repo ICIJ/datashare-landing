@@ -2,6 +2,8 @@
 
 import type { AppModalHeaderProps } from '@/utils/types.ts'
 
+import IPhX from '~icons/ph/x'
+
 defineEmits(['close'])
 withDefaults(defineProps<AppModalHeaderProps>(), { noHeaderClose: false })
 </script>
@@ -11,7 +13,7 @@ withDefaults(defineProps<AppModalHeaderProps>(), { noHeaderClose: false })
     <slot name="close">
       <button-icon
         v-if="!noHeaderClose"
-        icon-left="x"
+        :icon-left="IPhX"
         hide-label
         hide-tooltip
         variant="outline-secondary"

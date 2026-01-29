@@ -2,10 +2,15 @@
 import AppSection from '@/components/AppSection.vue'
 import DatashareResourceCard from '@/components/DatashareResource/DatashareResourceCard.vue'
 
+import IPhListMagnifyingGlass from '~icons/ph/list-magnifying-glass'
+import IPhHandWavingFill from '~icons/ph/hand-waving-fill'
+import IPhCodeBlockFill from '~icons/ph/code-block-fill'
+import IPhPuzzlePieceFill from '~icons/ph/puzzle-piece-fill'
+
 const resources = {
   search: {
     title: 'Search in your documents effi&shy;cien&shy;tly',
-    icon: 'ListMagnifyingGlass',
+    icon: IPhListMagnifyingGlass,
     iconColor: 'primary',
     externalLink: 'https://icij.gitbook.io/datashare/usage/search-documents',
     content:
@@ -13,27 +18,24 @@ const resources = {
   },
   collaboration: {
     title: 'Colla&shy;bo&shy;ra&shy;ti&shy;ve&shy;ly work on a server',
-    icon: 'hand-waving',
+    icon: IPhHandWavingFill,
     iconColor: 'warning',
-    iconWeight: 'fill',
     externalLink: 'https://icij.gitbook.io/datashare/server-mode/about-the-server-mode',
     content:
       'Self-host and set up your own online instance to work as a team on the same documents. Use social features like tags and recommendations'
   },
   api: {
     title: 'Query your data with API',
-    icon: 'code-block',
+    icon: IPhCodeBlockFill,
     iconColor: 'success',
-    iconWeight: 'fill',
     externalLink: 'https://icij.gitbook.io/datashare/developers/backend/api',
     content:
       'In the local version, all data is on your computer and you have multiple ways to explore what your documents contain'
   },
   modular: {
     title: 'Install plugins and exten&shy;sions',
-    icon: 'puzzle-piece',
+    icon: IPhPuzzlePieceFill,
     iconColor: 'info',
-    iconWeight: 'fill',
     externalLink: 'https://icij.gitbook.io/datashare/local-mode/plugins-and-extensions',
     content:
       'Run analytics, filter by email addresses, add sentence case, paginate text or add your own custom plugin/extension'
