@@ -21,8 +21,8 @@ export function useRelease(newReleases: Ref<Release[]> = ref([])) {
         const results = await getReleases()
         releases.value = orderByDate(results)
       }
-      catch (err: any) {
-        error.value = err as string
+      catch (err: unknown) {
+        error.value = err instanceof Error ? err.message : String(err)
         releases.value = []
       }
       finally {
@@ -45,7 +45,7 @@ export function useRelease(newReleases: Ref<Release[]> = ref([])) {
   })
 
   const latest = computed(() => {
-    return releases.value.filter(release => !release.prerelease && !release.draft).shift()
+    return releases.value.find(release => !release.prerelease && !release.draft)
   })
 
   const latestAssets = computed(() => {
