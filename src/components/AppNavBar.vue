@@ -15,10 +15,8 @@ const { detectedOs, osDescription, isCompatible } = useOs()
 const { isDark } = useColorModePersisted()
 
 const isFilled = ref(false)
-const variant = ref('body')
 
 function toggleIcijLink() {
-  variant.value = variant.value === 'body' ? 'primary' : 'body'
   isFilled.value = !isFilled.value
 }
 
@@ -95,7 +93,7 @@ const togglerClassList = computed(() => {
           >
             <component
               :is="isFilled ? IPhHandHeartFill : IPhHandHeart"
-              :class="{ 'text-primary': variant === 'primary' }"
+              :class="{ 'text-primary': isFilled }"
             />
             It's free! Support ICIJ
           </tab-group-navigation-entry>
